@@ -1,0 +1,229 @@
+<section id="banner">
+	<div class="contain">
+		<div class="flex">
+			<div class="colL">
+				<div class="cntnt">
+					<h1><?= $row->header_title ?></h1>
+					<p><?= $row->header_description ?></p>
+					<div class="play-btn flex">
+						<a href="<?= makeExternalUrl($row->header_btn_link1) ?>" class="btn-play flex">
+							<div class="icon-play">
+								<img src="<?= !empty($row->image3) ? get_site_image_src("images", $row->image3) : 'http://placehold.it/700x620' ?>">
+							</div>
+							<div class="btn-cntnt">
+								<?= $row->header_btn_title1 ?>
+							</div>
+						</a>
+						<a href="<?= makeExternalUrl($row->header_btn_link2) ?>" class="btn-play flex">
+							<div class="icon-play">
+								<img src="<?= !empty($row->image4) ? get_site_image_src("images", $row->image4) : 'http://placehold.it/700x620' ?>">
+							</div>
+							<div class="btn-cntnt">
+								<?= $row->header_btn_title2 ?>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="colR relative">
+			    <div class="image">
+					<img src="<?= !empty($row->image1) ? get_site_image_src("images", $row->image1) : 'http://placehold.it/700x620' ?>">
+				</div>
+				<div class="small-icon">
+					<img src="<?= !empty($row->image2) ? get_site_image_src("images", $row->image2) : 'http://placehold.it/700x620' ?>">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="cmn-sec why-catchi" id="why-catchi">
+	<div class="contain">
+		<div class="flex">
+			<div class="colL relative">
+				<div class="image">
+					<img src="<?= !empty($row->image5) ? get_site_image_src("images", $row->image5) : 'http://placehold.it/700x620' ?>">
+				</div>
+				<div class="small-coin">
+				    <img src="<?= !empty($row->image6) ? get_site_image_src("images", $row->image6) : 'http://placehold.it/700x620' ?>">
+				</div>
+				<div class="arrow-catchi">
+                    <img src="<?= !empty($row->image7) ? get_site_image_src("images", $row->image7) : 'http://placehold.it/700x620' ?>">
+                </div>
+			</div>
+			<div class="colR">
+				<h2><?=$row->why_heading?></h2>
+				<p><?=$row->why_description?></p>
+				<a href="<?= makeExternalUrl($row->why_btn_link) ?>" class="webBtn colorBtn"><?=$row->why_btn_title?></a>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="cmn-sec how-it-works" id="how-it-work">
+	<div class="contain">
+		<div class="text-center">
+			<h2>
+			<h2><?=$row->how_heading?></h2>
+			</h2>
+		</div>
+		<div class="flex">
+			<div class="col">
+				<div class="inner">
+					<div class="image">
+						<img src="<?= !empty($row->image8) ? get_site_image_src("images", $row->image8) : 'http://placehold.it/700x620' ?>">
+					</div>
+					<h3><?= $row->how1_heading ?> </h3>
+					<?= $row->how1_description ?>
+				</div>
+			</div>
+			<div class="col">
+				<div class="arrow-image">
+					<img src="<?= base_url()?>assets/images/arrow.png">
+				</div>
+				<div class="arrow-image-right">
+					<img src="<?= base_url()?>assets/images/arrow.png">
+				</div>
+				<div class="inner">
+					<div class="image">
+						<img src="<?= !empty($row->image9) ? get_site_image_src("images", $row->image9) : 'http://placehold.it/700x620' ?>">
+					</div>
+					<h3><?= $row->how2_heading ?> </h3>
+					<?= $row->how2_description ?>
+				</div>
+			</div>
+			<div class="col">
+				<div class="inner">
+					<div class="image">
+						<img src="<?= !empty($row->image10) ? get_site_image_src("images", $row->image10) : 'http://placehold.it/700x620' ?>">
+					</div>
+					<h3><?= $row->how3_heading ?> </h3>
+					<?= $row->how3_description ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="cmn-sec benefits" id="benefits">
+	<div class="contain">
+		<div class="text-center">
+			<h2><?=$row->benefits_heading?></h2>
+		</div>
+		<div class="flex">
+			<div class="colL">
+				<ul class="flex">
+					<?php if(!empty($row->benefit1_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit1_title ?> </span></div></li>
+					<?php } if(!empty($row->benefit2_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit2_title ?> </span></div></li>
+					<?php } if(!empty($row->benefit3_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit3_title ?> </span></div></li>
+					<?php } if(!empty($row->benefit4_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit4_title ?> </span></div></li>
+					<?php } if(!empty($row->benefit5_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit5_title ?> </span></div></li>
+					<?php } if(!empty($row->benefit6_title)){ ?>
+						<li><div class="inner"><span><?= $row->benefit6_title ?> </span></div></li>
+					<?php } ?>
+				</ul>
+				<a href="<?= makeExternalUrl($row->benefit_btn_link) ?>" class="webBtn colorBtn"><?=$row->benefit_btn_title?></a>
+			</div>
+			<div class="colR">
+				<div class="image">
+					<!--<img src="<?= !empty($row->image11) ? get_site_image_src("images", $row->image11) : 'http://placehold.it/600x620' ?>" class="hide-mobile-view">-->
+					<img src="<?= !empty($row->image18) ? get_site_image_src("images", $row->image18) : 'http://placehold.it/600x620' ?>">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="cmn-sec feature" id="feature">
+	<div class="contain">
+		<div class="text-center">
+			<div class="before-heading">
+				<h4><span><?=$row->feature_tagline?></span> <i class="fa fa-rocket"></i></h4>
+			</div>
+			<h2><?=$row->feature_heading?></h2>
+		</div>
+		<div class="flex">
+			<?php if(!empty($row->image12)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image12?>">
+					</div>
+					<h3><?= $row->feature1_title ?></h3>
+					<p><?= $row->feature1_description ?></p>
+				</div>
+			</div>
+			<?php } if(!empty($row->image13)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image13?>">
+					</div>
+					<h3><?= $row->feature2_title ?></h3>
+					<p><?= $row->feature2_description ?></p>
+				</div>
+			</div>
+			<?php } if(!empty($row->image14)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image14?>">
+					</div>
+					<h3><?= $row->feature3_title ?></h3>
+					<p><?= $row->feature3_description ?></p>
+				</div>
+			</div>
+			<?php } if(!empty($row->image15)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image15?>">
+					</div>
+					<h3><?= $row->feature4_title ?></h3>
+					<p><?= $row->feature4_description ?></p>
+				</div>
+			</div>
+			<?php } if(!empty($row->image16)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image16?>">
+					</div>
+					<h3><?= $row->feature5_title ?></h3>
+					<p><?= $row->feature5_description ?></p>
+				</div>
+			</div>
+			<?php } if(!empty($row->image17)){ ?>
+			<div class="col">
+				<div class="inner">
+					<div class="icon-feature">
+						<img src="<?= base_url()?>uploads/images/<?=$row->image17?>">
+					</div>
+					<h3><?= $row->feature6_title ?></h3>
+					<p><?= $row->feature6_description ?></p>
+				</div>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+
+	<?php  if(!empty($slider)){ ?>
+	<div class="feature-slider">
+		<div id="owl-feature" class="owl-carousel owl-theme">
+			<?php  foreach($slider as $slide){ ?>
+			<div class="inner">
+				<div class="image">
+					<img src="<?= !empty($slide->image) ? get_site_image_src("images", $slide->image) : 'http://placehold.it/700x620' ?>">
+				</div>
+				<h4><?= $slide->title ?></h4>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+	<div class="light-flash">
+		<img src="<?= base_url()?>assets/images/bolt.png">
+	</div>
+	
+	<?php } ?>
+</section>

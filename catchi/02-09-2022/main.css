@@ -1,0 +1,101 @@
+/*
+|----------------------------------------------------------------------
+|       Body Main Css
+|----------------------------------------------------------------------
+*/
+
+@font-face {
+	font-family: "HelveticaNeue Bold";
+	src: url("../fonts/HelveticaNeue-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Avenir Medium";
+	src: url("../fonts/Avenir-Medium.ttf");
+}
+
+/* banner */
+
+#banner:before {
+	/* background: radial-gradient( circle at center left, rgb(0 0 0 / 91%) 15%, rgba(255, 255, 255, 0) 80% ) !important; */
+	display: none;
+}
+#banner .content {
+	/* background: #0000006b; */
+	padding: 20px;
+}
+#banner .content h1 {
+	font-family: "HelveticaNeue Bold";
+}
+
+#banner .content p {
+	font-family: "Avenir Medium";
+}
+
+#banner .content .site_btn.lg {
+	height: 4rem;
+}
+
+/* Why */
+
+#why h4 {
+	font-size: 2.1rem !important;
+	line-height: 1;
+}
+
+#why p {
+	font-size: 1.5rem !important;
+}
+
+#works .content {
+	margin: 0 auto 3rem !important;
+}
+
+#works .content h2.heading {
+	font-size: 3rem;
+}
+
+#works .main_row .txt h3 {
+	font-size: 2.8rem;
+	letter-spacing: 1px;
+}
+/*#works .sub_row>.col {
+    width: 42% !important;
+}*/
+
+#works .main_row .txt p {
+	color: #444;
+	font-weight: 600;
+}
+
+/* Social */
+
+#social .content {
+	max-width: 100% !important;
+}
+#social .inner .txt h4 {
+	color: #888;
+}
+
+#social .col .txt {
+	padding-left: 7px;
+}
+
+/* #social .col:nth-child(3) .txt{
+  padding-left: 60px;
+} */
+
+#works ul {
+	padding-left: 50px !important;
+	margin-bottom: 20px !important;
+}
+#works ul li {
+	margin-bottom: 0px !important;
+}
+#works ul li:before {
+	margin-right: 3rem !important;
+}
+
+header.fix .logo img {
+	filter: brightness(0) invert(0);
+}

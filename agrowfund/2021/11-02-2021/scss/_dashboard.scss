@@ -1,0 +1,385 @@
+/*
+|----------------------------------------------------------------------
+|       Dashboard
+|----------------------------------------------------------------------
+*/
+
+aside {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	@include flex(null, null, column);
+	width: 36rem;
+	background: $white;
+	padding-left: 4rem;
+	padding-right: 2.5rem;
+	margin-right: (1920px / 2);
+	border-left: 2px solid $light_gray;
+	border-right: 2px solid $light_gray;
+	@include trans();
+	z-index: 32;
+	.logo {
+		width: 24rem;
+	}
+	> .inside {
+		@include flex(null, null, column);
+		flex: 1;
+		padding-top: 2rem;
+		overflow: auto;
+		&::-webkit-scrollbar {
+			width: 0 !important;
+		}
+	}
+	ul {
+		&:nth-child(1) {
+			flex: 1;
+		}
+		> li {
+			display: block;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 0.2rem;
+			}
+			> a {
+				position: relative;
+				display: flex !important;
+				align-items: center;
+				height: 5.8rem;
+				font-family: $medium;
+				padding: 0.5rem 2rem;
+				border-radius: 6px;
+				&:hover {
+					background: $light_white;
+				}
+				> img {
+					width: 2.4rem;
+					height: 2.4rem;
+					margin-right: 1.8rem;
+					object-fit: contain;
+				}
+			}
+			&.active {
+				a {
+					background: $color;
+					color: $white;
+					> img {
+						filter: brightness(0) invert(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+[dash] {
+	width: 100%;
+	max-width: 1920px;
+	background: $light_white;
+	padding-left: 36rem;
+	margin: 0 auto;
+	> section {
+		padding: 5rem;
+		.contain-fluid {
+			padding: 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Dash
+|----------------------------------------------------------------------
+*/
+
+#dash {
+	.profBlk {
+		@include flex(null, null, null);
+		margin-bottom: 5rem;
+		.ico {
+			width: 10rem;
+			min-width: 10rem;
+			height: 10rem;
+			margin-right: 3rem;
+		}
+		.txt {
+			align-self: center;
+		}
+	}
+	.cardRow {
+		margin: -1.5rem;
+		> .col {
+			display: flex;
+			width: 33.3334%;
+			padding: 1.5rem;
+		}
+	}
+	.tileBlk {
+		@include block();
+		@include flex(null, null, column);
+		width: 100%;
+		// height: 100%;
+		padding: 3rem;
+		.top {
+			@include flex(null, space-between, null);
+			// flex: 1;
+		}
+		.icon {
+			width: 8rem;
+			min-width: 8rem;
+			height: 8rem;
+			background: rgba($color, 0.1);
+			padding: 1.2rem;
+			margin-left: 2rem;
+			border-radius: 6px;
+		}
+		.price {
+			font-size: 4rem;
+			font-family: $bold;
+		}
+		.btm {
+			@include flex(null, space-between, null);
+			font-size: 1.7rem;
+			padding-top: 2rem;
+			margin-top: 2rem;
+			border-top: 2px solid $light_gray;
+		}
+		.switchBtn {
+			@include flex(center, null, null);
+			> span {
+				margin-left: 1.5rem;
+			}
+		}
+	}
+	.bnrRow {
+		margin: 3.5rem -1.5rem;
+		> .col {
+			display: flex;
+			width: 33.3334%;
+			padding: 1.5rem;
+		}
+	}
+	.bnr {
+		position: relative;
+		width: 100%;
+		padding-bottom: 44%;
+		border-radius: 10px;
+		box-shadow: $shadow;
+		overflow: hidden;
+		> img {
+			@include pseudo();
+			@include object(cover);
+		}
+	}
+	.flexRow {
+		margin: -1.5rem;
+		> .col {
+			display: flex;
+			width: 50%;
+			padding: 1.5rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Project - Favorite
+|----------------------------------------------------------------------
+*/
+
+#proj,
+#favorite {
+	.flexRow {
+		margin: -1.5rem;
+		> .col {
+			display: flex;
+			width: 50%;
+			padding: 1.5rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Historical
+|----------------------------------------------------------------------
+*/
+
+#historical {
+	@extend #proj;
+	.topHead {
+		.price {
+			font-size: 2.2rem;
+			> strong {
+				color: $color;
+			}
+		}
+	}
+	#price {
+		position: absolute;
+		top: 10px;
+		right: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Project Block
+|----------------------------------------------------------------------
+*/
+
+.projBlk {
+	@include flex(null, null, null);
+	width: 100%;
+	// height: 100%;
+	background: $white;
+	border-radius: 10px;
+	box-shadow: $shadow;
+	overflow: hidden;
+	.fig {
+		position: relative;
+		width: 44%;
+		overflow: hidden;
+		.image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			// padding-bottom: 100%;
+			img {
+				@include pseudo();
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.playBlk {
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+			background-image: url("../images/play.svg");
+			@include bgImage(5rem);
+			width: 5rem;
+			height: 5rem;
+			border: 0.3rem solid rgba($white, 0.2);
+			border-radius: 75%;
+			cursor: pointer;
+		}
+	}
+	.txt {
+		@include flex(null, null, column);
+		width: 56%;
+		font-size: 1.8rem;
+		padding: 3rem;
+		p {
+			display: -webkit-box;
+			margin-bottom: auto;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		.btm {
+			font-family: $medium;
+			padding-top: 2rem;
+			margin-top: 2rem;
+			border-top: 2px solid #eee;
+			.inr {
+				@include flex(null, space-between, null);
+				> span {
+					font-size: 1.6rem;
+				}
+			}
+		}
+		.price {
+			strong {
+				color: $color;
+				font-family: $semi;
+			}
+		}
+	}
+	.prog {
+		height: 0.8rem;
+		background: $light_gray;
+		border-radius: 50px;
+		margin: 1rem 0 0.5rem;
+		> div {
+			position: relative;
+			@include flex(center, null, null);
+			height: 100%;
+			background: $color;
+			border-radius: inherit;
+			&:after {
+				content: "";
+				position: absolute;
+				right: 0;
+				width: 1.4rem;
+				height: 1.4rem;
+				background: $color;
+				border-radius: 75%;
+				transform: translateX(100%);
+				box-shadow: 0 0 0 0.4rem rgba($color, 0.6);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Profile
+|----------------------------------------------------------------------
+*/
+
+#profile {
+	.topBlk {
+		@include flex(flex-end, null, null);
+		margin-bottom: 4rem;
+		.ico {
+			width: 22rem;
+			min-width: 22rem;
+			height: 22rem;
+			margin-right: 3rem;
+		}
+		.verify {
+			@include flex(center, null, null);
+			white-space: nowrap;
+			> img {
+				width: 2.8rem;
+				min-width: 2.8rem;
+				height: 2.8rem;
+				margin-right: 1rem;
+			}
+			&:not(.checked) {
+				> img {
+					filter: brightness(0) invert(0.75);
+				}
+			}
+		}
+	}
+	.switchBtn {
+		@include flex(null, space-between, null);
+		padding: 1.5rem 2rem;
+		border: 2px dashed $light_gray;
+		border-radius: 6px;
+		> span {
+			align-self: center;
+			margin-right: 2rem;
+		}
+	}
+	.fileBlk {
+		text-align: center;
+		.ico {
+			padding-bottom: 44%;
+			margin-bottom: 2rem;
+			border-radius: 6px;
+			box-shadow: $shadow;
+			> img {
+				@include pseudo();
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	aside {
+		left: initial !important;
+		right: 50%;
+		transform: translateX(100%);
+	}
+}

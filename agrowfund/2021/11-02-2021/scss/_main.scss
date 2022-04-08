@@ -1,0 +1,1219 @@
+/*
+|----------------------------------------------------------------------
+|       Header
+|----------------------------------------------------------------------
+*/
+
+header {
+	@include fixed();
+	bottom: initial;
+	height: 8rem;
+	background: $white;
+	box-shadow: 0 0.4rem 1rem -0.1rem rgba($black, 0.06);
+	z-index: 30;
+	.proIco {
+		@include flex(center, null, null);
+		cursor: pointer;
+		margin-left: 2rem;
+		.proBtn {
+			@include flex(center, null, null);
+		}
+		.ico {
+			width: 3.5rem;
+			height: 3.5rem;
+		}
+		.name {
+			margin-right: 1rem;
+			@include mobile_md {
+				display: none;
+			}
+		}
+		.dropCnt {
+			left: initial;
+			right: 0;
+			min-width: 18rem;
+			max-height: calc(100vh - 8rem);
+			overflow: auto;
+		}
+		.dropLst {
+			> li {
+				> a {
+					font-family: $medium;
+					> small {
+						display: block;
+						color: $bluish_gray;
+						font-family: $regular;
+					}
+				}
+				&:nth-last-child(1) {
+					> a {
+						color: #ff4b4b;
+					}
+				}
+			}
+		}
+	}
+	.toggle {
+		@include ipad_sm {
+			display: flex;
+		}
+	}
+}
+
+.logo {
+	float: left;
+	@include flex(center, null, null);
+	width: 21rem;
+	height: 8rem;
+	> a {
+		display: block;
+		height: 100%;
+		> img {
+			display: block;
+			width: auto;
+			height: 100%;
+			max-width: 100%;
+			object-fit: contain;
+			object-position: left center;
+			transition: inherit;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Navigation
+|----------------------------------------------------------------------
+*/
+
+nav {
+	@include flex(center, flex-end, null);
+	height: 8rem;
+	margin-left: 10rem;
+	#iconBtn {
+		@include flex(center, null, null);
+		margin: 0 -2rem;
+		margin-left: 4rem;
+		li {
+			padding: 0 2rem;
+			&#notiBtn {
+				img {
+					animation: ring 4s 0.7s ease-in-out infinite;
+				}
+			}
+		}
+	}
+	.iconBtn {
+		position: relative;
+		display: flex !important;
+		width: 2rem;
+		height: 2rem;
+		background: transparent;
+		padding: 0;
+		border: 0;
+		> img {
+			transition: inherit;
+		}
+		> em {
+			position: absolute;
+			top: -1rem;
+			right: -0.5rem;
+			transition: inherit;
+		}
+	}
+}
+
+@keyframes ring {
+	0% {
+		transform: rotateZ(0);
+	}
+	1% {
+		transform: rotateZ(30deg);
+	}
+	3% {
+		transform: rotateZ(-28deg);
+	}
+	5% {
+		transform: rotateZ(34deg);
+	}
+	7% {
+		transform: rotateZ(-32deg);
+	}
+	9% {
+		transform: rotateZ(30deg);
+	}
+	11% {
+		transform: rotateZ(-28deg);
+	}
+	13% {
+		transform: rotateZ(26deg);
+	}
+	15% {
+		transform: rotateZ(-24deg);
+	}
+	17% {
+		transform: rotateZ(22deg);
+	}
+	19% {
+		transform: rotateZ(-20deg);
+	}
+	21% {
+		transform: rotateZ(18deg);
+	}
+	23% {
+		transform: rotateZ(-16deg);
+	}
+	25% {
+		transform: rotateZ(14deg);
+	}
+	27% {
+		transform: rotateZ(-12deg);
+	}
+	29% {
+		transform: rotateZ(10deg);
+	}
+	31% {
+		transform: rotateZ(-8deg);
+	}
+	33% {
+		transform: rotateZ(6deg);
+	}
+	35% {
+		transform: rotateZ(-4deg);
+	}
+	37% {
+		transform: rotateZ(2deg);
+	}
+	39% {
+		transform: rotateZ(-1deg);
+	}
+	41% {
+		transform: rotateZ(1deg);
+	}
+	43% {
+		transform: rotateZ(0);
+	}
+	100% {
+		transform: rotateZ(0);
+	}
+}
+
+[nav] {
+	@include flex(null, flex-end, null);
+	flex: 1;
+	@include trans();
+	@include ipad_sm {
+		@include fixed();
+		top: 8rem;
+		@include flex(null, null, wrap);
+		align-content: space-between;
+		width: auto;
+		background: $white;
+		margin: 0;
+		padding: 2rem 5rem;
+		border-top: 0.2rem solid $light_gray;
+		opacity: 0;
+		visibility: hidden;
+		overflow: auto;
+		z-index: 3;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	> ul {
+		@include flex(center, center, null);
+		margin: 0 -2rem;
+		@include ipad_sm {
+			width: 100%;
+			flex-flow: wrap;
+			margin: 0;
+		}
+		> li {
+			position: relative;
+			padding: 0 2rem;
+			@include ipad_sm {
+				width: 100%;
+				padding: 0;
+				text-align: center;
+				.webBtn {
+					margin-top: 0.5rem;
+				}
+			}
+			> a:not(.webBtn) {
+				@include flex(center, center, null);
+				display: inline-flex;
+				height: 4rem;
+				color: $black;
+				text-align: center;
+			}
+			> a:not(.webBtn):hover,
+			&.active > a:not(.webBtn) {
+				color: $color;
+			}
+			> .sub {
+				position: absolute;
+				top: 100%;
+				left: 2rem;
+				width: 20rem;
+				background: $white;
+				text-align: left;
+				padding: 1rem 0;
+				margin-top: 1rem;
+				visibility: hidden;
+				opacity: 0;
+				border-radius: 1rem;
+				transition: none;
+				box-shadow: $shadow;
+				overflow: hidden;
+				@include ipad_sm {
+					position: static;
+					display: none;
+					width: 100%;
+					max-height: none;
+					background: transparent;
+					visibility: visible;
+					opacity: 1;
+					text-align: center;
+					padding: 0;
+					margin: 0 auto !important;
+					border: 0;
+					border-radius: 0;
+					transition: none;
+					box-shadow: none;
+				}
+				> li {
+					display: block;
+					> a {
+						display: block;
+						color: $black;
+						padding: 1rem 2.5rem;
+						@include ipad_sm {
+							display: inline-flex;
+						}
+						&:hover {
+							background: rgba($color, 0.05);
+							color: $color;
+						}
+					}
+				}
+			}
+			&:hover > .sub {
+				visibility: visible;
+				opacity: 1;
+				margin-top: 0;
+				transition: all 0.2s ease-out;
+			}
+			&.drop > a {
+				position: relative;
+				&:after {
+					content: "";
+					@include chev();
+					width: 1rem;
+					height: 1rem;
+					margin-left: 0.6rem;
+					// filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+	> #cta {
+		margin-left: 2rem;
+		@include ipad_sm {
+			margin: auto 0 0;
+		}
+		> li {
+			.webBtn {
+				height: 4.4rem;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Footer
+|----------------------------------------------------------------------
+*/
+
+footer {
+	position: relative;
+	background: $white;
+	color: $black;
+	padding-top: 6rem;
+	overflow: hidden;
+	@include laptop_xl {
+		p.small {
+			font-size: inherit;
+		}
+	}
+	.contain {
+		z-index: 3;
+	}
+	.flexRow {
+		@include flex(null, space-between, nowrap);
+		margin: -1.5rem -4rem;
+		@include ipad {
+			@include flex(null, null, wrap);
+		}
+		> .col {
+			flex: 1;
+			padding: 1.5rem 4rem;
+			&:nth-child(1) {
+				flex: 2;
+			}
+			@include ipad {
+				flex: none;
+				width: 100%;
+			}
+		}
+	}
+	.footerLogo {
+		max-width: 21rem;
+		margin-bottom: 1.5rem;
+	}
+	a {
+		color: inherit;
+		&:hover {
+			color: $color;
+		}
+	}
+	h4 {
+		position: relative;
+		margin-bottom: 1.5rem;
+		padding-bottom: 1.5rem;
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 3rem;
+			height: 0.2rem;
+			background: $color;
+		}
+	}
+	.lst {
+		> li {
+			display: block;
+			margin-bottom: 1rem;
+		}
+	}
+	.smLst {
+		margin: 0 -1rem;
+		@include ipad_sm {
+			justify-content: center;
+		}
+		> li {
+			padding: 0 1rem;
+		}
+	}
+	.social {
+		@include flex(null, null, wrap);
+		gap: 0.5rem;
+		margin-top: 1rem;
+		li {
+			a {
+				@include flex(center, center, null);
+				display: flex !important;
+				width: 3.6rem;
+				min-width: 3.6rem;
+				height: 3.6rem;
+				background: $color;
+				padding: 1rem;
+				border-radius: 75%;
+				&:hover {
+					background: $black;
+				}
+				img {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+	.playStore {
+		@include flex(null, null, wrap);
+		margin: 1.5rem -0.5rem -0.5rem;
+		> li {
+			padding: 0.5rem;
+			> a {
+				width: 100%;
+				max-width: 16rem;
+			}
+		}
+	}
+	form {
+		margin-top: 2.5rem;
+		.inside {
+			@include flex(center, null, null);
+		}
+		.txtGrp {
+			flex: 1;
+			margin-bottom: 0 !important;
+			margin-right: 1rem;
+			&::before,
+			&::after {
+				content: "";
+				@include pseudo();
+				border: 0.1rem solid $color;
+				z-index: -1;
+			}
+			&::before {
+				right: 6rem;
+				border-right: 0;
+				border-radius: 0.5rem 0 0 0.5rem;
+			}
+			&::after {
+				left: 50%;
+				border-left: 0;
+				border-radius: 0 0.5rem 0.5rem 0;
+				transform: skewX(-10deg);
+			}
+			.txtBox {
+				background: transparent;
+				border-color: transparent;
+			}
+		}
+		.bTn {
+			position: relative;
+			&::before,
+			&::after {
+				content: "";
+				@include pseudo();
+				background: $color;
+				@include trans();
+				z-index: -1;
+			}
+			&::before {
+				right: 4rem;
+				border-right: 0;
+				border-radius: 0.5rem 0 0 0.5rem;
+				transform: skewX(-10deg);
+			}
+			&::after {
+				left: 50%;
+				border-left: 0;
+				border-radius: 0 0.5rem 0.5rem 0;
+			}
+			&:hover {
+				&::before,
+				&::after {
+					background: $color * 1.1;
+				}
+			}
+			.webBtn {
+				background: transparent;
+			}
+		}
+	}
+	.copyright {
+		padding: 2rem 0;
+		margin-top: 3.5rem;
+		border-top: 0.1rem solid $bluish_gray;
+		.inner {
+			@include flex(null, center, null);
+			@include ipad_sm {
+				@include flex(center, center, column);
+				text-align: center;
+			}
+		}
+		p {
+			flex: 1;
+			color: inherit;
+			text-align: right;
+			margin: 0;
+			@include ipad_sm {
+				text-align: center;
+				margin: 0.5rem 0 0;
+			}
+			> a {
+				color: $color;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Logon
+|----------------------------------------------------------------------
+*/
+
+[logon] {
+	position: relative;
+	@include ipad_sm {
+		border-bottom: 0.1rem solid $light_gray;
+	}
+	&::before {
+		content: "";
+		@include pseudo();
+		right: 50%;
+		background: linear-gradient(95.64deg, rgba($color2, 0.3) 9.21%, rgba($color, 0.3) 92.76%);
+		// background: linear-gradient(95.64deg, #3bfb5c 9.21%, #00cba2 92.76%);
+		// opacity: 0.3;
+		@include ipad_sm {
+			display: none;
+		}
+	}
+	.contain {
+		@include flex(null, null, null);
+		@include ipad_sm {
+			@include flex(null, null, wrap);
+			padding: 0;
+		}
+		> div {
+			width: 50%;
+			padding: 5rem 0;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+		.lSide {
+			padding-right: 5rem;
+			@include ipad_sm {
+				background: linear-gradient(95.64deg, rgba($color2, 0.3) 9.21%, rgba($color, 0.3) 92.76%);
+				padding: 5rem;
+			}
+		}
+		.rSide {
+			padding-left: 5rem;
+			@include ipad_sm {
+				padding: 5rem 1.5rem;
+			}
+		}
+	}
+	.playStore {
+		@include flex(null, center, nowrap);
+		margin: 5rem -0.5rem -0.5rem;
+		> li {
+			padding: 0.5rem;
+			> a {
+				width: 100%;
+				max-width: 16rem;
+			}
+		}
+	}
+	.oRLine {
+		position: relative;
+		text-align: center;
+		margin: 1.5rem 0;
+		&:before {
+			content: "";
+			@include pseudo();
+			height: 0.1rem;
+			background: $bluish_gray;
+			margin: auto;
+			z-index: -1;
+		}
+		> span {
+			position: relative;
+			background: $white;
+			padding: 0 1rem;
+		}
+	}
+	.socialBtn {
+		@include flex(null, null, null);
+		gap: 0.5rem 1rem;
+		margin: 2rem 0;
+		@include ipad {
+			flex-flow: wrap;
+		}
+		a {
+			flex: auto;
+			min-width: 26rem;
+			img {
+				width: 2rem;
+				min-width: 2rem;
+				height: 2rem;
+				filter: none;
+			}
+		}
+		.gmBtn {
+			background: $white;
+			color: $black;
+			border: 0.1rem solid $bluish_gray;
+		}
+		.fbBtn {
+			background: #4267b2;
+		}
+	}
+	.logBlk {
+		// max-width: 80%;
+		h6 {
+			font-family: $regular;
+		}
+	}
+	.forgot {
+		margin-top: 1rem;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Banner
+|----------------------------------------------------------------------
+*/
+
+#banner {
+	background: $light_white;
+	overflow-x: clip;
+	@include ipad_sm {
+		padding-top: 2rem;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30rem;
+		height: 30rem;
+		background-image: url("../images/sm_logo_left.svg");
+		@include bgImage(contain);
+		opacity: 0.05;
+		z-index: 1;
+	}
+	.contain {
+		z-index: 3;
+	}
+	.flexRow {
+		margin: -1.5rem -3rem;
+		@include ipad_sm {
+			flex-flow: wrap-reverse;
+		}
+		> .col {
+			width: 50%;
+			padding: 1.5rem 3rem;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		padding-right: 7rem;
+		@include ipad_sm {
+			padding: 0;
+		}
+		h1 {
+			font-size: 3.6rem;
+			font-family: $bold;
+			@include mobile {
+				font-size: 3rem;
+			}
+			> span {
+				color: $color;
+			}
+		}
+		p {
+			margin-bottom: 3rem;
+		}
+		@include mobile_sm {
+			.webBtn {
+				width: 100%;
+			}
+		}
+	}
+	.image {
+		position: relative;
+		@include flex(null, null, null);
+		max-width: 52rem;
+		gap: 1rem;
+		margin-top: -4rem;
+		// margin-bottom: auto;
+		margin-bottom: -10rem;
+		@include ipad_sm {
+			margin: auto;
+		}
+		> .fig {
+			@include flex(null, null, column);
+			gap: 1rem;
+			&:nth-child(1) {
+				width: 45%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-left-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 80%;
+						border-bottom-left-radius: 2rem;
+					}
+				}
+			}
+			&:nth-child(2) {
+				width: 55%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-right-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 60%;
+						border-bottom-right-radius: 2rem;
+					}
+				}
+			}
+			figure {
+				position: relative;
+				box-shadow: $shadow;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		> .leaf {
+			position: absolute;
+			width: 32rem;
+			bottom: -4rem;
+			right: -15rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Recent
+|----------------------------------------------------------------------
+*/
+
+#recent {
+	.flexRow {
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Steps
+|----------------------------------------------------------------------
+*/
+
+#steps {
+	@include bgImage(cover);
+	color: $white;
+	&::before {
+		@include overlay($black, 0.5);
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 25rem;
+		height: 25rem;
+		background-image: url("../images/sm_logo_right.svg");
+		@include bgImage(contain);
+		filter: brightness(0) invert(1);
+		opacity: 0.05;
+		z-index: 1;
+	}
+	.contain {
+		z-index: 3;
+	}
+	.mainRow {
+		align-items: center;
+		@include ipad_sm {
+			flex-flow: wrap-reverse;
+		}
+		> .col1 {
+			width: 54%;
+		}
+		> .col2 {
+			width: 46%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.stepRow {
+		> .col {
+			width: 50%;
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+	p {
+		color: inherit;
+	}
+	.inner {
+		@include mobile {
+			display: flex;
+		}
+		.icon {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-bottom: 1.5rem;
+			filter: brightness(0) invert(1);
+			@include mobile {
+				margin: 0;
+				margin-right: 2rem;
+			}
+		}
+		.txt {
+			@include mobile {
+				align-self: center;
+			}
+		}
+	}
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: 44rem;
+		margin-left: auto;
+	}
+	.image {
+		@include flex(null, null, null);
+		max-width: 42rem;
+		margin-left: auto;
+		@include ipad_sm {
+			margin: 0 auto 2rem;
+		}
+		.fig {
+			position: relative;
+			width: 100%;
+			&:nth-child(1) {
+				z-index: 1;
+				&:before {
+					content: "";
+					position: absolute;
+					top: -1rem;
+					left: 0;
+					right: -1rem;
+					bottom: 0;
+					margin-top: 75%;
+					margin-left: 50%;
+					margin-right: -50%;
+					margin-bottom: 75%;
+					border-top: 0.3rem solid #fff;
+					border-right: 0.3rem solid #fff;
+					border-radius: 0 3rem 0;
+					-webkit-backdrop-filter: blur(100rem);
+					backdrop-filter: brightness(0.5) blur(10rem);
+					z-index: -1;
+				}
+				figure {
+					margin-top: 75%;
+					margin-right: -50%;
+				}
+			}
+			&:nth-child(2) {
+				figure {
+					margin-left: -50%;
+				}
+			}
+		}
+		figure {
+			position: relative;
+			padding-bottom: 180%;
+			border: 0.3rem solid $white;
+			border-radius: 2rem;
+			overflow: hidden;
+			> img {
+				@include pseudo();
+				@include object(cover);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Future
+|----------------------------------------------------------------------
+*/
+
+#future {
+	overflow: hidden;
+	.flexRow {
+		margin: -2rem -3rem;
+		align-items: center;
+		> .col {
+			padding: 2rem 3rem;
+		}
+		> .col1 {
+			width: 45%;
+		}
+		> .col2 {
+			width: 55%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		// padding-right: 7rem;
+		p {
+			margin-bottom: 3rem;
+		}
+	}
+	.image {
+		@include flex(null, null, null);
+		max-width: 52rem;
+		gap: 1rem;
+		@include ipad_sm {
+			margin: auto;
+		}
+		> .fig {
+			@include flex(null, null, column);
+			gap: 1rem;
+			&:nth-child(1) {
+				width: 45%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-left-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 80%;
+						border-bottom-left-radius: 2rem;
+					}
+				}
+			}
+			&:nth-child(2) {
+				width: 55%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-right-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 60%;
+						border-bottom-right-radius: 2rem;
+					}
+				}
+			}
+			figure {
+				position: relative;
+				box-shadow: $shadow;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		> .leaf {
+			position: absolute;
+			width: 20rem;
+			bottom: -8rem;
+			left: -4rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Folio
+|----------------------------------------------------------------------
+*/
+
+#folio {
+	background: rgba($color, 0.05);
+	.flexRow {
+		align-items: center;
+		> .col1 {
+			width: 40%;
+		}
+		> .col2 {
+			width: 60%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		max-width: 34rem;
+	}
+	#owl-folio {
+		.owl-stage-outer {
+			padding: 2rem 1.5rem;
+			margin: -2rem -1.5rem;
+		}
+		.active {
+			.inside {
+				.txtBlk {
+					box-shadow: $shadow;
+				}
+			}
+		}
+		.inside {
+			.txtBlk {
+				position: relative;
+				background: $white;
+				padding: 2.5rem;
+				margin-bottom: 2rem;
+				border-radius: 1rem;
+				&:after {
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					width: 2rem;
+					height: 1rem;
+					display: block;
+					background: inherit;
+					clip-path: polygon(50% 100%, 0 0, 100% 0);
+					margin: -0.2rem auto 0;
+				}
+			}
+			.icoBlk {
+				text-align: center;
+				.ico {
+					width: 5rem;
+					min-width: 5rem;
+					height: 5rem;
+					margin: 0 auto 1rem;
+				}
+				h5 {
+					margin-bottom: -0.5rem;
+				}
+				small {
+					color: $bluish_gray;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Business
+|----------------------------------------------------------------------
+*/
+
+#business {
+	.flexRow {
+		// align-items: center;
+		@include ipad_sm {
+			flex-flow: wrap-reverse;
+		}
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		margin-top: 8rem;
+		@include ipad_sm {
+			margin-top: 2rem;
+		}
+	}
+	.image {
+		@include flex(null, null, null);
+		max-width: 40rem;
+		margin: 0 auto;
+		.fig {
+			position: relative;
+			width: 100%;
+			&:nth-child(1) {
+				figure {
+					margin-right: -50%;
+				}
+			}
+			&:nth-child(2) {
+				figure {
+					margin-top: 75%;
+					margin-left: -50%;
+				}
+			}
+		}
+		figure {
+			position: relative;
+			padding-bottom: 140%;
+			border: 0.7rem solid $white;
+			border-radius: 2rem;
+			overflow: hidden;
+			> img {
+				@include pseudo();
+				@include object(cover);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Cover
+|----------------------------------------------------------------------
+*/
+
+#cover {
+	background: rgba($color, 0.05);
+	overflow: hidden;
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20rem;
+		height: 20rem;
+		background-image: url("../images/sm_logo_left.svg");
+		@include bgImage(contain);
+		filter: brightness(0) invert(1);
+		opacity: 0.5;
+		z-index: 1;
+	}
+	.contain {
+		z-index: 3;
+	}
+	.inside {
+		position: relative;
+		min-height: 44rem;
+		@include flex(center, center, null);
+		@include bgImage(cover);
+		padding: 10rem;
+		border-radius: 2rem;
+		overflow: hidden;
+		@include ipad_sm {
+			padding: 5rem;
+		}
+		@include mobile_sm {
+			padding: 3rem;
+		}
+		&:before {
+			@include overlay($color, 0.4);
+			background: linear-gradient(95.64deg, #00a583 9.21%, $color 92.76%);
+			z-index: 1;
+		}
+		.content {
+			position: relative;
+			max-width: 80rem;
+			color: $white;
+			margin: auto;
+			z-index: 2;
+		}
+	}
+	.leaf {
+		position: absolute;
+		width: 16rem;
+		z-index: 2;
+		&.left {
+			left: -6rem;
+			bottom: -6rem;
+		}
+		&.right {
+			top: -6rem;
+			right: -6rem;
+		}
+	}
+}

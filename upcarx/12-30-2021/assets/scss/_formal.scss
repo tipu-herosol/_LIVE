@@ -1,0 +1,1154 @@
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+#faq {
+	.flex_row {
+		justify-content: center;
+		> .col1 {
+			width: 60%;
+		}
+		> .col2 {
+			width: 30%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.top_blk {
+		max-width: 80rem;
+		margin: 0 auto 8rem;
+		@include ipad_sm {
+			margin-bottom: 4rem;
+		}
+		p {
+			font-size: 1.8rem;
+			@include ipad_sm {
+				font-size: 1.6rem;
+			}
+		}
+		.form_blk {
+			max-width: 58rem;
+			margin: 2rem auto 0;
+			> .text_box {
+				height: 5.4rem;
+				padding-left: 4.6rem;
+			}
+			> img {
+				position: absolute;
+				top: 0;
+				left: 1.2rem;
+				bottom: 0;
+				width: 1.8rem;
+				margin: auto;
+				filter: brightness(0) invert(0);
+			}
+		}
+	}
+	.list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		> li {
+			padding-bottom: 1.5rem;
+			margin-bottom: 1.5rem;
+			border-bottom: 0.1rem solid $light_gray;
+			> a {
+				color: $color;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+	}
+	.help_blk {
+		background: rgba($color, 0.1);
+		padding: 2.5rem;
+		margin-top: 4rem;
+		border: 0.2rem dashed rgba($color, 0.2);
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Contact us
+|----------------------------------------------------------------------
+*/
+
+#contact {
+	.outer {
+		display: flex;
+		@include ipad_sm {
+			display: block;
+		}
+		> form {
+			width: 50%;
+			@include block();
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+		.txt {
+			margin-bottom: 3rem;
+		}
+	}
+	#map_blk {
+		position: absolute;
+		top: 2rem;
+		left: 50%;
+		right: 0;
+		bottom: 2rem;
+		border-radius: 0 1rem 1rem 0;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		@include ipad_sm {
+			@include pseudo();
+			position: relative;
+			height: 30rem;
+			margin-top: 3rem;
+			border-radius: 1rem;
+		}
+		iframe {
+			@include pseudo();
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       About us
+|----------------------------------------------------------------------
+*/
+
+#about {
+	.flex_row {
+		align-items: center;
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.image {
+		@include img();
+	}
+}
+
+#number {
+	padding: 0;
+	.flex_row {
+		justify-content: center;
+		@include ipad_sm {
+			width: calc(100% + 2rem);
+			flex-flow: nowrap;
+			justify-content: flex-start;
+			margin: -1rem;
+			overflow: auto;
+			> .col {
+				padding: 1rem;
+			}
+		}
+	}
+	.count_blk {
+		@include flex(center, null, null);
+		padding: 0 2rem;
+		@include ipad_sm {
+			@include block();
+			white-space: nowrap;
+		}
+		.icon {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-right: 2rem;
+		}
+		.counter {
+			font-size: 3.4rem;
+			font-weight: 600;
+			line-height: 1;
+			&:before {
+				content: attr(data-before);
+			}
+		}
+		span {
+			color: $bluish_gray;
+			font-size: 1.8rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Business
+|----------------------------------------------------------------------
+*/
+
+#business {
+	.main_row {
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		margin-bottom: 3rem;
+	}
+	.card_row {
+		width: calc(100% + 3rem);
+		margin: -1.5rem;
+		@include mobile {
+			width: calc(100% + 2rem);
+			margin: -1rem;
+		}
+		> .col {
+			width: 50%;
+			padding: 1.5rem;
+			@include mobile {
+				padding: 1rem;
+			}
+		}
+	}
+	.card_blk {
+		@include flex(center, null, null);
+		background: $color;
+		color: $white;
+		padding: 2.5rem;
+		border-radius: 1rem;
+		@include ipad_sm {
+			flex-flow: column;
+			text-align: center;
+		}
+		.icon {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-right: 2rem;
+			@include ipad_sm {
+				margin: 0 0 1.5rem;
+			}
+			> img {
+				filter: brightness(0) invert(1);
+			}
+		}
+		h3 {
+			margin: 0;
+			> span {
+				display: block;
+				font-size: 1.6rem;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Member
+|----------------------------------------------------------------------
+*/
+
+#member {
+	background: rgba($color, 0.05);
+	.content {
+		max-width: 60rem;
+		margin: 0 auto 3rem;
+	}
+	#slick-member {
+		.item {
+			padding: 1rem;
+		}
+	}
+}
+
+.team_blk {
+	@include flex(null, null, column);
+	background: $white;
+	text-align: center;
+	border: 0.2rem solid transparent;
+	border-radius: 1rem;
+	box-shadow: $shadow2;
+	overflow: hidden;
+	.cover {
+		height: 10rem;
+		@include bgImage(cover);
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+	.ico {
+		width: 8rem;
+		min-width: 8rem;
+		height: 8rem;
+		margin: -4rem auto 2rem;
+		border-radius: 75%;
+		overflow: hidden;
+	}
+	.txt {
+		padding: 0 2rem;
+		margin: 0 0 auto;
+		h4 {
+			margin-bottom: 0.5rem;
+		}
+	}
+	.btn_blk {
+		margin: 2rem 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Gallery
+|----------------------------------------------------------------------
+*/
+
+#gallery {
+	.content {
+		max-width: 60rem;
+		margin: 0 auto 3rem;
+	}
+	#slick-gallery {
+		padding: 0 1rem;
+		.slick-arrow {
+			&.slick-prev {
+				left: 0;
+			}
+			&.slick-next {
+				right: 0;
+			}
+		}
+	}
+}
+
+.gallery_blk {
+	padding: 1rem;
+	> a {
+		@include img();
+		background: $white;
+		padding-bottom: 80%;
+		> img {
+			position: absolute;
+			@include pseudo();
+			@include object(cover);
+		}
+		> span {
+			@include pseudo();
+			top: initial;
+			background: linear-gradient(transparent, $black);
+			color: $white;
+			font-size: 1.6rem;
+			font-weight: 600;
+			padding: 2rem;
+			text-align: center;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       How it works
+|----------------------------------------------------------------------
+*/
+
+#how {
+	.content {
+		max-width: 66rem;
+		margin: 0 auto 4rem;
+	}
+	.image {
+		@include img();
+		min-height: 20rem;
+		background: $black;
+		margin: 0 auto;
+		box-shadow: none;
+		> img {
+			@include object(cover);
+			min-height: inherit;
+			opacity: 0.62;
+		}
+		.play_btn {
+			@include pseudo();
+			width: 8rem;
+			height: 8rem;
+			background: rgba($black, 0.1);
+			margin: auto;
+			padding: 0;
+			border: 0;
+			border-radius: 75%;
+			z-index: 2;
+			&:hover {
+				background: rgba($black, 0.3);
+			}
+		}
+	}
+	& + #works {
+		padding: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Blog
+|----------------------------------------------------------------------
+*/
+
+#news {
+	.main_row {
+		> .col1 {
+			width: 70%;
+		}
+		> .col2 {
+			width: 30%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.sub_row {
+		> .col {
+			width: 50%;
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+	.article_lst {
+		@include list();
+		> li {
+			display: block;
+			margin-bottom: 2rem;
+			&:nth-child(n + 7) {
+				display: none;
+			}
+		}
+	}
+	.article {
+		@include flex(null, null, row-reverse);
+		@include block();
+		padding: 2rem;
+		.ico {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-left: 2rem;
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+		.txt {
+			position: relative;
+			width: 100%;
+			h6 {
+				display: -webkit-box;
+				line-clamp: 2;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+		}
+		.date {
+			color: $bluish_gray;
+		}
+	}
+}
+
+.news_blk {
+	@include flex(null, null, column);
+	&.main {
+		flex-flow: row-reverse;
+		margin-bottom: 5rem;
+		@include ipad_sm {
+			flex-flow: column;
+		}
+		.image {
+			width: 50%;
+			min-width: 50%;
+			margin-left: 5rem;
+			@include ipad_sm {
+				width: 100%;
+				min-width: 100%;
+				margin: 0 0 2rem;
+			}
+			> a {
+				padding-bottom: 66%;
+			}
+		}
+		.txt {
+			padding: 0;
+		}
+	}
+	.image {
+		@include img();
+		> a {
+			position: relative;
+			display: block;
+			padding-bottom: 50%;
+			> img {
+				@include pseudo();
+				@include object(cover);
+			}
+		}
+	}
+	.txt {
+		padding: 2rem 0 0;
+		h4 {
+			display: -webkit-box;
+			line-clamp: 2;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+	.type {
+		color: $color;
+	}
+	.date {
+		color: $bluish_gray;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Careers
+|----------------------------------------------------------------------
+*/
+
+#careers {
+	.content,
+	.inside {
+		max-width: 80rem;
+		margin: 0 auto;
+	}
+}
+
+.job_blk {
+	position: relative;
+	display: flex;
+	@include block();
+	@include mobile_md {
+		flex-flow: column;
+		text-align: center;
+	}
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 2rem;
+	}
+	&:hover {
+		> .txt {
+			h4 {
+				color: $color;
+			}
+		}
+	}
+	> .txt {
+		flex: 1;
+		align-self: center;
+		margin-right: 2rem;
+		@include mobile_md {
+			margin: 0 0 1.5rem;
+		}
+		h4 {
+			margin-bottom: 0;
+			@include trans();
+		}
+	}
+	.site_btn {
+		position: static;
+		@include mobile_md {
+			width: 100%;
+		}
+		&:before {
+			content: "";
+			@include pseudo();
+			z-index: 1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Search
+|----------------------------------------------------------------------
+*/
+
+#search {
+	padding: 0;
+	.main_row {
+		width: auto;
+		flex-flow: nowrap;
+		margin: 0;
+		> .col {
+			padding: 0;
+		}
+		> .col1 {
+			width: 32rem;
+			min-width: 32rem;
+			@include ipad {
+				width: 0;
+				min-width: initial;
+				padding: 0;
+			}
+		}
+		> .col2 {
+			width: 100%;
+		}
+	}
+	.srch_row {
+		width: calc(100% + 2rem);
+		margin: -1rem;
+		> .col {
+			width: 50%;
+			padding: 1rem;
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	#filter_blk {
+		position: sticky;
+		top: 8rem;
+		display: flex;
+		min-height: 30rem;
+		max-height: calc(100vh - 8rem);
+		background: $white;
+		padding: 0;
+		margin-left: -1.5rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		> .scrollbar {
+			width: 100%;
+			padding: 2rem;
+			overflow: auto;
+			@include ipad {
+				overflow: initial;
+			}
+		}
+		@include ipad {
+			display: none;
+			position: fixed;
+			top: 8rem;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			max-height: none;
+			margin: 0;
+			border-radius: 0;
+			box-shadow: none;
+			overflow: hidden;
+			overflow-y: auto;
+			z-index: 20;
+		}
+		.btn_blk {
+			position: sticky;
+			left: 0;
+			right: 0;
+			bottom: -2rem;
+			background: $white;
+			padding: 2rem;
+			margin: 2rem -2rem -2rem;
+			z-index: 5;
+			@include ipad {
+				bottom: 0;
+				margin: 2rem -2rem -2rem;
+			}
+			> .site_btn {
+				flex: 1;
+			}
+		}
+		&.active {
+			display: block;
+		}
+		.cross_btn {
+			display: none;
+			@include ipad {
+				display: flex;
+			}
+		}
+	}
+	#srch_blk {
+		padding: 2rem;
+		margin-right: -1.5rem;
+		@include ipad {
+			padding: 2rem 0 0;
+			margin: 0;
+		}
+	}
+	#filter_btn_blk {
+		display: none;
+		position: sticky;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $light_white;
+		padding: 1.5rem;
+		margin: 0 -1.5rem -1.5rem;
+		z-index: 10;
+		@include ipad {
+			display: flex;
+		}
+	}
+}
+
+.filters {
+	.in_blk {
+		&:not(:nth-last-child(1)) {
+			margin-bottom: 2.5rem;
+		}
+	}
+	.ctg_lst {
+		position: relative;
+		@include list();
+		@include flex(null, null, wrap);
+		margin: -0.5rem -1rem;
+		> li {
+			width: 100%;
+			display: flex;
+			text-align: left;
+			padding: 0.5rem 1rem;
+			label {
+				@include flex(center, null, null);
+				gap: 0 1rem;
+				margin: 0;
+			}
+		}
+		&.more_lst {
+			max-height: 14rem;
+			@include trans();
+			overflow: hidden;
+			&.change {
+				max-height: 100%;
+				&:after {
+					height: 0;
+				}
+				& + .site_btn {
+					&::before {
+						content: attr(data-less);
+					}
+				}
+			}
+			&:after {
+				content: "";
+				@include pseudo();
+				top: initial;
+				height: 5rem;
+				background: linear-gradient(transparent, $white);
+				transition: inherit;
+			}
+			& + .site_btn {
+				margin-top: 1rem;
+				&::before {
+					content: attr(data-more);
+				}
+			}
+		}
+	}
+}
+
+.rating {
+	@include flex(flex-end, null, null);
+	font-size: 1.2rem;
+	line-height: 1;
+	> strong {
+		margin-left: 0.5rem;
+		> em {
+			margin-left: 0.5rem;
+			color: $bluish_gray;
+			font-weight: 400;
+			&:before {
+				content: "(";
+			}
+			&:after {
+				content: ")";
+			}
+		}
+	}
+}
+
+.srch_blk {
+	position: relative;
+	@include block();
+	padding: 0;
+	overflow: hidden;
+	&:hover {
+		> .txt {
+			h4 {
+				color: $color;
+			}
+		}
+	}
+	> a {
+		@include pseudo();
+		z-index: 3;
+	}
+	> .image {
+		@include bgImage(cover);
+		padding-bottom: 50%;
+		box-shadow: none;
+	}
+	> .txt {
+		padding: 2rem;
+		h4,
+		h5 {
+			margin-bottom: 0;
+			@include nowrap();
+			@include trans();
+		}
+		> .btm {
+			@include flex(center, space-between, null);
+			margin-bottom: 1rem;
+		}
+		.trip {
+			&::before {
+				content: "(";
+			}
+			&::after {
+				content: ")";
+			}
+		}
+		.price {
+			color: $bluish_gray;
+			font-size: 1.5rem;
+			> del {
+				color: $red;
+			}
+			> span {
+				color: $black;
+				font-weight: 600;
+				margin-left: 0.5rem;
+			}
+		}
+	}
+	.ico_btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		@include flex(null, null, column);
+		gap: 0.4rem 0;
+		@include trans();
+		z-index: 5;
+		> a {
+			position: relative;
+			@include flex(center, center, null);
+			width: 3rem;
+			min-width: 3rem;
+			height: 3rem;
+			background: $white;
+			border-radius: 75%;
+			box-shadow: $shadow2;
+			transition: none;
+			overflow: hidden;
+			&:hover {
+				@include trans();
+				&:before {
+					filter: none;
+				}
+			}
+			&:before {
+				content: "";
+				position: relative;
+				display: block;
+				width: 2.2rem;
+				min-width: 2.2rem;
+				height: 2.2rem;
+				@include bgImage(1.6rem);
+				filter: brightness(0) invert(0.5);
+				transition: inherit;
+				z-index: 1;
+			}
+			&.like_btn {
+				&:before {
+					background-image: url("../images/icon-heart.svg");
+				}
+				&.liked:before {
+					filter: none;
+				}
+			}
+			&.edit_btn {
+				&:before {
+					background-image: url("../images/icon-edit.svg");
+				}
+			}
+			&.del_btn {
+				&:before {
+					background-image: url("../images/icon-trash.svg");
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Detail
+|----------------------------------------------------------------------
+*/
+
+#detail {
+	padding-top: 0;
+	.main_row {
+		> .col1 {
+			width: 70%;
+		}
+		> .col2 {
+			width: 30%;
+			@include ipad_sm {
+				padding: 0;
+			}
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.head {
+		@include flex(null, space-between, null);
+		margin-bottom: 1rem;
+		@include mobile {
+			flex-flow: column;
+		}
+		h2 {
+			margin-bottom: 0;
+			margin-right: 2rem;
+			@include mobile {
+				margin: 0 0 1rem;
+			}
+		}
+		.verify {
+			@include flex(center, null, null);
+			white-space: nowrap;
+			> img {
+				width: 2rem;
+				min-width: 2rem;
+				height: 2rem;
+				margin-right: 0.5rem;
+			}
+			&:not(.checked) {
+				> img {
+					filter: brightness(0) invert(0.75);
+				}
+			}
+		}
+	}
+	.sub_heading {
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+	}
+	hr {
+		border-top: 0.2rem dashed $light_gray;
+	}
+	.icon_lst {
+		@include flex(null, null, wrap);
+		@include list();
+		width: calc(100% + 1.5rem);
+		margin: -1.5rem 0 0 -1.5rem;
+		> li {
+			@include flex(center, null, null);
+			width: 50%;
+			padding: 1.5rem 0 0 1.5rem;
+			@include mobile_sm {
+				width: 100%;
+			}
+			> img {
+				width: 2.2rem;
+				min-width: 2.2rem;
+				height: 2.2rem;
+				margin-right: 1.5rem;
+				// filter: brightness(0) invert(0.6);
+			}
+		}
+	}
+	.book_blk {
+		position: sticky;
+		top: 10rem;
+		@include ipad_sm {
+			@include fixed();
+			top: 8rem;
+			display: none;
+			border-radius: 0;
+			overflow: auto;
+			z-index: 15;
+		}
+		.cross_btn {
+			display: none;
+			@include ipad_sm {
+				display: flex;
+			}
+		}
+		&.active {
+			display: block;
+		}
+	}
+	#slick-detail {
+		margin-bottom: 4rem;
+		overflow: hidden;
+		.img_blk {
+			// height: 40rem;
+			> a {
+				// height: 100%;
+				@include img();
+				background: $white;
+				padding-bottom: 40%;
+				border-radius: 0;
+				@include mobile {
+					padding-bottom: 50%;
+				}
+				> img {
+					position: absolute;
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		&:hover {
+			.slick-prev {
+				left: 1rem;
+			}
+			.slick-next {
+				right: 1rem;
+			}
+		}
+		.slick-prev {
+			left: -6rem;
+		}
+		.slick-next {
+			right: -6rem;
+		}
+		.slick-dots {
+			position: absolute;
+			li {
+				&:not(.slick-active) {
+					button {
+						background: $white;
+					}
+				}
+			}
+		}
+	}
+	#book_btn_blk {
+		display: none;
+		position: sticky;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $light_white;
+		padding: 1.5rem;
+		margin: 1.5rem -1.5rem -1.5rem;
+		z-index: 10;
+		@include ipad {
+			display: flex;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Location
+|----------------------------------------------------------------------
+*/
+
+#location {
+	.flex_row {
+		@include mobile_md {
+			width: calc(100% + 1rem);
+			margin: -0.5rem;
+		}
+		> .col {
+			width: 25%;
+			@include ipad_sm {
+				width: 33.3334%;
+			}
+			@include mobile_md {
+				width: 50%;
+				padding: 0.5rem;
+			}
+		}
+	}
+	.city_blk {
+		position: relative;
+		background-color: $white;
+		@include bgImage(cover);
+		color: $white;
+		padding-bottom: 120%;
+		border-radius: 1.2rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		.txt {
+			@include pseudo();
+			top: initial;
+			background: linear-gradient(transparent, rgba($black, 0.85));
+			padding: 4rem 2rem 2rem;
+			z-index: 1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Review
+|----------------------------------------------------------------------
+*/
+
+.review {
+	@include flex(null, null, null);
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 0.1rem solid $light_gray;
+	}
+	.ico {
+		width: 5rem;
+		min-width: 5rem;
+		height: 5rem;
+		margin-right: 2rem;
+	}
+	.txt {
+		width: 100%;
+	}
+	.ico_txt {
+		width: 100%;
+		@include flex(null, null, null);
+		margin-bottom: 1rem;
+		@include mobile_sm {
+			flex-flow: column;
+		}
+		.title {
+			flex: 1;
+			margin-right: 1rem;
+			@include mobile_sm {
+				margin: 0 0 1rem;
+			}
+		}
+		h5 {
+			margin: 0 0 0.5rem;
+			@include mobile_sm {
+				margin: 0;
+			}
+		}
+		.date {
+			color: $bluish_gray;
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+	}
+	.review {
+		margin-top: 1.5rem;
+		.ico {
+			width: 3.2rem;
+			min-width: 3.2rem;
+			height: 3.2rem;
+		}
+	}
+	h6 {
+		margin: 0 0 0.4rem;
+	}
+}

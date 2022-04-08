@@ -1,0 +1,436 @@
+/*
+|----------------------------------------------------------------------
+|       Header
+|----------------------------------------------------------------------
+*/
+
+header {
+	@include fixed();
+	bottom: initial;
+	height: 90px;
+	background: $white;
+	box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.06);
+	z-index: 30;
+	.proIco {
+		@include flex(center, null, null);
+		cursor: pointer;
+		margin-left: 3rem;
+		.proBtn {
+			@include flex(center, null, null);
+		}
+		.ico {
+			width: 5rem;
+			height: 5rem;
+		}
+		.name {
+			margin-right: 2rem;
+		}
+		.dropCnt {
+			left: initial;
+			right: 0;
+			min-width: 25rem;
+			max-height: calc(100vh - 90px);
+			overflow: auto;
+		}
+		.dropLst {
+			> li {
+				> a {
+					font-family: $medium;
+					> small {
+						display: block;
+						color: $bluish_gray;
+						font-family: $regular;
+					}
+				}
+				&:nth-last-child(1) {
+					> a {
+						color: #ff4b4b;
+					}
+				}
+			}
+		}
+	}
+}
+
+.logo {
+	float: left;
+	@include flex(center, null, null);
+	width: 30rem;
+	height: 90px;
+	> a {
+		display: block;
+		height: 100%;
+		> img {
+			display: block;
+			width: auto;
+			height: 100%;
+			max-width: 100%;
+			object-fit: contain;
+			object-position: left center;
+			transition: inherit;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Navigation
+|----------------------------------------------------------------------
+*/
+
+nav {
+	@include flex(center, flex-end, null);
+	height: 90px;
+	margin-left: 10rem;
+	#iconBtn {
+		@include flex(center, null, null);
+		margin: 0 -2rem;
+		margin-left: 3rem;
+		li {
+			padding: 0 2rem;
+			&#notiBtn {
+				img {
+					animation: ring 4s 0.7s ease-in-out infinite;
+				}
+			}
+		}
+	}
+	.iconBtn {
+		position: relative;
+		display: flex !important;
+		width: 2.8rem;
+		height: 2.8rem;
+		background: transparent;
+		padding: 0;
+		border: 0;
+		> img {
+			transition: inherit;
+		}
+		> em {
+			position: absolute;
+			top: -1rem;
+			right: -1rem;
+			transition: inherit;
+		}
+	}
+}
+
+@keyframes ring {
+	0% {
+		transform: rotateZ(0);
+	}
+	1% {
+		transform: rotateZ(30deg);
+	}
+	3% {
+		transform: rotateZ(-28deg);
+	}
+	5% {
+		transform: rotateZ(34deg);
+	}
+	7% {
+		transform: rotateZ(-32deg);
+	}
+	9% {
+		transform: rotateZ(30deg);
+	}
+	11% {
+		transform: rotateZ(-28deg);
+	}
+	13% {
+		transform: rotateZ(26deg);
+	}
+	15% {
+		transform: rotateZ(-24deg);
+	}
+	17% {
+		transform: rotateZ(22deg);
+	}
+	19% {
+		transform: rotateZ(-20deg);
+	}
+	21% {
+		transform: rotateZ(18deg);
+	}
+	23% {
+		transform: rotateZ(-16deg);
+	}
+	25% {
+		transform: rotateZ(14deg);
+	}
+	27% {
+		transform: rotateZ(-12deg);
+	}
+	29% {
+		transform: rotateZ(10deg);
+	}
+	31% {
+		transform: rotateZ(-8deg);
+	}
+	33% {
+		transform: rotateZ(6deg);
+	}
+	35% {
+		transform: rotateZ(-4deg);
+	}
+	37% {
+		transform: rotateZ(2deg);
+	}
+	39% {
+		transform: rotateZ(-1deg);
+	}
+	41% {
+		transform: rotateZ(1deg);
+	}
+	43% {
+		transform: rotateZ(0);
+	}
+	100% {
+		transform: rotateZ(0);
+	}
+}
+
+[nav] {
+	@include flex(null, flex-end, null);
+	flex: 1;
+	@include trans();
+	> ul {
+		@include flex(center, center, null);
+		margin: 0 -3rem;
+		> li {
+			position: relative;
+			padding: 0 3rem;
+			> a:not(.webBtn) {
+				@include flex(center, center, null);
+				height: 6rem;
+				color: $black;
+				text-align: center;
+			}
+			> a:not(.webBtn):hover,
+			&.active > a:not(.webBtn) {
+				color: $color;
+			}
+			> .sub {
+				position: absolute;
+				top: 100%;
+				left: 15px;
+				width: 240px;
+				background: $white;
+				text-align: left;
+				padding: 10px 0;
+				margin-top: 10px;
+				visibility: hidden;
+				opacity: 0;
+				border-radius: 10px;
+				transition: none;
+				box-shadow: $shadow;
+				overflow: hidden;
+				> li {
+					display: block;
+					> a {
+						display: block;
+						color: $black;
+						padding: 10px 25px;
+						&:hover {
+							color: $color;
+						}
+					}
+				}
+			}
+			&:hover > .sub {
+				visibility: visible;
+				opacity: 1;
+				margin-top: 0;
+				transition: all 0.2s ease-out;
+			}
+			&.drop > a {
+				position: relative;
+				&:after {
+					content: "";
+					@include chev();
+					width: 10px;
+					height: 10px;
+					margin-left: 6px;
+					// filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+	> #cta {
+		margin-left: 3rem;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Footer
+|----------------------------------------------------------------------
+*/
+
+footer {
+	position: relative;
+	background: $white;
+	color: $black;
+	padding-top: 8rem;
+	overflow: hidden;
+	.contain {
+		z-index: 3;
+	}
+	.footerLogo {
+		max-width: 30rem;
+		margin-bottom: 2rem;
+	}
+	.flexRow {
+		@include flex(null, space-between, nowrap);
+		margin: -1.5rem -4rem;
+		> .col {
+			flex: 1;
+			padding: 1.5rem 4rem;
+			&:nth-child(1) {
+				flex: 2;
+			}
+		}
+	}
+	a {
+		color: inherit;
+		&:hover {
+			color: $color;
+		}
+	}
+	h4 {
+		position: relative;
+		margin-bottom: 2.5rem;
+		padding-bottom: 1.5rem;
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 30px;
+			height: 2px;
+			background: $color;
+		}
+	}
+	.lst {
+		> li {
+			display: block;
+			margin-bottom: 1.2rem;
+		}
+	}
+	.smLst {
+		margin: 0 -1.5rem;
+		> li {
+			padding: 0 1.5rem;
+		}
+	}
+	.social {
+		margin: 3rem ​-0.3rem -0.3rem;
+		li {
+			padding: 0.3rem;
+			a {
+				@include flex(center, center, null);
+				display: flex !important;
+				width: 4.4rem;
+				min-width: 4.4rem;
+				height: 4.4rem;
+				background: $color;
+				padding: 1.2rem;
+				border-radius: 75%;
+				&:hover {
+					background: $black;
+				}
+				img {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+	.playStore {
+		@include flex(null, null, wrap);
+		margin: 1.5rem -0.5rem -0.5rem;
+		> li {
+			padding: 0.5rem;
+			> a {
+				width: 100%;
+				max-width: 17rem;
+			}
+		}
+	}
+	form {
+		margin-top: 4rem;
+		.inside {
+			@include flex(center, null, null);
+		}
+		.txtGrp {
+			flex: 1;
+			margin-bottom: 0 !important;
+			margin-right: 1rem;
+			&::before,
+			&::after {
+				content: "";
+				@include pseudo();
+				border: 2px solid $color;
+				z-index: -1;
+			}
+			&::before {
+				right: 60px;
+				border-right: 0;
+				border-radius: 5px 0 0 5px;
+			}
+			&::after {
+				left: 50%;
+				border-left: 0;
+				border-radius: 0 5px 5px 0;
+				transform: skewX(-10deg);
+			}
+			.txtBox {
+				background: transparent;
+				border-color: transparent;
+			}
+		}
+		.bTn {
+			position: relative;
+			&::before,
+			&::after {
+				content: "";
+				@include pseudo();
+				background: $color;
+				z-index: -1;
+			}
+			&::before {
+				right: 4rem;
+				border-right: 0;
+				border-radius: 5px 0 0 5px;
+				transform: skewX(-10deg);
+			}
+			&::after {
+				left: 50%;
+				border-left: 0;
+				border-radius: 0 5px 5px 0;
+			}
+			button {
+				background: transparent;
+			}
+		}
+	}
+	.copyright {
+		padding: 2.5rem 0;
+		margin-top: 5rem;
+		border-top: 1px solid $gray;
+		.inner {
+			@include flex(null, center, null);
+		}
+		p {
+			flex: 1;
+			color: inherit;
+			text-align: right;
+			margin: 0;
+			> a {
+				color: $color;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+	}
+}

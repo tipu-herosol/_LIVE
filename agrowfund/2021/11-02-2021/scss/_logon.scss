@@ -1,0 +1,90 @@
+/*
+|----------------------------------------------------------------------
+|       Logon
+|----------------------------------------------------------------------
+*/
+
+[logon] {
+	&::before {
+		content: "";
+		@include pseudo();
+		right: 50%;
+		background: linear-gradient(95.64deg, rgba($color2, 0.3) 9.21%, rgba($color, 0.3) 92.76%);
+		// background: linear-gradient(95.64deg, #3bfb5c 9.21%, #00cba2 92.76%);
+		// opacity: 0.3;
+	}
+	.contain {
+		@include flex(null, null, null);
+		> div {
+			width: 50%;
+			padding: 8rem 0;
+		}
+		.lSide {
+			padding-right: 5rem;
+		}
+		.rSide {
+			padding-left: 5rem;
+		}
+	}
+	.playStore {
+		@include flex(null, center, nowrap);
+		margin: 5rem -0.5rem -0.5rem;
+		> li {
+			padding: 0.5rem;
+			> a {
+				width: 100%;
+				max-width: 18rem;
+			}
+		}
+	}
+	.oRLine {
+		position: relative;
+		text-align: center;
+		margin: 2rem 0;
+		&:before {
+			content: "";
+			@include pseudo();
+			height: 2px;
+			background: $bluish_gray;
+			margin: auto;
+			z-index: -1;
+		}
+		> span {
+			position: relative;
+			background: $white;
+			padding: 0 1rem;
+		}
+	}
+	.socialBtn {
+		@include flex(null, null, null);
+		gap: 0.5rem 1rem;
+		margin: 3rem 0;
+		button {
+			flex: auto;
+			min-width: 34rem;
+			img {
+				width: 2.8rem;
+				min-width: 2.8rem;
+				height: 2.8rem;
+				margin-right: 1rem;
+			}
+		}
+		.gmBtn {
+			background: $white;
+			color: $black;
+			border: 2px solid $bluish_gray;
+		}
+		.fbBtn {
+			background: #4267b2;
+		}
+	}
+	.logBlk {
+		// max-width: 80%;
+		h6 {
+			font-family: $regular;
+		}
+	}
+	.forgot {
+		margin-top: 1rem;
+	}
+}

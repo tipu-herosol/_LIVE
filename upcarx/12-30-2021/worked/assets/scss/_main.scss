@@ -1,0 +1,3186 @@
+/*
+|----------------------------------------------------------------------
+|       Header
+|----------------------------------------------------------------------
+*/
+
+header {
+	@include fixed();
+	bottom: initial;
+	height: 8rem;
+	z-index: 30;
+	&.fix {
+		background: $white;
+		box-shadow: 0 0.4rem 1rem -0.1rem rgba($black, 0.06);
+		.logo {
+			> a {
+				background-size: contain, 0;
+			}
+		}
+		#nav {
+			> ul {
+				> li {
+					> a:not(.site_btn) {
+						color: $black;
+					}
+				}
+			}
+		}
+	}
+	@at-root [data-page="formal"] {
+		header {
+			@extend .fix;
+		}
+	}
+	@at-root [data-page="account"] {
+		header {
+			@extend .fix;
+		}
+	}
+	.logo {
+		float: left;
+		height: 8rem;
+		z-index: 5;
+		@include ipad_sm {
+			@include pseudo();
+			float: none;
+			margin: auto;
+		}
+		@include mobile_xs {
+			max-width: 12rem;
+		}
+	}
+	.toggle {
+		@include ipad_sm {
+			display: flex;
+		}
+	}
+}
+
+.logo {
+	position: relative;
+	@include flex(center, null, null);
+	width: 100%;
+	max-width: 14rem;
+	height: 3.4rem;
+	> a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include bgImage(contain);
+		background-size: 0, contain;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Navigation
+|----------------------------------------------------------------------
+*/
+
+nav {
+	@include flex(center, flex-end, null);
+	height: 8rem;
+	margin-left: 20rem;
+	@include ipad_sm {
+		margin: 0;
+	}
+	#icon_btn {
+		@include flex(center, null, null);
+		@include list();
+		margin: 0 -2rem;
+		margin-left: 2rem;
+		li {
+			padding: 0 2rem;
+			&#noti {
+				.active {
+					img {
+						animation: ring 4s 2s ease-in-out infinite;
+					}
+				}
+			}
+			> a,
+			> button {
+				position: relative;
+				display: flex !important;
+				width: 2.5rem;
+				height: 2.5rem;
+				background: transparent;
+				padding: 0;
+				border: 0;
+				&.active {
+					&::before {
+						content: "";
+					}
+					> img {
+						filter: none;
+					}
+				}
+				&::before {
+					position: absolute;
+					top: -0.1rem;
+					right: 0.2rem;
+					width: 1rem;
+					height: 1rem;
+					background: $color;
+					border: 0.2rem solid $white;
+					border-radius: 75%;
+					z-index: 1;
+				}
+				> img {
+					filter: brightness(0) invert(0.5);
+					transition: inherit;
+				}
+			}
+		}
+	}
+	#pro_btn {
+		@include flex(center, null, null);
+		cursor: pointer;
+		margin-left: 3rem;
+		z-index: 5;
+		@include mobile {
+			margin-left: 2rem;
+		}
+		@include mobile_xs {
+			margin-left: 1.5rem;
+		}
+		.pro_btn {
+			@include flex(center, null, null);
+		}
+		.ico {
+			width: 3.5rem;
+			height: 3.5rem;
+			&.icon {
+				background: rgba($color, 0.1);
+				border-radius: 0.6rem;
+				box-shadow: none;
+				> img {
+					object-fit: contain;
+				}
+			}
+		}
+		.name {
+			margin-right: 1rem;
+			@include mobile_md {
+				display: none;
+			}
+		}
+		.drop_cnt {
+			left: initial;
+			right: 0;
+			min-width: 18rem;
+			max-height: calc(100vh - 8rem);
+			overflow: auto;
+		}
+		.drop_lst {
+			> li {
+				&:nth-last-child(1) {
+					> a {
+						color: #ff4b4b;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes ring {
+	0% {
+		transform: rotateZ(0);
+	}
+	1% {
+		transform: rotateZ(30deg);
+	}
+	3% {
+		transform: rotateZ(-28deg);
+	}
+	5% {
+		transform: rotateZ(34deg);
+	}
+	7% {
+		transform: rotateZ(-32deg);
+	}
+	9% {
+		transform: rotateZ(30deg);
+	}
+	11% {
+		transform: rotateZ(-28deg);
+	}
+	13% {
+		transform: rotateZ(26deg);
+	}
+	15% {
+		transform: rotateZ(-24deg);
+	}
+	17% {
+		transform: rotateZ(22deg);
+	}
+	19% {
+		transform: rotateZ(-20deg);
+	}
+	21% {
+		transform: rotateZ(18deg);
+	}
+	23% {
+		transform: rotateZ(-16deg);
+	}
+	25% {
+		transform: rotateZ(14deg);
+	}
+	27% {
+		transform: rotateZ(-12deg);
+	}
+	29% {
+		transform: rotateZ(10deg);
+	}
+	31% {
+		transform: rotateZ(-8deg);
+	}
+	33% {
+		transform: rotateZ(6deg);
+	}
+	35% {
+		transform: rotateZ(-4deg);
+	}
+	37% {
+		transform: rotateZ(2deg);
+	}
+	39% {
+		transform: rotateZ(-1deg);
+	}
+	41% {
+		transform: rotateZ(1deg);
+	}
+	43% {
+		transform: rotateZ(0);
+	}
+	100% {
+		transform: rotateZ(0);
+	}
+}
+
+#nav {
+	@include flex(null, flex-end, null);
+	flex: 1;
+	@include trans();
+	@include ipad_sm {
+		@include fixed();
+		top: 8rem;
+		@include flex(null, null, wrap);
+		align-content: space-between;
+		width: auto;
+		background: $white;
+		margin: 0;
+		padding: 2rem 5rem;
+		border-top: 0.2rem solid rgba($black, 0.1);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		overflow: auto;
+		z-index: 3;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+	> ul {
+		@include flex(center, center, null);
+		@include list();
+		margin: 0 -2rem;
+		@include ipad_sm {
+			width: 100%;
+			flex-flow: wrap;
+			margin: 0;
+		}
+		> li {
+			position: relative;
+			padding: 0 2rem;
+			@include ipad_sm {
+				width: 100%;
+				padding: 0;
+				text-align: center;
+				.site_btn {
+					margin-top: 0.5rem;
+				}
+			}
+			> a:not(.site_btn) {
+				@include flex(center, center, null);
+				display: inline-flex;
+				height: 4rem;
+				color: $white;
+				font-weight: 500;
+				text-align: center;
+				@include ipad_sm {
+					color: $black;
+				}
+			}
+			> a:not(.site_btn):hover,
+			&.active > a:not(.site_btn) {
+				color: $color !important;
+			}
+		}
+	}
+	> #lst {
+		margin-right: auto;
+	}
+	> #cta {
+		margin-left: 2rem;
+		@include ipad_sm {
+			margin: auto 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Footer
+|----------------------------------------------------------------------
+*/
+
+footer {
+	position: relative;
+	background: #000;
+	color: $white;
+	padding-top: 6rem;
+	overflow: hidden;
+	.contain {
+		z-index: 3;
+	}
+	a {
+		color: $bluish_gray;
+		&:hover {
+			color: $color;
+		}
+	}
+	.flex_row {
+		> .col {
+			width: 20%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	h4 {
+		position: relative;
+		margin-bottom: 3rem;
+		&.drop {
+			@include ipad_sm {
+				cursor: pointer;
+				margin-bottom: 0;
+			}
+			&:after {
+				position: absolute;
+				top: 0.6rem;
+				right: 0;
+				@include chev();
+				width: 1rem;
+				height: 1rem;
+				@include ipad_sm {
+					content: "";
+				}
+			}
+			@include ipad_sm {
+				& + .list {
+					display: none;
+					margin-top: 1.5rem;
+				}
+			}
+		}
+	}
+	.list {
+		@include list();
+		> li {
+			display: block;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 1.5rem;
+				@include ipad_sm {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+	.social_links {
+		margin-top: 2rem;
+	}
+	.copyright {
+		padding: 2.5rem 0;
+		margin-top: 6rem;
+		border-top: 0.1rem solid rgba($white, 0.2);
+		@include ipad_sm {
+			margin-top: 4rem;
+		}
+		.inner {
+			@include flex(null, center, null);
+			@include ipad_sm {
+				align-items: center;
+				flex-flow: column-reverse;
+				text-align: center;
+			}
+		}
+		p {
+			flex: 1;
+			text-align: right;
+			margin: 0;
+			> a {
+				color: $color;
+			}
+		}
+	}
+	.smLst {
+		@include list();
+		margin: 0 -1rem;
+		> li {
+			padding: 0 1rem;
+		}
+	}
+	.subscribe {
+		@include flex(center, space-between, null);
+		padding-bottom: 3rem;
+		margin-bottom: 6rem;
+		border-bottom: 0.1rem solid rgba($white, 0.2);
+		@include ipad_sm {
+			flex-flow: column;
+		}
+		> span {
+			font-size: 2rem;
+			font-weight: 400;
+			max-width: 32rem;
+			@include ipad_sm {
+				margin-bottom: 1.5rem;
+				text-align: center;
+			}
+		}
+		form {
+			position: relative;
+			width: 100%;
+			max-width: 40rem;
+			.text_box {
+				height: 6rem;
+				color: $black;
+				padding-right: 6rem;
+			}
+			button {
+				@include pseudo();
+				left: initial;
+				width: 3rem;
+				height: 3rem;
+				background: $color;
+				padding: 0.6rem;
+				margin: auto;
+				margin-right: 1.2rem;
+				border: 0;
+				border-radius: 0.6rem;
+				&:hover {
+					background: $black;
+				}
+				> img {
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+}
+
+.social_links {
+	@include flex(null, null, wrap);
+	@include list();
+	gap: 0.5rem;
+	li {
+		a {
+			@include flex(center, center, null);
+			display: flex !important;
+			width: 3.6rem;
+			min-width: 3.6rem;
+			height: 3.6rem;
+			background: $color;
+			padding: 1rem;
+			border-radius: 75%;
+			&:hover {
+				background: $blackish;
+			}
+			img {
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Banner
+|----------------------------------------------------------------------
+*/
+
+#banner {
+	min-height: 60rem;
+	@include bgImage(cover);
+	padding-top: 8rem * 2;
+	margin-top: -8rem;
+	@include mobile {
+		min-height: 4rem;
+	}
+	/*&:before {
+		@include overlay($black, 0.6);
+	}*/
+	.contain {
+		z-index: 3;
+	}
+	.content {
+		max-width: 66rem;
+		color: $white;
+		margin: 0 auto;
+		h1 {
+			// font-size: 5rem;
+			font-size: 3.8rem;
+			margin-bottom: 1.5rem;
+			text-shadow: 0.5rem 0.5rem 0.5rem rgba($black, 0.2);
+			@include mobile_md {
+				font-size: 3.2rem;
+			}
+			> span {
+				font-weight: 100;
+			}
+		}
+		p {
+			color: $light_gray;
+			font-size: 1.8rem;
+			// padding: 0 12rem;
+			text-shadow: 0.5rem 0.5rem 0.5rem rgba($black, 0.2);
+			@include mobile_md {
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+[data-form="search"] {
+	max-width: 70rem;
+	margin: 4rem auto 0;
+	> .inside {
+		@include flex(center, null, null);
+		background: $white;
+		padding-left: 1rem;
+		border-radius: 5rem;
+		box-shadow: 0 1rem 4rem rgba($black, 0.4);
+		overflow: hidden;
+		@include mobile {
+			flex-flow: column;
+			padding: 0;
+			border-radius: 1.2rem;
+		}
+		> .form_blk {
+			flex: 1;
+			margin-bottom: 0;
+			@include mobile {
+				flex: none;
+				width: 100%;
+				&:not(:nth-child(1)) {
+					border-top: 0.1rem solid $light_gray;
+				}
+			}
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 1rem;
+				width: 2rem;
+				height: 2rem;
+				margin: auto;
+				filter: brightness(0) invert(0.9);
+				& + .text_box {
+					padding-left: 3.6rem;
+				}
+			}
+			> span {
+				top: initial;
+				bottom: 0;
+				padding-left: 1.4rem;
+			}
+		}
+		label,
+		.text_box,
+		.site_btn {
+			border: 0;
+			height: 6rem;
+		}
+		.btn_blk {
+			@include mobile {
+				width: 100%;
+			}
+			.site_btn {
+				padding: 0 4rem;
+				margin-right: -0.2rem;
+				border-radius: 5rem 0 0 5rem;
+				@include mobile {
+					width: 100%;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Strip
+|----------------------------------------------------------------------
+*/
+
+#strip {
+	background: $light_white;
+	padding: 4rem 0;
+	.outer {
+		@include flex(center, center, null);
+		gap: 0 4rem;
+		@include ipad_sm {
+			flex-flow: column;
+		}
+		.content {
+			text-align: right;
+			@include ipad_sm {
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Intro
+|----------------------------------------------------------------------
+*/
+
+#intro {
+	.main_row {
+		@include ipad_sm {
+			flex-flow: wrap-reverse;
+		}
+		> .col1 {
+			width: 42%;
+		}
+		> .col2 {
+			width: 58%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.icon_row {
+		justify-content: center;
+		margin-top: 5rem;
+		> .col {
+			width: 33.3334%;
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		.call_blk {
+			align-self: center;
+			padding-left: 1.5rem;
+			border-left: 0.2rem solid $light_gray;
+			@include mobile_md {
+				padding: 1rem 0 0;
+				border: 0;
+			}
+		}
+		.btn_blk {
+			@include mobile_md {
+				justify-content: center;
+			}
+		}
+	}
+	.image {
+		position: relative;
+		@include flex(null, null, null);
+		gap: 1rem;
+		max-width: 52rem;
+		margin-left: auto;
+		@include ipad_sm {
+			margin: auto;
+		}
+		> .fig {
+			@include flex(null, null, column);
+			gap: 1rem;
+			&:nth-child(1) {
+				width: 45%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-left-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 80%;
+						border-bottom-left-radius: 2rem;
+					}
+				}
+			}
+			&:nth-child(2) {
+				width: 55%;
+				figure {
+					&:nth-child(1) {
+						padding-bottom: 100%;
+						border-top-right-radius: 2rem;
+					}
+					&:nth-child(2) {
+						padding-bottom: 60%;
+						border-bottom-right-radius: 2rem;
+					}
+				}
+			}
+			figure {
+				@include img();
+				border-radius: initial;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+	}
+	.inner {
+		text-align: center;
+		padding: 0 4rem;
+		@include ipad_sm {
+			padding: 0;
+		}
+		.icon {
+			width: 10rem;
+			min-width: 10rem;
+			height: 10rem;
+			padding: 2rem;
+			margin: 0 auto 3rem;
+			border: 0.2rem solid $color;
+			border-radius: 1rem;
+			transform: rotate(45deg);
+			> img {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+.call_blk {
+	@include flex(center, null, null);
+	.icon {
+		width: 3rem;
+		min-width: 3rem;
+		height: 3rem;
+		margin-right: 1.5rem;
+	}
+	.num {
+		small {
+			display: block;
+		}
+		a {
+			font-size: 2rem;
+			font-weight: 700;
+			line-height: 1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Make
+|----------------------------------------------------------------------
+*/
+
+#make {
+	padding: 0;
+	.content {
+		max-width: 64rem;
+		margin: 0 auto 4rem;
+	}
+	.inner {
+		position: relative;
+		border-radius: 1rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		> a {
+			@include pseudo();
+			z-index: 2;
+		}
+		&:hover {
+			figure {
+				> img {
+					transform: scale(1.1);
+				}
+			}
+			.txt {
+				h4 {
+					color: $color;
+				}
+			}
+		}
+		figure {
+			@include img();
+			padding-bottom: 60%;
+			box-shadow: none;
+			> img {
+				@include pseudo();
+				@include object(cover);
+				@include trans();
+			}
+		}
+		.txt {
+			padding: 1.5rem;
+			h4 {
+				margin: 0;
+				@include trans();
+			}
+		}
+	}
+	#slick-make {
+		.item {
+			padding: 1rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Works
+|----------------------------------------------------------------------
+*/
+
+#works {
+	&:after {
+		content: "";
+		@include pseudo();
+		top: 10rem;
+		background-image: url("../images/arrow_curve.svg");
+		@include bgImage(contain);
+		z-index: -1;
+		@include ipad_sm {
+			display: none;
+		}
+	}
+	.contain {
+		z-index: 3;
+	}
+	.content {
+		max-width: 64rem;
+		margin: 0 auto 4rem;
+	}
+	.flex_row {
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.work_blk {
+		position: relative;
+		padding: 0 1.5rem;
+		@include ipad_sm {
+			max-width: 40rem;
+			margin: 0 auto;
+		}
+		> .icon {
+			width: 10rem;
+			min-width: 10rem;
+			height: 10rem;
+			background: $white;
+			padding: 1.5rem;
+			margin: 0 auto 3rem;
+			border: 0.2rem solid $color;
+			border-radius: 1rem;
+			transform: rotate(45deg);
+			z-index: 2;
+			> img {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Become
+|----------------------------------------------------------------------
+*/
+
+#become {
+	// padding-top: 0;
+	.outer {
+		@include flex(center, null, null);
+		@include ipad_sm {
+			flex-flow: column;
+		}
+		.content {
+			position: relative;
+			max-width: 46rem;
+			@include block();
+			padding: 4rem;
+			margin-left: -10rem;
+			z-index: 2;
+			@include ipad_sm {
+				padding: 3rem;
+				margin: -10rem auto 0;
+			}
+			@include mobile_md {
+				margin-top: -4rem;
+			}
+		}
+		.image {
+			@include img();
+			@include ipad_sm {
+				margin: 0 -1.5rem;
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Folio
+|----------------------------------------------------------------------
+*/
+
+#folio {
+	background: $light_white;
+	.flex_row {
+		> .col1 {
+			width: 30%;
+		}
+		> .col2 {
+			width: 70%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		@include ipad_sm {
+			text-align: center;
+		}
+	}
+	.folio_blk {
+		@include block();
+		padding: 4rem;
+		text-align: center;
+		.ico {
+			width: 10rem;
+			min-width: 10rem;
+			height: 10rem;
+			margin: 0 auto 2rem;
+		}
+		.txt {
+			h4 {
+				small {
+					display: block;
+					color: $bluish_gray;
+					font-size: 1.2rem;
+					margin-top: 0.4rem;
+				}
+			}
+		}
+	}
+	#slick-folio {
+		@include ipad_sm {
+			margin: 0 -1.5rem;
+		}
+		.item {
+			padding: 1.5rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+#faqs {
+	.content {
+		max-width: 64rem;
+		margin: 0 auto 4rem;
+	}
+	.faq_lst {
+		max-width: 70rem;
+		margin: 0 auto;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+.faq_lst {
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 4rem;
+	}
+	> .faq_blk {
+		position: relative;
+		background: $white;
+		padding: 2rem;
+		margin-bottom: 2rem;
+		border: 0.2rem solid $light_gray;
+		border-radius: 1rem;
+		@include trans();
+		&:nth-child(1) {
+			.txt {
+				display: block;
+			}
+		}
+		&:nth-last-child(1) {
+			margin-bottom: 0;
+		}
+		&.active {
+			h5 {
+				color: $color;
+				&:after {
+					transform: rotateX(180deg);
+				}
+			}
+		}
+		h5 {
+			position: relative;
+			font-weight: 500;
+			padding: 0 2rem 0 0;
+			margin: 0;
+			cursor: pointer;
+			@include trans();
+			z-index: 2;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0.6rem;
+				right: 0;
+				@include chev();
+				width: 1rem;
+				height: 1rem;
+			}
+			&:hover {
+				color: $color;
+			}
+		}
+		.txt {
+			display: none;
+			padding: 1rem 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Logon
+|----------------------------------------------------------------------
+*/
+
+[data-page="logon"] {
+	background: $light_white;
+	> main {
+		padding-top: 0;
+	}
+}
+
+#logon {
+	padding: 0;
+	.side {
+		@include pseudo();
+		left: 60%;
+		@include flex(center, center, null);
+		@include bgImage(cover);
+		@include ipad_sm {
+			// display: none;
+			position: relative;
+			left: 0;
+			background-size: 0;
+		}
+		&::before {
+			@include overlay($black, 0.9);
+			@include ipad_sm {
+				display: none;
+			}
+		}
+		.logo {
+			margin: 0 auto 2rem;
+			@include ipad_sm {
+				margin: 3rem auto 0;
+				> a {
+					background-size: contain, 0;
+				}
+			}
+		}
+		.content {
+			position: relative;
+			width: 100%;
+			max-width: 40rem;
+			color: $white;
+			margin: auto;
+			z-index: 2;
+			@include ipad_sm {
+				> *:not(.logo) {
+					display: none;
+				}
+			}
+			p {
+				padding: 0 5rem;
+			}
+		}
+	}
+	.flex_row {
+		width: auto;
+		min-height: 100vh;
+		align-items: center;
+		padding: 4rem 0;
+		margin: 0;
+		@include ipad_sm {
+			min-height: initial;
+			padding: 3rem 0;
+		}
+		> .col {
+			width: 60%;
+			padding: 0;
+			padding-right: 10rem;
+			@include ipad_sm {
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
+	.log_blk {
+		@include block();
+		padding: 4rem;
+		@include ipad_sm {
+			padding: 3rem;
+		}
+		.txt {
+			margin-bottom: 2rem;
+		}
+	}
+	.or {
+		position: relative;
+		font-size: 1.2rem;
+		font-weight: 600;
+		text-align: center;
+		text-transform: uppercase;
+		margin: 1.5rem 0;
+		z-index: 1;
+		&:before,
+		&:after {
+			content: "";
+			@include pseudo();
+			height: 0.1rem;
+			background: $light_gray;
+			margin: auto;
+			z-index: -1;
+		}
+		&:before {
+			right: 50%;
+			margin-right: 2rem;
+		}
+		&:after {
+			left: 50%;
+			margin-left: 2rem;
+		}
+	}
+	.social_btn {
+		display: flex;
+		gap: 1rem;
+		margin: 2rem 0;
+		@include ipad_sm {
+			flex-flow: wrap;
+		}
+		button {
+			flex: auto;
+			min-width: 22rem;
+			img {
+				width: 2rem;
+				min-width: 2rem;
+				height: 2rem;
+				filter: none;
+			}
+			&.gm_btn {
+				background: $white;
+				color: $black;
+				border: 0.1rem solid $bluish_gray;
+			}
+			&.fb_btn {
+				background: #1877f2;
+			}
+		}
+	}
+	.forgot {
+		margin-top: 1rem;
+		font-weight: 600;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+#faq {
+	.flex_row {
+		justify-content: center;
+		> .col1 {
+			width: 60%;
+		}
+		> .col2 {
+			width: 30%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.top_blk {
+		max-width: 80rem;
+		margin: 0 auto 8rem;
+		@include ipad_sm {
+			margin-bottom: 4rem;
+		}
+		p {
+			font-size: 1.8rem;
+			@include ipad_sm {
+				font-size: 1.6rem;
+			}
+		}
+		.form_blk {
+			max-width: 58rem;
+			margin: 2rem auto 0;
+			> .text_box {
+				height: 5.4rem;
+				padding-left: 4.6rem;
+			}
+			> img {
+				position: absolute;
+				top: 0;
+				left: 1.2rem;
+				bottom: 0;
+				width: 1.8rem;
+				margin: auto;
+				filter: brightness(0) invert(0);
+			}
+		}
+	}
+	.list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		> li {
+			padding-bottom: 1.5rem;
+			margin-bottom: 1.5rem;
+			border-bottom: 0.1rem solid $light_gray;
+			> a {
+				color: $color;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+	}
+	.help_blk {
+		background: rgba($color, 0.1);
+		padding: 2.5rem;
+		margin-top: 4rem;
+		border: 0.2rem dashed rgba($color, 0.2);
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Contact us
+|----------------------------------------------------------------------
+*/
+
+#contact {
+	.outer {
+		display: flex;
+		@include ipad_sm {
+			display: block;
+		}
+		> form {
+			width: 50%;
+			@include block();
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+		.txt {
+			margin-bottom: 3rem;
+		}
+	}
+	#map_blk {
+		position: absolute;
+		top: 2rem;
+		left: 50%;
+		right: 0;
+		bottom: 2rem;
+		border-radius: 0 1rem 1rem 0;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		@include ipad_sm {
+			@include pseudo();
+			position: relative;
+			height: 30rem;
+			margin-top: 3rem;
+			border-radius: 1rem;
+		}
+		iframe {
+			@include pseudo();
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       About us
+|----------------------------------------------------------------------
+*/
+
+#about {
+	.flex_row {
+		align-items: center;
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.image {
+		@include img();
+	}
+}
+
+#number {
+	padding: 0;
+	.flex_row {
+		justify-content: center;
+		@include ipad_sm {
+			width: calc(100% + 2rem);
+			flex-flow: nowrap;
+			justify-content: flex-start;
+			margin: -1rem;
+			overflow: auto;
+			> .col {
+				padding: 1rem;
+			}
+		}
+	}
+	.count_blk {
+		@include flex(center, null, null);
+		padding: 0 2rem;
+		@include ipad_sm {
+			@include block();
+			white-space: nowrap;
+		}
+		.icon {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-right: 2rem;
+		}
+		.counter {
+			font-size: 3.4rem;
+			font-weight: 600;
+			line-height: 1;
+			&:before {
+				content: attr(data-before);
+			}
+		}
+		span {
+			color: $bluish_gray;
+			font-size: 1.8rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Business
+|----------------------------------------------------------------------
+*/
+
+#business {
+	.main_row {
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		margin-bottom: 3rem;
+	}
+	.card_row {
+		width: calc(100% + 3rem);
+		margin: -1.5rem;
+		@include mobile {
+			width: calc(100% + 2rem);
+			margin: -1rem;
+		}
+		> .col {
+			width: 50%;
+			padding: 1.5rem;
+			@include mobile {
+				padding: 1rem;
+			}
+		}
+	}
+	.card_blk {
+		@include flex(center, null, null);
+		background: $color;
+		color: $white;
+		padding: 2.5rem;
+		border-radius: 1rem;
+		@include ipad_sm {
+			flex-flow: column;
+			text-align: center;
+		}
+		.icon {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-right: 2rem;
+			@include ipad_sm {
+				margin: 0 0 1.5rem;
+			}
+			> img {
+				filter: brightness(0) invert(1);
+			}
+		}
+		h3 {
+			margin: 0;
+			> span {
+				display: block;
+				font-size: 1.6rem;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Member
+|----------------------------------------------------------------------
+*/
+
+#member {
+	background: rgba($color, 0.05);
+	.content {
+		max-width: 60rem;
+		margin: 0 auto 3rem;
+	}
+	#slick-member {
+		.item {
+			padding: 1rem;
+		}
+	}
+}
+
+.team_blk {
+	@include flex(null, null, column);
+	background: $white;
+	text-align: center;
+	border: 0.2rem solid transparent;
+	border-radius: 1rem;
+	box-shadow: $shadow2;
+	overflow: hidden;
+	.cover {
+		height: 10rem;
+		@include bgImage(cover);
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+	.ico {
+		width: 8rem;
+		min-width: 8rem;
+		height: 8rem;
+		margin: -4rem auto 2rem;
+		border-radius: 75%;
+		overflow: hidden;
+	}
+	.txt {
+		padding: 0 2rem;
+		margin: 0 0 auto;
+		h4 {
+			margin-bottom: 0.5rem;
+		}
+	}
+	.btn_blk {
+		margin: 2rem 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Gallery
+|----------------------------------------------------------------------
+*/
+
+#gallery {
+	.content {
+		max-width: 60rem;
+		margin: 0 auto 3rem;
+	}
+	#slick-gallery {
+		padding: 0 1rem;
+		.slick-arrow {
+			&.slick-prev {
+				left: 0;
+			}
+			&.slick-next {
+				right: 0;
+			}
+		}
+	}
+}
+
+.gallery_blk {
+	padding: 1rem;
+	> a {
+		@include img();
+		background: $white;
+		padding-bottom: 80%;
+		> img {
+			position: absolute;
+			@include pseudo();
+			@include object(cover);
+		}
+		> span {
+			@include pseudo();
+			top: initial;
+			background: linear-gradient(transparent, $black);
+			color: $white;
+			font-size: 1.6rem;
+			font-weight: 600;
+			padding: 2rem;
+			text-align: center;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       How it works
+|----------------------------------------------------------------------
+*/
+
+#how {
+	.content {
+		max-width: 66rem;
+		margin: 0 auto 4rem;
+	}
+	.image {
+		@include img();
+		min-height: 20rem;
+		background: $black;
+		margin: 0 auto;
+		box-shadow: none;
+		> img {
+			@include object(cover);
+			min-height: inherit;
+			opacity: 0.62;
+		}
+		.play_btn {
+			@include pseudo();
+			width: 8rem;
+			height: 8rem;
+			background: rgba($black, 0.1);
+			margin: auto;
+			padding: 0;
+			border: 0;
+			border-radius: 75%;
+			z-index: 2;
+			&:hover {
+				background: rgba($black, 0.3);
+			}
+		}
+	}
+	& + #works {
+		padding: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Blog
+|----------------------------------------------------------------------
+*/
+
+#news {
+	.main_row {
+		> .col1 {
+			width: 70%;
+		}
+		> .col2 {
+			width: 30%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.sub_row {
+		> .col {
+			width: 50%;
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+	.article_lst {
+		@include list();
+		> li {
+			display: block;
+			margin-bottom: 2rem;
+			&:nth-child(n + 7) {
+				display: none;
+			}
+		}
+	}
+	.article {
+		@include flex(null, null, row-reverse);
+		@include block();
+		padding: 2rem;
+		.ico {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			margin-left: 2rem;
+			border-radius: 1rem;
+			overflow: hidden;
+		}
+		.txt {
+			position: relative;
+			width: 100%;
+			h6 {
+				display: -webkit-box;
+				line-clamp: 2;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+		}
+		.date {
+			color: $bluish_gray;
+		}
+	}
+}
+
+.news_blk {
+	@include flex(null, null, column);
+	&.main {
+		flex-flow: row-reverse;
+		margin-bottom: 5rem;
+		@include ipad_sm {
+			flex-flow: column;
+		}
+		.image {
+			width: 50%;
+			min-width: 50%;
+			margin-left: 5rem;
+			@include ipad_sm {
+				width: 100%;
+				min-width: 100%;
+				margin: 0 0 2rem;
+			}
+			> a {
+				padding-bottom: 66%;
+			}
+		}
+		.txt {
+			padding: 0;
+		}
+	}
+	.image {
+		@include img();
+		> a {
+			position: relative;
+			display: block;
+			padding-bottom: 50%;
+			> img {
+				@include pseudo();
+				@include object(cover);
+			}
+		}
+	}
+	.txt {
+		padding: 2rem 0 0;
+		h4 {
+			display: -webkit-box;
+			line-clamp: 2;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+	.type {
+		color: $color;
+	}
+	.date {
+		color: $bluish_gray;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Careers
+|----------------------------------------------------------------------
+*/
+
+#careers {
+	.content,
+	.inside {
+		max-width: 80rem;
+		margin: 0 auto;
+	}
+}
+
+.job_blk {
+	position: relative;
+	display: flex;
+	@include block();
+	@include mobile_md {
+		flex-flow: column;
+		text-align: center;
+	}
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 2rem;
+	}
+	&:hover {
+		> .txt {
+			h4 {
+				color: $color;
+			}
+		}
+	}
+	> .txt {
+		flex: 1;
+		align-self: center;
+		margin-right: 2rem;
+		@include mobile_md {
+			margin: 0 0 1.5rem;
+		}
+		h4 {
+			margin-bottom: 0;
+			@include trans();
+		}
+	}
+	.site_btn {
+		position: static;
+		@include mobile_md {
+			width: 100%;
+		}
+		&:before {
+			content: "";
+			@include pseudo();
+			z-index: 1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Search
+|----------------------------------------------------------------------
+*/
+
+#search {
+	padding: 0;
+	.main_row {
+		width: auto;
+		flex-flow: nowrap;
+		margin: 0;
+		> .col {
+			padding: 0;
+		}
+		> .col1 {
+			width: 32rem;
+			min-width: 32rem;
+			@include ipad {
+				width: 0;
+				min-width: initial;
+				padding: 0;
+			}
+		}
+		> .col2 {
+			width: 100%;
+		}
+	}
+	.srch_row {
+		width: calc(100% + 2rem);
+		margin: -1rem;
+		> .col {
+			width: 50%;
+			padding: 1rem;
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	#filter_blk {
+		position: sticky;
+		top: 8rem;
+		display: flex;
+		min-height: 30rem;
+		max-height: calc(100vh - 8rem);
+		background: $white;
+		padding: 0;
+		margin-left: -1.5rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		> .scrollbar {
+			width: 100%;
+			padding: 2rem;
+			overflow: auto;
+			@include ipad {
+				overflow: initial;
+			}
+		}
+		@include ipad {
+			display: none;
+			position: fixed;
+			top: 8rem;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			max-height: none;
+			margin: 0;
+			border-radius: 0;
+			box-shadow: none;
+			overflow: hidden;
+			overflow-y: auto;
+			z-index: 20;
+		}
+		.btn_blk {
+			position: sticky;
+			left: 0;
+			right: 0;
+			bottom: -2rem;
+			background: $white;
+			padding: 2rem;
+			margin: 2rem -2rem -2rem;
+			z-index: 5;
+			@include ipad {
+				bottom: 0;
+				margin: 2rem -2rem -2rem;
+			}
+			> .site_btn {
+				flex: 1;
+			}
+		}
+		&.active {
+			display: block;
+		}
+		.cross_btn {
+			display: none;
+			@include ipad {
+				display: flex;
+			}
+		}
+	}
+	#srch_blk {
+		padding: 2rem;
+		margin-right: -1.5rem;
+		@include ipad {
+			padding: 2rem 0 0;
+			margin: 0;
+		}
+	}
+	#filter_btn_blk {
+		display: none;
+		position: sticky;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $light_white;
+		padding: 1.5rem;
+		margin: 0 -1.5rem -1.5rem;
+		z-index: 10;
+		@include ipad {
+			display: flex;
+		}
+	}
+}
+
+.filters {
+	.in_blk {
+		&:not(:nth-last-child(1)) {
+			margin-bottom: 2.5rem;
+		}
+	}
+	.ctg_lst {
+		position: relative;
+		@include list();
+		@include flex(null, null, wrap);
+		margin: -0.5rem -1rem;
+		> li {
+			width: 100%;
+			display: flex;
+			text-align: left;
+			padding: 0.5rem 1rem;
+			label {
+				@include flex(center, null, null);
+				gap: 0 1rem;
+				margin: 0;
+			}
+		}
+		&.more_lst {
+			max-height: 14rem;
+			@include trans();
+			overflow: hidden;
+			&.change {
+				max-height: 100%;
+				&:after {
+					height: 0;
+				}
+				& + .site_btn {
+					&::before {
+						content: attr(data-less);
+					}
+				}
+			}
+			&:after {
+				content: "";
+				@include pseudo();
+				top: initial;
+				height: 5rem;
+				background: linear-gradient(transparent, $white);
+				transition: inherit;
+			}
+			& + .site_btn {
+				margin-top: 1rem;
+				&::before {
+					content: attr(data-more);
+				}
+			}
+		}
+	}
+}
+
+.rating {
+	@include flex(flex-end, null, null);
+	font-size: 1.2rem;
+	line-height: 1;
+	> strong {
+		margin-left: 0.5rem;
+		> em {
+			margin-left: 0.5rem;
+			color: $bluish_gray;
+			font-weight: 400;
+			&:before {
+				content: "(";
+			}
+			&:after {
+				content: ")";
+			}
+		}
+	}
+}
+
+.srch_blk {
+	position: relative;
+	@include block();
+	padding: 0;
+	overflow: hidden;
+	&:hover {
+		> .txt {
+			h4 {
+				color: $color;
+			}
+		}
+	}
+	> a {
+		@include pseudo();
+		z-index: 3;
+	}
+	> .image {
+		@include bgImage(cover);
+		padding-bottom: 50%;
+		box-shadow: none;
+	}
+	> .txt {
+		padding: 2rem;
+		h4,
+		h5 {
+			margin-bottom: 0;
+			@include nowrap();
+			@include trans();
+		}
+		> .btm {
+			@include flex(center, space-between, null);
+			margin-bottom: 1rem;
+		}
+		.trip {
+			&::before {
+				content: "(";
+			}
+			&::after {
+				content: ")";
+			}
+		}
+		.price {
+			color: $bluish_gray;
+			font-size: 1.5rem;
+			> del {
+				color: $red;
+			}
+			> span {
+				color: $black;
+				font-weight: 600;
+				margin-left: 0.5rem;
+			}
+		}
+	}
+	.ico_btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		@include flex(null, null, column);
+		gap: 0.4rem 0;
+		@include trans();
+		z-index: 5;
+		> a {
+			position: relative;
+			@include flex(center, center, null);
+			width: 3rem;
+			min-width: 3rem;
+			height: 3rem;
+			background: $white;
+			border-radius: 75%;
+			box-shadow: $shadow2;
+			transition: none;
+			overflow: hidden;
+			&:hover {
+				@include trans();
+				&:before {
+					filter: none;
+				}
+			}
+			&:before {
+				content: "";
+				position: relative;
+				display: block;
+				width: 2.2rem;
+				min-width: 2.2rem;
+				height: 2.2rem;
+				@include bgImage(1.6rem);
+				filter: brightness(0) invert(0.5);
+				transition: inherit;
+				z-index: 1;
+			}
+			&.like_btn {
+				&:before {
+					background-image: url("../images/icon-heart.svg");
+				}
+				&.liked:before {
+					filter: none;
+				}
+			}
+			&.edit_btn {
+				&:before {
+					background-image: url("../images/icon-edit.svg");
+				}
+			}
+			&.del_btn {
+				&:before {
+					background-image: url("../images/icon-trash.svg");
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Detail
+|----------------------------------------------------------------------
+*/
+
+#detail {
+	padding-top: 0;
+	.main_row {
+		> .col1 {
+			width: 70%;
+		}
+		> .col2 {
+			width: 30%;
+			@include ipad_sm {
+				padding: 0;
+			}
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.head {
+		@include flex(null, space-between, null);
+		margin-bottom: 1rem;
+		@include mobile {
+			flex-flow: column;
+		}
+		h2 {
+			margin-bottom: 0;
+			margin-right: 2rem;
+			@include mobile {
+				margin: 0 0 1rem;
+			}
+		}
+		.verify {
+			@include flex(center, null, null);
+			white-space: nowrap;
+			> img {
+				width: 2rem;
+				min-width: 2rem;
+				height: 2rem;
+				margin-right: 0.5rem;
+			}
+			&:not(.checked) {
+				> img {
+					filter: brightness(0) invert(0.75);
+				}
+			}
+		}
+	}
+	.sub_heading {
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+	}
+	hr {
+		border-top: 0.2rem dashed $light_gray;
+	}
+	.icon_lst {
+		@include flex(null, null, wrap);
+		@include list();
+		width: calc(100% + 1.5rem);
+		margin: -1.5rem 0 0 -1.5rem;
+		> li {
+			@include flex(center, null, null);
+			width: 50%;
+			padding: 1.5rem 0 0 1.5rem;
+			@include mobile_sm {
+				width: 100%;
+			}
+			> img {
+				width: 2.2rem;
+				min-width: 2.2rem;
+				height: 2.2rem;
+				margin-right: 1.5rem;
+				// filter: brightness(0) invert(0.6);
+			}
+		}
+	}
+	.book_blk {
+		position: sticky;
+		top: 10rem;
+		@include ipad_sm {
+			@include fixed();
+			top: 8rem;
+			display: none;
+			border-radius: 0;
+			overflow: auto;
+			z-index: 15;
+		}
+		.cross_btn {
+			display: none;
+			@include ipad_sm {
+				display: flex;
+			}
+		}
+		&.active {
+			display: block;
+		}
+	}
+	#slick-detail {
+		margin-bottom: 4rem;
+		overflow: hidden;
+		.img_blk {
+			// height: 40rem;
+			> a {
+				// height: 100%;
+				@include img();
+				background: $white;
+				padding-bottom: 40%;
+				border-radius: 0;
+				@include mobile {
+					padding-bottom: 50%;
+				}
+				> img {
+					position: absolute;
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		&:hover {
+			.slick-prev {
+				left: 1rem;
+			}
+			.slick-next {
+				right: 1rem;
+			}
+		}
+		.slick-prev {
+			left: -6rem;
+		}
+		.slick-next {
+			right: -6rem;
+		}
+		.slick-dots {
+			position: absolute;
+			li {
+				&:not(.slick-active) {
+					button {
+						background: $white;
+					}
+				}
+			}
+		}
+	}
+	#book_btn_blk {
+		display: none;
+		position: sticky;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $light_white;
+		padding: 1.5rem;
+		margin: 1.5rem -1.5rem -1.5rem;
+		z-index: 10;
+		@include ipad {
+			display: flex;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Location
+|----------------------------------------------------------------------
+*/
+
+#location {
+	.flex_row {
+		@include mobile_md {
+			width: calc(100% + 1rem);
+			margin: -0.5rem;
+		}
+		> .col {
+			width: 25%;
+			@include ipad_sm {
+				width: 33.3334%;
+			}
+			@include mobile_md {
+				width: 50%;
+				padding: 0.5rem;
+			}
+		}
+	}
+	.city_blk {
+		position: relative;
+		background-color: $white;
+		@include bgImage(cover);
+		color: $white;
+		padding-bottom: 120%;
+		border-radius: 1.2rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		.txt {
+			@include pseudo();
+			top: initial;
+			background: linear-gradient(transparent, rgba($black, 0.85));
+			padding: 4rem 2rem 2rem;
+			z-index: 1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Review
+|----------------------------------------------------------------------
+*/
+
+.review {
+	@include flex(null, null, null);
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 0.1rem solid $light_gray;
+	}
+	.ico {
+		width: 5rem;
+		min-width: 5rem;
+		height: 5rem;
+		margin-right: 2rem;
+	}
+	.txt {
+		width: 100%;
+	}
+	.ico_txt {
+		width: 100%;
+		@include flex(null, null, null);
+		margin-bottom: 1rem;
+		@include mobile_sm {
+			flex-flow: column;
+		}
+		.title {
+			flex: 1;
+			margin-right: 1rem;
+			@include mobile_sm {
+				margin: 0 0 1rem;
+			}
+		}
+		h5 {
+			margin: 0 0 0.5rem;
+			@include mobile_sm {
+				margin: 0;
+			}
+		}
+		.date {
+			color: $bluish_gray;
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+	}
+	.review {
+		margin-top: 1.5rem;
+		.ico {
+			width: 3.2rem;
+			min-width: 3.2rem;
+			height: 3.2rem;
+		}
+	}
+	h6 {
+		margin: 0 0 0.4rem;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Payment
+|----------------------------------------------------------------------
+*/
+
+[data-payment="wallet"] {
+	// padding: 3rem;
+	border: 0.1rem solid $bluish_gray;
+	border-radius: 0.6rem;
+	> div {
+		padding: 2rem;
+	}
+	> .lbl_btn {
+		&:not(:nth-child(1)) {
+			border-top: 0.1rem solid;
+			border-color: inherit;
+		}
+		.icon {
+			width: auto;
+			max-width: 7rem;
+			height: 2.2rem;
+			margin-left: auto;
+			@include mobile_xs {
+				display: none;
+			}
+		}
+		&:nth-child(1) + .inside_blk {
+			display: block;
+		}
+	}
+	> .inside_blk {
+		padding-top: 0;
+		&:not(.active) {
+			display: none;
+		}
+	}
+	._list {
+		@include list();
+		li {
+			display: block;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 1rem;
+			}
+			> strong {
+				font-weight: 600;
+			}
+			> div {
+				display: flex;
+			}
+			.copy_btn {
+				width: 1.6rem;
+				min-width: 1.6rem;
+				height: 2rem;
+				background: transparent;
+				padding: 0;
+				border: 0;
+				// background-image: url("../images/copy.svg");
+				@include bgImage(contain);
+				margin-top: 0.2rem;
+				margin-left: 1rem;
+			}
+			.text_box {
+				margin-top: 1rem;
+			}
+		}
+	}
+	.file_blk {
+		@include flex(flex-end, null, null);
+		margin: 1rem 0 2rem;
+		> .ico {
+			width: 12rem;
+			height: 6rem;
+			border-radius: 0.6rem;
+			margin-right: 1.5rem;
+			box-shadow: $shadow;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Account
+|----------------------------------------------------------------------
+*/
+
+[data-page="account"] {
+	background: $light_white;
+	section {
+		padding-top: 3rem;
+	}
+	.pro_blk {
+		@include flex(center, null, null);
+		margin-bottom: 3rem;
+		@include mobile_md {
+			flex-direction: column;
+			text-align: center;
+		}
+		> .ico {
+			width: 7rem;
+			min-width: 7rem;
+			height: 7rem;
+			margin-right: 2rem;
+			@include mobile_md {
+				margin: 0 auto 1rem;
+			}
+			&.icon {
+				border-radius: 1rem;
+				background: rgba($color, 0.1);
+				box-shadow: none;
+				> img {
+					object-fit: contain;
+				}
+			}
+		}
+		.txt {
+			h2 {
+				margin-bottom: 0;
+				span {
+					font-weight: 400;
+				}
+			}
+		}
+	}
+	.tile_blk {
+		@include block();
+		@include flex(null, null, column);
+		width: 100%;
+		padding: 2rem;
+		.top {
+			@include flex(null, space-between, null);
+		}
+		.icon {
+			width: 5.6rem;
+			min-width: 5.6rem;
+			height: 5.6rem;
+			background: rgba($color, 0.1);
+			padding: 0.8rem;
+			margin-left: 1.5rem;
+			border-radius: 0.6rem;
+		}
+		.price {
+			font-size: 2.8rem;
+			font-weight: 700;
+			line-height: 1;
+			margin-top: 1rem;
+		}
+		.btm {
+			@include flex(null, space-between, null);
+			// font-size: 1.2rem;
+			padding-top: 1.5rem;
+			margin-top: 1.5rem;
+			border-top: 0.2rem solid $light_gray;
+			@include mobile_md {
+				flex-flow: column;
+			}
+		}
+		.switch_btn {
+			@include flex(center, null, null);
+			@include mobile_md {
+				justify-content: center;
+				margin-bottom: 1rem;
+			}
+			> .switch {
+				margin-right: 1rem;
+			}
+		}
+	}
+	.pay_blk {
+		@include flex(null, null, column);
+		@include block();
+		gap: 2rem 0;
+		.head {
+			margin-bottom: 1rem;
+		}
+		.icon {
+			width: auto;
+			max-width: 10rem;
+			height: 2.6rem;
+			> img {
+				object-position: top left;
+			}
+		}
+		.cvc {
+			font-weight: 500;
+		}
+		.date {
+			color: $bluish_gray;
+		}
+		.btm {
+			padding: 1.5rem 2.5rem;
+			margin: -2.5rem;
+			margin-top: 0;
+			border-top: 0.2rem solid $light_gray;
+			.action_btn {
+				margin-top: 0;
+			}
+		}
+	}
+	.action_btn {
+		@include flex(center, null, wrap);
+		@include list();
+		gap: 0.5rem 2rem;
+		margin-top: 1rem;
+		text-align: center;
+		> li {
+			flex: 1;
+			&:not(:nth-last-child(1)) {
+				border-right: 0.1rem solid $light_gray;
+			}
+			> a {
+				@include flex(center, center, null);
+				display: flex !important;
+				gap: 0 1rem;
+				font-weight: 500;
+				> img {
+					width: 1.4rem;
+					min-width: 1.4rem;
+					height: 1.4rem;
+				}
+			}
+		}
+	}
+	.status_btn {
+		display: inline-flex;
+		align-items: center;
+		height: 4rem;
+		gap: 0 0.5rem;
+		color: $white;
+		padding: 0 2rem;
+		border: 0;
+		border-radius: 0.6rem;
+		box-shadow: $shadow;
+	}
+}
+
+#account {
+	.card_row {
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.dp_blk {
+		@include flex(flex-end, null, null);
+		margin-bottom: 3rem;
+		@include mobile {
+			flex-flow: wrap;
+			justify-content: center;
+		}
+		.ico {
+			width: 15rem;
+			min-width: 15rem;
+			height: 15rem;
+			margin-right: 2rem;
+			@include mobile {
+				margin: 0 0 2rem;
+			}
+			@include mobile_md {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			&.icon {
+				border-radius: 1rem;
+				background: rgba($color, 0.1);
+				box-shadow: none;
+				> img {
+					object-fit: contain;
+				}
+			}
+		}
+		.txt {
+			@include mobile_md {
+				text-align: center;
+				.btn_blk {
+					justify-content: center;
+				}
+			}
+		}
+	}
+	.address_blk {
+		display: none;
+		&.show {
+			display: block;
+		}
+	}
+	.select_lst {
+		margin-bottom: 1rem;
+		@include mobile {
+			> li {
+				label {
+					> input {
+						@include pseudo();
+						width: 100%;
+						height: auto;
+						border-radius: inherit;
+						background: transparent !important;
+						z-index: 2;
+					}
+					> strong {
+						margin-left: 0;
+						@include mobile_sm {
+							display: none;
+						}
+					}
+					> .icon {
+						@include mobile_sm {
+							margin: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+	.irs_slider {
+		margin-top: -1.2rem;
+	}
+	#map-canvas {
+		@include mobile {
+			height: 30rem;
+		}
+	}
+}
+
+#trans {
+	.info_row,
+	.card_row {
+		width: calc(100% + 2rem);
+		margin: -1rem;
+		> .col {
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad_sm {
+				width: 50%;
+			}
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+}
+
+#notify {
+	.noti_blk {
+		padding: 0;
+		> .inner {
+			display: flex;
+			padding: 2.5rem;
+			&:not(:nth-last-child(1)) {
+				border-bottom: 0.1rem solid $light_gray;
+			}
+			.ico {
+				width: 4.2rem;
+				min-width: 4.2rem;
+				height: 4.2rem;
+				margin-right: 2rem;
+				overflow: hidden;
+			}
+			.txt {
+				@include flex(center, null, null);
+				flex: 1;
+				@include mobile {
+					display: block;
+				}
+				h6 {
+					margin-bottom: 0.5rem;
+				}
+			}
+			.cnt {
+				flex: 1;
+			}
+			.time {
+				opacity: 0.4;
+				white-space: nowrap;
+				@include mobile {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+}
+
+#vehicles {
+	.flex_row {
+		width: calc(100% + 2rem);
+		margin: -1rem;
+		> .col {
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad {
+				width: 50%;
+			}
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	.srch_blk {
+		&.pending {
+			> .image {
+				opacity: 0.4;
+				filter: grayscale(1);
+			}
+		}
+		.status {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+		}
+	}
+}
+
+#create {
+	.flex_row {
+		> .col1 {
+			width: 68%;
+		}
+		> .col2 {
+			width: 32%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		max-width: 70rem;
+		margin-bottom: 2rem;
+	}
+	form {
+		.subheading {
+			color: $color;
+		}
+		hr {
+			border-top: 0.2rem dashed $light_gray;
+		}
+	}
+	.feature_lst {
+		@include list();
+		width: calc(100% + 2rem);
+		margin: -1.5rem 0 0 -2rem;
+		> li {
+			@include flex(flex-start, null, null);
+			width: 33.3334%;
+			padding: 1.5rem 0 0 2rem;
+			@include mobile_md {
+				width: 50%;
+			}
+			padding: 1.5rem 0 0 2rem;
+			@include mobile_sm {
+				width: 100%;
+			}
+			> label {
+				@include flex(center, null, null);
+				margin: 0;
+				> input {
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+	.help_blk {
+		position: sticky;
+		top: 10rem;
+		overflow: hidden;
+		.image {
+			@include bgImage(cover);
+			padding-bottom: 60%;
+			margin: -2.5rem -2.5rem 2.5rem;
+		}
+	}
+}
+
+.uploader_blk {
+	position: relative;
+	height: auto;
+	padding: 2rem;
+	text-align: center;
+	border: 0.2rem dashed $light_gray;
+	cursor: pointer;
+	&:hover {
+		border-color: $color;
+	}
+	.icon {
+		max-width: 8rem;
+		margin: 0 auto 2rem;
+	}
+	.or {
+		color: $bluish_gray;
+		margin: 1rem 0;
+	}
+}
+
+#booking {
+	#map_blk {
+		position: relative;
+		height: 40rem;
+		border-radius: 1rem;
+		box-shadow: $shadow2;
+		overflow: hidden;
+		@include ipad_sm {
+			height: 30rem;
+		}
+		iframe {
+			@include pseudo();
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.job_tbl {
+	> table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0 1.5rem;
+		margin: -1.5rem 0;
+		@include ipad_sm {
+			display: block;
+			margin: 0;
+		}
+		> * {
+			@include ipad_sm {
+				display: block;
+			}
+		}
+		tr {
+			position: relative;
+			border-radius: 1rem;
+			z-index: 1;
+			@include ipad_sm {
+				@include flex(center, center, column);
+				text-align: center;
+				margin: 1.5rem 0;
+				padding: 1.5rem;
+			}
+			&::before {
+				content: "";
+				@include pseudo();
+				background: $white;
+				border: 0.2rem solid transparent;
+				border-radius: 1rem;
+				box-shadow: $shadow2;
+				@include trans();
+				z-index: -1;
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				display: none;
+				width: 1rem;
+				height: 1rem;
+				background: $color;
+				border-radius: 75%;
+				box-shadow: $shadow3;
+				z-index: 1;
+			}
+			&.tipi {
+				&::before {
+					border-color: rgba($color, 0.3);
+				}
+				&::after {
+					display: block;
+				}
+			}
+			&:hover {
+				&::before {
+					border-color: $color;
+				}
+			}
+			> * {
+				padding: 1.5rem;
+				@include trans();
+				@include ipad_sm {
+					padding: 0.5rem 0 !important;
+				}
+				&:nth-child(1) {
+					padding-left: 2rem;
+				}
+				&:nth-last-child(1) {
+					padding-right: 2rem;
+				}
+			}
+		}
+		.ico_blk {
+			@include flex(null, null, null);
+			@include ipad_sm {
+				@include flex(center, center, column);
+				text-align: center;
+			}
+			.icon {
+				width: 8rem;
+				min-width: 8rem;
+				height: 8rem;
+				background: $light_white;
+				border-radius: 1rem;
+				margin-right: 2rem;
+				box-shadow: none;
+				@include ipad_sm {
+					margin: 0 auto 1rem;
+				}
+				&.ico {
+					border-radius: 75%;
+					box-shadow: $shadow;
+				}
+			}
+			.head {
+				@include flex(flex-start, null, null);
+				margin-bottom: 1rem;
+				@include ipad_sm {
+					justify-content: center;
+				}
+				> h5 {
+					color: $color;
+					margin: 0;
+					margin-right: 1rem;
+				}
+			}
+			.txt {
+				align-self: center;
+				p {
+					span {
+						&:not(:nth-last-child(1)) {
+							&::after {
+								content: " • ";
+							}
+						}
+					}
+				}
+			}
+			.more_btn {
+				@include pseudo();
+				z-index: 2;
+			}
+		}
+		.date,
+		.price {
+			width: 1rem;
+			@include ipad_sm {
+				width: auto;
+			}
+			> span,
+			> strong {
+				display: block;
+				white-space: nowrap;
+			}
+		}
+		.price {
+			color: $color;
+			font-size: 2rem;
+			font-weight: 600;
+			white-space: nowrap;
+		}
+		.status {
+			text-align: center;
+		}
+	}
+}
+
+#checkout {
+	.flex_row {
+		> .col1 {
+			width: 55%;
+		}
+		> .col2 {
+			width: 45%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.subheading {
+		color: $color;
+		margin-bottom: 1rem;
+	}
+	.srch_blk {
+		@include flex(null, null, null);
+		margin-bottom: 2rem;
+		> .image {
+			width: 12rem;
+			min-width: 12rem;
+			padding-bottom: 0;
+			@include mobile_sm {
+				width: 8rem;
+				min-width: 8rem;
+			}
+		}
+		> .txt {
+			flex: 1;
+			align-self: center;
+			overflow: hidden;
+		}
+	}
+	hr {
+		border-top: 0.2rem dashed $light_gray;
+	}
+	[data-popup="contract"] {
+		.inner_blk {
+			max-height: 80vh;
+			padding-right: 2rem;
+			margin-right: -2rem;
+			overflow: auto;
+		}
+		#signature {
+			@include flex(center, center, null);
+			height: 10rem;
+			border: 0.1rem solid $bluish_gray;
+			border-radius: 1rem;
+			canvas {
+				display: block;
+				max-width: 100% !important;
+			}
+		}
+	}
+}
+
+.order_blk {
+	@include flex(null, null, null);
+	@include mobile_md {
+		position: relative;
+		display: block;
+	}
+	.ico {
+		width: 8rem;
+		min-width: 8rem;
+		height: 8rem;
+		margin-right: 2rem;
+		border-radius: 1rem;
+		@include mobile_md {
+			margin: 0 0 1.5rem;
+		}
+	}
+	.top_head {
+		@include mobile_md {
+			margin-bottom: 0;
+		}
+	}
+	.txt {
+		flex: 1;
+		@include mobile_md {
+			.status_btn_blk {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+		h4 {
+			span {
+				color: $color;
+			}
+		}
+		.list {
+			@include list();
+			> li {
+				@include flex(flex-start, null, null);
+				@include mobile {
+					display: block;
+				}
+				&:not(:nth-last-child(1)) {
+					margin-bottom: 1rem;
+				}
+				> strong {
+					width: 20rem;
+					min-width: 20rem;
+					font-weight: 500;
+					margin-right: 2rem;
+					@include mobile {
+						display: block;
+						width: auto;
+						min-width: initial;
+						margin: 0 0 0.2rem;
+					}
+				}
+				> span {
+					flex: 1;
+					color: $bluish_gray;
+				}
+			}
+		}
+	}
+}
+
+#maintenance {
+	.tbl_blk {
+		table {
+			tr {
+				@include trans();
+				&:hover {
+					background: $light_white;
+				}
+			}
+		}
+		.ico {
+			width: 6rem;
+			min-width: 6rem;
+			height: 4rem;
+			border-radius: 1rem;
+		}
+	}
+}

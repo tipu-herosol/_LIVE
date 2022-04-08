@@ -1,0 +1,1272 @@
+/*
+|----------------------------------------------------------------------
+|       Layer
+|----------------------------------------------------------------------
+*/
+
+#layer {
+	background: $light_white;
+	padding: 4rem 0;
+	.heading {
+		margin-bottom: 0;
+	}
+	& + section {
+		padding-top: 0;
+		&:before {
+			content: "";
+			@include pseudo();
+			bottom: initial;
+			height: 10rem;
+			background: $light_white;
+			z-index: -1;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       About us
+|----------------------------------------------------------------------
+*/
+
+[about] {
+	#about {
+		.vidBlk {
+			margin-bottom: 5rem;
+		}
+	}
+	#blocks {
+		background: $light_white;
+		.flexRow {
+			> .col {
+				width: 50%;
+				@include ipad_sm {
+					width: 100%;
+				}
+			}
+		}
+	}
+	#why {
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_left.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.flexRow {
+			> .col {
+				width: 50%;
+				@include ipad_sm {
+					width: 100%;
+				}
+			}
+		}
+		.content {
+			margin-top: 8rem;
+			@include ipad_sm {
+				margin-top: 2rem;
+			}
+		}
+		.image {
+			@include flex(null, null, null);
+			max-width: 40rem;
+			margin: 0 auto;
+			.fig {
+				position: relative;
+				width: 100%;
+				&:nth-child(1) {
+					figure {
+						margin-right: -50%;
+					}
+				}
+				&:nth-child(2) {
+					figure {
+						margin-top: 75%;
+						margin-left: -50%;
+					}
+				}
+			}
+			figure {
+				position: relative;
+				padding-bottom: 140%;
+				border: 0.7rem solid $white;
+				border-radius: 2rem;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Our Team
+|----------------------------------------------------------------------
+*/
+
+[team] {
+	#team {
+		.imgBlk {
+			margin-bottom: 5rem;
+			&:before {
+				display: none;
+			}
+		}
+	}
+	#member {
+		background: $light_white;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_left.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.flexRow {
+			margin: -1rem;
+			> .col {
+				width: 25%;
+				padding: 1rem;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_sm {
+					width: 100%;
+				}
+			}
+		}
+		.content {
+			margin-bottom: 3rem;
+		}
+	}
+	#founder {
+		.flexRow {
+			margin: -1rem;
+			> .col {
+				width: 25%;
+				padding: 1rem;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_sm {
+					width: 100%;
+				}
+			}
+		}
+		hr {
+			margin: 4rem 0 2rem;
+		}
+	}
+	.teamBlk {
+		@include block();
+		padding: 2rem;
+		.image {
+			position: relative;
+			padding-bottom: 100%;
+			margin-bottom: 1.5rem;
+			border-radius: 0.6rem;
+			overflow: hidden;
+			> img {
+				@include pseudo();
+				@include object(cover);
+			}
+		}
+		.txt {
+			@include mobile_md {
+				text-align: center;
+			}
+			h5 {
+				margin-bottom: 0;
+			}
+		}
+		.socialLnk {
+			margin: -0.3rem;
+			@include mobile_md {
+				justify-content: center;
+			}
+			> li {
+				padding: 0.3rem;
+				> a {
+					display: block;
+					width: 3.6rem;
+					min-width: 3.6rem;
+					height: 3.6rem;
+					background: rgba($color, 0.1);
+					padding: 1rem;
+					&:hover {
+						background: rgba($color, 0.3);
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Careers
+|----------------------------------------------------------------------
+*/
+
+[careers] {
+	#careers {
+		.vidBlk {
+			margin-bottom: 5rem;
+		}
+	}
+	#join {
+		background: $light_white;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.flexRow {
+			margin: -1rem;
+			> .col {
+				width: 25%;
+				padding: 1rem;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_sm {
+					width: 100%;
+				}
+			}
+		}
+		.content {
+			margin-bottom: 3rem;
+		}
+		.jobBlk {
+			@include block();
+			@include ipad_sm {
+				display: flex;
+			}
+			.icon {
+				width: 6rem;
+				min-width: 6rem;
+				height: 6rem;
+				background: rgba($color, 0.1);
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-radius: 0.6rem;
+				@include ipad_sm {
+					margin: 0;
+					margin-right: 1.5rem;
+				}
+			}
+			.txt {
+				@include ipad_sm {
+					align-self: center;
+				}
+				h5 {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Impact
+|----------------------------------------------------------------------
+*/
+
+[impact] {
+	#impact {
+		.vidBlk {
+			margin-bottom: 5rem;
+		}
+	}
+	#stories {
+		background: $light_white;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.flexRow {
+			> .col {
+				width: 33.3334%;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_sm {
+					width: 100%;
+				}
+			}
+		}
+		.content {
+			max-width: 80rem;
+			margin-bottom: 3rem;
+		}
+		.projBlk {
+			.fig {
+				.playBlk {
+					@include pseudo();
+					margin: auto;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Media
+|----------------------------------------------------------------------
+*/
+
+[media] {
+	#media {
+		.imgBlk {
+			margin-bottom: 5rem;
+			&:before {
+				display: none;
+			}
+		}
+	}
+	#results {
+		background: $light_white;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.awardRow {
+			margin: -1rem;
+			> .col {
+				width: 50%;
+				padding: 1rem;
+				@include ipad_sm {
+					width: 100%;
+				}
+			}
+		}
+		.photoRow {
+			margin: -0.7rem;
+			> .col {
+				width: 25%;
+				padding: 0.7rem;
+				@include ipad_sm {
+					width: 33.3334%;
+				}
+				@include mobile_md {
+					width: 50%;
+				}
+			}
+		}
+		.videoRow {
+			margin: -1rem;
+			> .col {
+				width: 33.3334%;
+				padding: 1rem;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_sm {
+					width: 100%;
+				}
+			}
+		}
+		.content {
+			margin-bottom: 3rem;
+		}
+		.tabLst {
+			justify-content: center;
+		}
+		.awardBlk {
+			@include flex(null, null, null);
+			@include block();
+			padding: 2rem;
+			@include mobile_sm {
+				display: block;
+			}
+			.ico {
+				width: 16rem;
+				min-width: 16rem;
+				height: 16rem;
+				margin-right: 2rem;
+				border-radius: 0.6rem;
+				box-shadow: none;
+				@include mobile_sm {
+					margin: 0 auto 2rem;
+				}
+			}
+		}
+		.projBlk {
+			padding: 1.5rem;
+			.fig {
+				border-radius: 0.6rem;
+				.playBlk {
+					@include pseudo();
+					margin: auto;
+				}
+			}
+			.txt {
+				padding: 2rem 0 0;
+			}
+		}
+	}
+	[gallery] {
+		.image {
+			cursor: pointer;
+			box-shadow: $shadow;
+		}
+	}
+}
+
+.lg-outer {
+	#lg-share,
+	.lg-autoplay-button {
+		display: none !important;
+	}
+	.lg-thumb-item.active,
+	.lg-thumb-item:hover {
+		border-color: $color !important;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Projects
+|----------------------------------------------------------------------
+*/
+
+[projects] {
+	#projects {
+		padding-top: 6rem !important;
+		&:before {
+			display: none;
+		}
+		.flexRow {
+			> .col {
+				width: 33.3334%;
+				@include ipad_sm {
+					width: 50%;
+				}
+				@include mobile_md {
+					width: 100%;
+				}
+			}
+		}
+	}
+	#detail {
+		.dataBtn {
+			display: none;
+			@include pseudo();
+			position: sticky;
+			top: initial;
+			background: $white;
+			padding: 1rem;
+			margin: 2rem -1.5rem 0;
+			z-index: 10;
+			@include ipad_sm {
+				display: flex;
+			}
+		}
+		.flexRow {
+			> .col1 {
+				width: 65%;
+			}
+			> .col2 {
+				width: 35%;
+				@include ipad_sm {
+					display: none;
+					@include pseudo();
+					position: fixed;
+					top: 8rem;
+					background: $white;
+					overflow: auto;
+					z-index: 12;
+					&.active {
+						display: block;
+					}
+				}
+			}
+			@include ipad_sm {
+				> .col {
+					width: 100%;
+				}
+			}
+		}
+		.sideBlk {
+			position: sticky;
+			top: 10rem;
+			@include ipad_sm {
+				position: relative;
+				top: 0;
+			}
+			.crosBtn {
+				display: none;
+				top: -0.5rem;
+				right: -0.5rem;
+				width: 3.2rem;
+				height: 3.2rem;
+				background: $black;
+				color: $white;
+				font-size: 1.4rem;
+				border-radius: 75%;
+				@include ipad_sm {
+					display: flex;
+				}
+			}
+			.price {
+				font-size: 2rem;
+				font-family: $medium;
+				> small {
+					color: $bluish_gray;
+					font-size: 1.2rem;
+					font-family: $regular;
+				}
+			}
+			.prog {
+				margin: 1.5rem 0;
+			}
+			.numLst {
+				margin: -1.5rem 0;
+				> li {
+					width: 33.3334%;
+					padding: 1.5rem 0;
+					padding-right: 1rem;
+					border-bottom: 0.1rem solid $light_gray;
+					@include mobile_sm {
+						width: 50%;
+					}
+					&:nth-last-child(1) {
+						width: 100%;
+					}
+				}
+				.cnt {
+					font-size: 1.6rem;
+					font-family: $medium;
+					line-height: 1.2;
+					> small {
+						display: block;
+						color: $bluish_gray;
+						font-size: 1.2rem;
+						font-family: $regular;
+					}
+				}
+			}
+			.smBtn {
+				@include flex(null, space-between, null);
+				margin-bottom: 1.5rem;
+				button {
+					display: inline-flex;
+					align-items: center;
+					background: transparent;
+					padding: 0;
+					border: 0;
+					> figure {
+						width: 3rem;
+						min-width: 3rem;
+						height: 3rem;
+						background: rgba($color, 0.1);
+						padding: 0.7rem;
+						margin-right: 1rem;
+						border-radius: 75%;
+					}
+				}
+			}
+			.bTn {
+				.webBtn {
+					flex: 1;
+					@include mobile_sm {
+						flex: none;
+						width: 100%;
+					}
+				}
+			}
+		}
+		.donorBlk {
+			@include flex(null, null, null);
+			margin-top: 1.5rem;
+			> .ico {
+				width: 4.6rem;
+				min-width: 4.6rem;
+				height: 4.6rem;
+				margin-right: 1.5rem;
+				box-shadow: none;
+			}
+			.name {
+				font-family: $medium;
+			}
+			.small {
+				> em {
+					color: $color;
+					margin: 0 0.5rem;
+				}
+				> a {
+					text-decoration: underline;
+				}
+			}
+		}
+		.locateBtn {
+			display: flex;
+			align-items: center;
+			margin: 2rem 0;
+			padding-bottom: 1.5rem;
+			border-bottom: 0.1rem solid $light_gray;
+			> .icon {
+				width: 3.6rem;
+				min-width: 3.6rem;
+				height: 3.6rem;
+				background: rgba($color, 0.1);
+				padding: 1rem;
+				margin-right: 1rem;
+				border-radius: 75%;
+			}
+		}
+		.smTag {
+			align-items: center;
+			padding-bottom: 2rem;
+			border-bottom: 0.1rem solid $light_gray;
+			> li {
+				display: inline-flex;
+				align-items: center;
+				@include mobile_sm {
+					width: 100%;
+				}
+				&:not(:nth-last-child(1)) {
+					margin-right: 2rem;
+					padding-right: 2rem;
+					border-right: 0.1rem solid $light_gray;
+					@include mobile_sm {
+						padding: 0;
+						margin: 0 0 1rem;
+						border: 0;
+					}
+				}
+				> img {
+					width: 2rem;
+					min-width: 2rem;
+					height: 2rem;
+					margin-right: 1rem;
+					filter: grayscale(1);
+				}
+			}
+		}
+		.tabList {
+			margin: 2rem 0 3rem;
+			> li {
+				&:not(:nth-last-child(1)) {
+					padding-right: 3rem;
+				}
+				> a {
+					font-family: $medium;
+					text-transform: uppercase;
+					padding-bottom: 0.5rem;
+					border-bottom: 0.2rem solid transparent;
+				}
+				&.active {
+					> a {
+						border-bottom-color: $color;
+					}
+				}
+			}
+		}
+		.review {
+			.txt {
+				h5 {
+					font-family: $medium;
+				}
+			}
+		}
+		.donorOuter {
+			max-height: 30rem;
+			padding-right: 2rem;
+			margin-right: -2rem;
+			overflow: auto;
+			.donorBlk {
+				margin: 0;
+				&:not(:nth-last-child(1)) {
+					margin-bottom: 1.5rem;
+					padding-bottom: 1.5rem;
+					border-bottom: 0.1rem solid $light_gray;
+				}
+			}
+		}
+		.socialLst {
+			margin: -3rem 0 0 -3rem;
+			width: calc(100% + 3rem);
+			> li {
+				padding: 3rem 0 0 3rem;
+				> a {
+					display: block;
+					.icon {
+						width: 4rem;
+						min-width: 4rem;
+						height: 4rem;
+						background: rgba($color, 0.1);
+						margin: 0 auto 0.5rem;
+						padding: 1rem;
+						@include trans();
+					}
+					&:hover {
+						.icon {
+							background: rgba($color, 0.3);
+						}
+					}
+				}
+			}
+		}
+	}
+	#owl-gallery {
+		.vidBlk {
+			padding-bottom: 50%;
+			@include mobile {
+				padding-bottom: 60%;
+			}
+		}
+	}
+	#owl-thumbs {
+		margin-top: 2rem;
+		.icon {
+			width: 8rem;
+			height: 5.4rem;
+			border-radius: 0.4rem;
+			overflow: hidden;
+			> img {
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Contact
+|----------------------------------------------------------------------
+*/
+
+[contact] {
+	#contact {
+		overflow: hidden;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		#googleMap {
+			margin-bottom: 5rem;
+		}
+		.mainRow {
+			margin: -1.5rem -2.5rem;
+			> .col {
+				padding: 1.5rem 2.5rem;
+			}
+			> .col1 {
+				width: 35%;
+			}
+			> .col2 {
+				width: 65%;
+			}
+			@include ipad_sm {
+				> .col {
+					width: 100%;
+				}
+			}
+		}
+		.cardRow {
+			margin: -1rem;
+			> .col {
+				width: 100%;
+				padding: 1rem;
+			}
+		}
+		.content {
+			max-width: 62rem;
+			margin-bottom: 3rem;
+		}
+		.cardBlk {
+			@include flex(null, null, null);
+			@include block();
+			.icon {
+				width: 6rem;
+				min-width: 6rem;
+				height: 6rem;
+				background: rgba($color, 0.1);
+				padding: 1.5rem;
+				margin-right: 2rem;
+				border-radius: 0.6rem;
+			}
+			.txt {
+				flex: 1;
+				align-self: center;
+				h5 {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
+}
+
+#googleMap {
+	position: relative;
+	width: 100%;
+	height: 44rem;
+	border-radius: 1rem;
+	background: $white;
+	box-shadow: $shadow;
+	overflow: hidden;
+	z-index: 4;
+	iframe {
+		@include pseudo();
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+[faq] {
+	#faq {
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.imgBlk {
+			margin-bottom: 5rem;
+			&:before {
+				display: none;
+			}
+		}
+		.faqBox {
+			max-width: 80rem;
+			margin: 0 auto;
+		}
+	}
+	#touch {
+		@include bgImage(cover);
+		&:before {
+			@include overlay($black, 0.7);
+		}
+		.contain {
+			z-index: 3;
+		}
+		.flexRow {
+			align-items: center;
+			> .col {
+				width: 50%;
+				@include ipad_sm {
+					width: 100%;
+				}
+			}
+		}
+		h1,
+		h6 {
+			color: $white;
+		}
+		@include mobile_sm {
+			form {
+				.webBtn {
+					width: 100%;
+				}
+			}
+		}
+		.image {
+			@include flex(null, null, null);
+			max-width: 40rem;
+			margin: 0 auto;
+			.fig {
+				position: relative;
+				width: 100%;
+				&:nth-child(1) {
+					figure {
+						margin-right: -50%;
+						border: 0;
+					}
+				}
+				&:nth-child(2) {
+					figure {
+						margin-top: 75%;
+						margin-left: -50%;
+					}
+				}
+			}
+			figure {
+				position: relative;
+				padding-bottom: 140%;
+				border: 0.7rem solid $white;
+				border-radius: 2rem;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+	}
+}
+
+.faqLst {
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 4rem;
+	}
+	> .faqBlk {
+		position: relative;
+		padding: 2rem;
+		margin-bottom: 1.5rem;
+		border-radius: 0.6rem;
+		border: 0.1rem solid $light_gray;
+		box-shadow: none;
+		@include trans();
+		&:nth-child(1) {
+			.txt {
+				display: block;
+			}
+		}
+		&:nth-last-child(1) {
+			margin-bottom: 0;
+		}
+		&.active {
+			h5 {
+				color: $color;
+				&:after {
+					transform: rotateX(180deg);
+				}
+			}
+		}
+		h5 {
+			position: relative;
+			font-family: $medium;
+			padding: 0 2rem 0 0;
+			margin: 0;
+			cursor: pointer;
+			@include trans();
+			z-index: 2;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0.6rem;
+				right: 0;
+				@include chev();
+				width: 1rem;
+				height: 1rem;
+			}
+			&:hover {
+				color: $color;
+			}
+		}
+		.txt {
+			display: none;
+			padding: 1rem 0 0;
+		}
+	}
+}
+
+/*_____ review _____*/
+
+.review {
+	@include flex(null, null, null);
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 0.1rem solid $light_gray;
+	}
+	.ico {
+		width: 5rem;
+		min-width: 5rem;
+		height: 5rem;
+		margin-right: 2rem;
+	}
+	.txt {
+		width: 100%;
+	}
+	.icoTxt {
+		width: 100%;
+		@include flex(null, null, null);
+		margin-bottom: 1rem;
+		@include mobile_sm {
+			flex-flow: column;
+		}
+		.title {
+			flex: 1;
+			margin-right: 1rem;
+			@include mobile_sm {
+				margin: 0 0 1rem;
+			}
+		}
+		h5 {
+			margin: 0 0 0.5rem;
+			@include mobile_sm {
+				margin: 0;
+			}
+		}
+		.date {
+			color: $bluish_gray;
+			font-family: $medium;
+		}
+	}
+	.review {
+		margin-top: 1.5rem;
+		.ico {
+			width: 3.2rem;
+			min-width: 3.2rem;
+			height: 3.2rem;
+		}
+	}
+	h6 {
+		margin: 0 0 0.4rem;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Project Track
+|----------------------------------------------------------------------
+*/
+
+[track] {
+	#track {
+		.imgBlk {
+			&:before {
+				display: none;
+			}
+		}
+	}
+	#road {
+		padding-top: 0;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 20rem;
+			height: 20rem;
+			background-image: url("../images/sm_logo_right.svg");
+			@include bgImage(contain);
+			opacity: 0.05;
+			z-index: 1;
+		}
+		.contain {
+			z-index: 3;
+		}
+		.roadmap {
+			max-width: 80rem;
+			margin: 0 auto;
+			.roadBlk {
+				position: relative;
+				@include flex(center, null, null);
+				gap: 0 8rem;
+				@include mobile {
+					flex-flow: wrap !important;
+					padding-left: 6rem;
+					&:not(:nth-last-child(1)) {
+						padding-bottom: 4rem;
+					}
+				}
+				&:nth-child(odd) {
+					flex-flow: row;
+					.date {
+						text-align: right;
+					}
+					.blk {
+						&:after {
+							left: -1rem;
+							border-right: 1rem solid $white;
+						}
+					}
+				}
+				&:nth-child(even) {
+					flex-flow: row-reverse;
+					.date {
+						text-align: left;
+					}
+					.blk {
+						&:after {
+							right: -1rem;
+							border-left: 1rem solid $white;
+						}
+					}
+				}
+				&:before {
+					content: "";
+					@include pseudo();
+					width: 0.4rem;
+					background: $light_gray;
+					margin: auto;
+					@include mobile {
+						right: initial;
+						margin-left: 2rem;
+						transform: translateX(-50%);
+					}
+				}
+				&.active {
+					&:before {
+						background: $color;
+					}
+				}
+				&:nth-child(1) {
+					&:before {
+						top: 50%;
+					}
+				}
+				&:nth-last-child(1) {
+					&:before {
+						bottom: 50%;
+					}
+				}
+				> div {
+					width: 50%;
+					@include mobile {
+						width: 100%;
+					}
+				}
+				.icon {
+					position: absolute;
+					left: 0;
+					right: 0;
+					flex: none;
+					width: 4rem;
+					min-width: 4rem;
+					height: 4rem;
+					background: $bluish_gray;
+					padding: 1rem;
+					margin: auto;
+					border-radius: 75%;
+					@include mobile {
+						right: initial;
+					}
+					> img {
+						filter: brightness(0) invert(1);
+					}
+				}
+				&.active {
+					.icon {
+						background: $color;
+					}
+				}
+				.blk {
+					padding: 2rem;
+					&:after {
+						content: "";
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						display: block;
+						width: 1rem;
+						height: 1rem;
+						margin: auto;
+						border-top: 1rem solid transparent;
+						border-bottom: 1rem solid transparent;
+						@include mobile {
+							top: -3rem;
+							left: -1rem;
+							right: initial !important;
+							border-left: 0 !important;
+							border-right: 1rem solid $white;
+						}
+					}
+					.image {
+						margin-bottom: 1.5em;
+					}
+				}
+				.date {
+					font-family: $medium;
+					@include mobile {
+						text-align: left !important;
+						margin-bottom: 1rem;
+					}
+				}
+				&.active {
+					.date {
+						color: $color;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Terms
+|----------------------------------------------------------------------
+*/
+
+[terms] {
+	#terms {
+		.blk {
+			max-width: 100rem;
+			margin: 0 auto;
+		}
+	}
+}

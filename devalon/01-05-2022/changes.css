@@ -1,0 +1,46 @@
+#folio #slick-folio {
+	position: relative;
+}
+
+#folio #slick-folio .slick-arrow {
+	bottom: -30px;
+}
+
+#folio #slick-folio .slick-dots {
+	left: 15px;
+}
+
+#folio #slick-folio .slick-prev {
+	left: 0;
+}
+
+#folio #slick-folio .slick-next {
+	left: 98px;
+}
+
+#folio #slick-folio:after,
+#folio #slick-folio:before {
+	opacity: 1;
+}
+
+#folio .head .rating > div * {
+	line-height: 1;
+	font-size: 18px !important;
+}
+
+[prog] .remote .content .priceBlk small {
+	color: #000;
+}
+
+#business .content .bTn {
+	margin-top: 10px;
+}
+
+.rating strong {
+	display: inline-flex;
+}
+
+.rating strong::before,
+.rating strong::after {
+	display: block;
+}

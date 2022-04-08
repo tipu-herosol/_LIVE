@@ -1,0 +1,702 @@
+/*
+|----------------------------------------------------------------------
+|       Header
+|----------------------------------------------------------------------
+*/
+
+header {
+	@include pseudo();
+	top: 2rem;
+	bottom: initial;
+	height: 8rem;
+	z-index: 30;
+	@include ipad_sm {
+		position: fixed;
+		top: 0;
+		background: #000;
+	}
+	.logo {
+		float: left;
+		@include flex(center, null, null);
+		height: 8rem;
+		@include ipad_sm {
+			@include pseudo();
+			float: none;
+			margin: auto;
+		}
+		@include mobile_xx {
+			width: 12rem;
+		}
+		> a {
+			height: 100%;
+			> img {
+				display: block;
+				width: auto;
+				max-width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: left center;
+				transition: inherit;
+			}
+		}
+	}
+	.toggle {
+		@include ipad_sm {
+			display: flex;
+		}
+	}
+}
+
+.logo {
+	max-width: 12rem;
+	> a {
+		display: block;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Navigation
+|----------------------------------------------------------------------
+*/
+
+nav {
+	@include flex(center, flex-end, null);
+	height: 8rem;
+	margin-left: 16rem;
+	@include ipad_sm {
+		margin: 0;
+	}
+	#icon_btn {
+		@include flex(center, null, null);
+		@include list();
+		margin: 0 -2rem;
+		margin-left: 2rem;
+		li {
+			padding: 0 2rem;
+			&#noti {
+				img {
+					animation: ring 4s 0.7s ease-in-out infinite;
+				}
+			}
+			> a,
+			> button {
+				position: relative;
+				display: flex !important;
+				width: 2.2rem;
+				height: 2.2rem;
+				background: transparent;
+				padding: 0;
+				border: 0;
+				> img {
+					transition: inherit;
+				}
+				> span {
+					position: absolute;
+					top: -0.7rem;
+					right: -0.5rem;
+					@include flex(center, center, null);
+					width: 1.6rem;
+					height: 1.6rem;
+					background: $color;
+					color: $white;
+					font-size: 60%;
+					font-weight: 600;
+					border-radius: 75%;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}
+
+#nav {
+	@include flex(null, flex-end, null);
+	flex: 1;
+	@include trans();
+	@include ipad_sm {
+		@include fixed();
+		top: 8rem;
+		@include flex(null, null, wrap);
+		align-content: space-between;
+		width: auto;
+		background: $black;
+		margin: 0;
+		padding: 2rem 5rem;
+		border-top: 0.2rem solid rgba($white, 0.2);
+		opacity: 0;
+		visibility: hidden;
+		overflow: auto;
+		z-index: 3;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	> ul {
+		@include flex(center, center, null);
+		@include list();
+		margin: 0 -2rem;
+		@include ipad_sm {
+			width: 100%;
+			flex-flow: wrap;
+			margin: 0;
+		}
+		> li {
+			position: relative;
+			padding: 0 2rem;
+			@include ipad_sm {
+				width: 100%;
+				padding: 0;
+				text-align: center;
+				.site_btn {
+					margin-top: 0.5rem;
+				}
+			}
+			> a {
+				font-size: 1.6rem;
+				font-weight: 500;
+				&.site_btn {
+					color: $white;
+					&:not(:hover) {
+						border-color: $white;
+					}
+					> img {
+						height: 2.6rem;
+					}
+				}
+			}
+			> a:not(.site_btn) {
+				@include flex(center, center, null);
+				display: inline-flex;
+				height: 4rem;
+				color: $white;
+				text-align: center;
+			}
+			> a:not(.site_btn):hover,
+			&.active > a:not(.site_btn) {
+				color: $color;
+			}
+			&.active > a {
+				font-weight: 700;
+			}
+		}
+	}
+	> #cta {
+		margin-left: 2rem;
+		@include ipad_sm {
+			margin: auto 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Footer
+|----------------------------------------------------------------------
+*/
+
+footer {
+	position: relative;
+	background: #000;
+	color: $white;
+	padding: 8rem 0;
+	overflow: hidden;
+	.contain {
+		z-index: 3;
+	}
+	.logo {
+		margin: auto;
+	}
+	a {
+		color: inherit;
+		&:hover {
+			color: $color;
+		}
+	}
+	.social_links {
+		margin: 3rem -1.6rem;
+		justify-content: center;
+		> li {
+			padding: 1.6rem;
+			@include mobile_sm {
+				padding: 1rem;
+			}
+			> a {
+				height: 2.6rem;
+				background: transparent !important;
+				padding: 0;
+				border-radius: 0;
+				&:hover {
+					opacity: 0.7;
+				}
+				> img {
+					@include object(contain);
+				}
+			}
+		}
+	}
+}
+
+.social_links {
+	@include flex(null, null, wrap);
+	@include list();
+	gap: 0.5rem;
+	li {
+		a {
+			@include flex(center, center, null);
+			display: flex !important;
+			width: 3.6rem;
+			min-width: 3.6rem;
+			height: 3.6rem;
+			background: $color;
+			padding: 1rem;
+			border-radius: 75%;
+			&:hover {
+				background: $blackish;
+			}
+			img {
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Banner
+|----------------------------------------------------------------------
+*/
+
+#banner {
+	min-height: 54rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: -8rem;
+	// padding-top: 8rem * 2;
+	.contain {
+		z-index: 3;
+	}
+	.flex_row {
+		align-items: center;
+		> .col1 {
+			width: 44%;
+		}
+		> .col2 {
+			width: 56%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		max-width: 66rem;
+		color: $white;
+		margin: 0 auto;
+		@include ipad_sm {
+			margin-top: 6rem;
+		}
+		h1 {
+			font-size: 6.6rem;
+			font-weight: 700;
+			margin-bottom: 12rem;
+			line-height: 1.1;
+			text-shadow: 0.5rem 0.5rem 0.5rem rgba($black, 0.4);
+			@include ipad_sm {
+				font-size: 4.6rem;
+				margin-bottom: 3rem;
+			}
+			> span {
+				color: #bb0000;
+			}
+		}
+		.btn_blk {
+			@include mobile_sm {
+				.site_btn {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.fig {
+		position: absolute;
+		left: 0;
+		bottom: 4rem;
+		width: 100%;
+		max-width: 40rem;
+		@include ipad_sm {
+			display: none;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Intro
+|----------------------------------------------------------------------
+*/
+
+#intro {
+	padding-top: 0;
+	.flex_row {
+		align-items: center;
+		> .col1 {
+			width: 42%;
+		}
+		> .col2 {
+			width: 58%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+	.image {
+		border-radius: 0 2.5rem;
+		overflow: hidden;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Gallery
+|----------------------------------------------------------------------
+*/
+
+#gallery {
+	.content {
+		margin-bottom: 4rem;
+	}
+	.gallery_lst {
+		@include list();
+		margin: -1rem;
+		justify-content: center;
+		> li {
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad_sm {
+				width: 50%;
+			}
+			@include mobile_md {
+				width: 100%;
+			}
+			> a {
+				position: relative;
+				display: block;
+				padding-bottom: 100%;
+				border-radius: 0 2.5rem;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+	}
+	.btn_blk {
+		margin-top: 5rem;
+		.site_btn {
+			min-width: 24rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Merch
+|----------------------------------------------------------------------
+*/
+
+#merch {
+	margin-bottom: 8rem;
+	.flex_row {
+		align-items: center;
+		> .col1 {
+			width: 58%;
+		}
+		> .col2 {
+			width: 42%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		font-size: 2rem;
+		font-weight: 500;
+	}
+	.image {
+		margin: -10rem;
+		margin-right: 0;
+		@include ipad_sm {
+			margin: 0;
+		}
+		@include mobile_md {
+			margin: -7rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Soon
+|----------------------------------------------------------------------
+*/
+
+#soon {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 10rem 0;
+	.inner {
+		p {
+			font-size: 2.2rem;
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		.btn_blk {
+			.site_btn {
+				min-width: 22rem;
+			}
+		}
+	}
+	.main-example {
+		.time {
+			width: 12rem;
+			height: 12rem;
+			border-radius: 1.5rem;
+			box-shadow: $shadow;
+			@include mobile_md {
+				margin-bottom: 4rem;
+			}
+			&:not(:nth-last-child(1)) {
+				margin-right: 1rem;
+			}
+		}
+		.count {
+			background: linear-gradient(0deg, #08011c 0%, #231351 100%);
+			font-size: 5.2rem;
+			font-weight: 700;
+			text-shadow: 0 0 1rem rgba($black, 0.1);
+			border: 0;
+			box-shadow: none !important;
+			&.top {
+				line-height: 12rem;
+				border-bottom: 0.1rem solid rgba($black, 0.08);
+				border-radius: 1.5rem 1.5rem 0 0;
+			}
+			&.bottom {
+				border-radius: 0 0 1.5rem 1.5rem;
+			}
+		}
+		.label {
+			top: 100%;
+			font-size: 1.8rem;
+			font-weight: 500;
+			margin-top: 1rem;
+			text-transform: capitalize;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Roadmap
+|----------------------------------------------------------------------
+*/
+
+#roadmap {
+	h1 {
+		margin-bottom: 4rem;
+	}
+	.road_blk {
+		position: relative;
+		display: flex;
+		@include ipad_sm {
+			margin-left: 6rem;
+		}
+		&:nth-child(odd) {
+			flex-flow: row-reverse;
+			> .txt {
+				&:before {
+					left: -4rem;
+					margin-left: -0.3rem;
+					transform: translateX(-50%);
+				}
+			}
+		}
+		&:nth-child(even) {
+			flex-flow: row;
+			> .txt {
+				&:before {
+					right: -4rem;
+					margin-right: -0.3rem;
+					transform: translateX(50%);
+					@include ipad_sm {
+						left: -4rem;
+						margin-left: -0.3rem;
+						transform: translateX(-50%);
+					}
+				}
+			}
+		}
+		&:before {
+			content: "";
+			@include pseudo();
+			width: 0.4rem;
+			background: $color;
+			margin: auto;
+			@include ipad_sm {
+				left: -4.2rem;
+				margin: 0;
+			}
+		}
+		&:not(:nth-last-child(1)) {
+			padding-bottom: 6rem;
+		}
+		> .txt {
+			position: relative;
+			width: calc(50% - 4rem);
+			font-size: 1.8rem;
+			padding: 3rem;
+			border: 0.3rem solid $color;
+			border-radius: 2rem;
+			@include ipad_sm {
+				width: 100%;
+			}
+			&:before {
+				content: "";
+				position: absolute;
+				top: -0.3rem;
+				width: 3.6rem;
+				height: 3.6rem;
+				background: $white;
+				border: 1.4rem solid $black;
+				border-radius: 75%;
+				box-shadow: 0 0 0 0.2rem $color;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+#faq {
+	h1 {
+		margin-bottom: 4rem;
+	}
+	.faq_lst {
+		max-width: 80rem;
+		margin: auto;
+	}
+}
+
+.faq_lst {
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 4rem;
+	}
+	> .faq_blk {
+		position: relative;
+		padding: 2rem;
+		// margin-bottom: 2rem;
+		margin-bottom: 0;
+		border-radius: 0.6rem;
+		box-shadow: $shadow3;
+		@include trans();
+		&:nth-child(1) {
+			.txt {
+				display: block;
+			}
+		}
+		&:nth-last-child(1) {
+			margin-bottom: 0;
+		}
+		&.active {
+			h4 {
+				color: $color;
+				&:after {
+					transform: rotateX(180deg);
+				}
+			}
+		}
+		h4 {
+			position: relative;
+			font-weight: 500;
+			padding: 0 4rem 0 0;
+			margin: 0;
+			cursor: pointer;
+			@include trans();
+			z-index: 2;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0.6rem;
+				right: 0;
+				@include chev();
+				width: 2rem;
+				height: 2rem;
+			}
+			&:hover {
+				color: $color;
+			}
+		}
+		.txt {
+			display: none;
+			padding: 1rem 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Team
+|----------------------------------------------------------------------
+*/
+
+#team {
+	h1 {
+		margin-bottom: 4rem;
+	}
+	.flex_row {
+		width: calc(100% + 2rem);
+		justify-content: center;
+		margin: -1rem;
+		> .col {
+			width: 25%;
+			padding: 1rem;
+			@include ipad_sm {
+				width: 40%;
+			}
+			@include mobile_sm {
+				width: 100%;
+			}
+		}
+	}
+	.inner {
+		background: linear-gradient(180deg, #08011c 0%, #231351 100%);
+		padding: 3rem;
+		border-radius: 1rem;
+		overflow: hidden;
+		.ico {
+			width: 16rem;
+			min-width: 16rem;
+			height: 16rem;
+			border: 0.5rem solid $white;
+			margin: 0 auto 2.5rem;
+		}
+	}
+}

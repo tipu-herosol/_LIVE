@@ -1,0 +1,1020 @@
+/*
+|----------------------------------------------------------------------
+|       Payment
+|----------------------------------------------------------------------
+*/
+
+[data-payment] {
+	// padding: 3rem;
+	border: 0.1rem solid $bluish_gray;
+	border-radius: 0.6rem;
+	> div {
+		padding: 2rem;
+	}
+	> .lblBtn {
+		&:not(:nth-child(1)) {
+			border-top: 0.1rem solid;
+			border-color: inherit;
+		}
+		.icon {
+			width: auto;
+			max-width: 7rem;
+			height: 2.2rem;
+			margin-left: auto;
+			@include mobile_xs {
+				display: none;
+			}
+		}
+		&:nth-child(1) + .insideBlk {
+			display: block;
+		}
+	}
+	> .insideBlk {
+		padding-top: 0;
+		&:not(.active) {
+			display: none;
+		}
+	}
+	._list {
+		li {
+			display: block;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 1rem;
+			}
+			> strong {
+				font-family: $semi;
+			}
+			> div {
+				display: flex;
+			}
+			.cpyBtn {
+				width: 1.6rem;
+				min-width: 1.6rem;
+				height: 2rem;
+				background: transparent;
+				padding: 0;
+				border: 0;
+				background-image: url("../images/copy.svg");
+				@include bgImage(contain);
+				margin-top: 0.2rem;
+				margin-left: 1rem;
+			}
+			.txtBox {
+				margin-top: 1rem;
+			}
+		}
+	}
+	.fileBlk {
+		@include flex(flex-end, null, null);
+		margin: 1rem 0 2rem;
+		> .ico {
+			width: 12rem;
+			height: 6rem;
+			border-radius: 0.6rem;
+			margin-right: 1.5rem;
+			box-shadow: $shadow;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Enter Rs Blk
+|----------------------------------------------------------------------
+*/
+
+.enterRsBlk {
+	@include flex(center, space-between, null);
+	font-size: 3.2rem;
+	font-family: $bold;
+	padding: 0.6rem 2rem;
+	border: 0.1rem solid $bluish_gray;
+	border-radius: 0.6rem;
+	* {
+		line-height: 1;
+		white-space: nowrap;
+	}
+	strong {
+		font-size: 2.2rem;
+	}
+	small {
+		display: block;
+		font-size: 1rem;
+	}
+	input {
+		padding: 0;
+		margin-left: 1.5rem;
+		text-align: right;
+		border: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Checkout
+|----------------------------------------------------------------------
+*/
+
+[checkout] {
+	background: $light_white;
+	#checkout {
+		padding: 4rem 0 6rem;
+		.flexRow {
+			> .col1 {
+				width: 55%;
+			}
+			> .col2 {
+				width: 45%;
+			}
+			@include ipad_sm {
+				> .col {
+					width: 100%;
+				}
+			}
+		}
+		hr {
+			margin: 2rem 0;
+			border-top: 0.1rem solid $light_gray;
+		}
+	}
+	.projItm {
+		@include flex(null, null, null);
+		@include ipad_sm {
+			flex-flow: wrap;
+		}
+		.fig {
+			width: 25%;
+			margin-right: 2.5rem;
+			@include ipad_sm {
+				margin: 0 0 2rem;
+			}
+			.image {
+				position: relative;
+				padding-bottom: 66%;
+				border-radius: 0.6rem;
+				box-shadow: $shadow;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		.txt {
+			align-self: center;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.pkgBlk {
+		@include flex(center, null, null);
+		margin-bottom: 1rem;
+		.ico {
+			width: 4rem;
+			min-width: 4rem;
+			height: 4rem;
+			margin-right: 2.5rem;
+			border-radius: 0.6rem;
+		}
+		.txt {
+			display: flex;
+			&:before {
+				content: "";
+				display: list-item;
+				list-style-position: inside;
+				color: $color;
+				font-size: 1.6rem;
+				margin-top: -0.2rem;
+				margin-right: -0.6rem;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Congratulation
+|----------------------------------------------------------------------
+*/
+
+[congrats] {
+	background: rgba($color, 0.05);
+	#congrats {
+		padding: 14rem 0;
+		@include mobile {
+			padding: 8rem 0;
+		}
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 18rem;
+			height: 18rem;
+			@include bgImage(contain);
+			opacity: 0.05;
+		}
+		&:before {
+			top: 0;
+			left: 0;
+			background-image: url("../images/sm_logo_left.svg");
+		}
+		&:after {
+			right: 0;
+			bottom: 0;
+			background-image: url("../images/sm_logo_right.svg");
+		}
+		.contain {
+			z-index: 3;
+		}
+		.content {
+			position: relative;
+			max-width: 58rem;
+			margin: 0 auto;
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				width: 17rem;
+				height: 24rem;
+				@include bgImage(contain);
+				transition: all linear 1s;
+				transform: scale(0);
+				z-index: -2;
+				@include mobile_xs {
+					width: 14rem;
+					height: 20rem;
+				}
+			}
+			&:before {
+				top: -10rem;
+				left: -10rem;
+				background-image: url("../images/leaf_left.svg");
+				@include mobile {
+					top: -6rem;
+					left: -8rem;
+				}
+				@include mobile_xs {
+					left: 0;
+				}
+			}
+			&:after {
+				right: -10rem;
+				bottom: -10rem;
+				background-image: url("../images/leaf_right.svg");
+				@include mobile {
+					top: -6rem;
+					right: -10rem;
+				}
+				@include mobile_xs {
+					right: 0;
+				}
+			}
+			&.leafy {
+				&:before,
+				&:after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Dashboard
+|----------------------------------------------------------------------
+*/
+
+aside {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	@include flex(null, null, column);
+	width: 25rem;
+	background: $white;
+	padding: 0 2rem;
+	margin-right: (1920px / 2);
+	border-left: 0.1rem solid $light_gray;
+	border-right: 0.1rem solid $light_gray;
+	@include trans();
+	z-index: 32;
+	@include ipad_sm {
+		width: auto;
+		height: 8rem;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		padding-left: 1.5rem;
+		overflow: initial;
+		// width: 8rem;
+		// padding: 0 1.5rem;
+		// margin-right: 0;
+		// border-left: 0;
+		// &:after {
+		// content: "";
+		// @include pseudo();
+		// position: fixed;
+		// left: 100%;
+		// background: rgba($white, 0.9);
+		// backdrop-filter: blur(0.5rem);
+		// transition: inherit;
+		// z-index: -1;
+		// }
+	}
+	.logo {
+		width: 17rem;
+		@include ipad_sm {
+			// margin-left: -1.5rem;
+			// transform: translateX(-100%);
+			// @include trans();
+		}
+	}
+	.toggle {
+		@include ipad_sm {
+			// display: flex;
+			// right: 2rem;
+		}
+	}
+	> .inside {
+		@include flex(null, null, column);
+		flex: 1;
+		padding-top: 1.5rem;
+		overflow: auto;
+		@include ipad_sm {
+			@include pseudo();
+			position: fixed;
+			top: initial;
+			flex: none;
+			flex-flow: nowrap;
+			align-items: center;
+			height: 6rem;
+			background: $white;
+			padding: 0;
+			margin: 0;
+			box-shadow: $shadow;
+			overflow: auto;
+			&::-webkit-scrollbar {
+				height: 0 !important;
+			}
+		}
+		&::-webkit-scrollbar {
+			width: 0 !important;
+		}
+	}
+	ul {
+		@include ipad_sm {
+			display: flex;
+			flex: auto !important;
+		}
+		&:nth-child(1) {
+			flex: 1;
+		}
+		> li {
+			display: block;
+			@include ipad_sm {
+				display: block;
+				flex: auto;
+				margin: 0 !important;
+				border-right: 0.1rem solid $light_gray;
+			}
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 0.2rem;
+			}
+			> a {
+				position: relative;
+				display: flex !important;
+				align-items: center;
+				height: 4.2rem;
+				font-family: $medium;
+				padding: 0.4rem 1.5rem;
+				border-radius: 0.6rem;
+				@include ipad_sm {
+					width: 100%;
+					min-width: 6rem;
+					height: 6rem;
+					border-radius: 0;
+					// height: 4.8rem;
+					// padding-left: 1.6rem;
+					// padding-right: 1.6rem;
+					> em {
+						display: none;
+						// opacity: 0;
+						// visibility: hidden;
+						// text-overflow: ellipsis;
+						// white-space: nowrap;
+						// transition: inherit;
+					}
+				}
+				&:hover {
+					background: $light_white;
+				}
+				> img {
+					width: 1.6rem;
+					height: 1.6rem;
+					margin-right: 1.2rem;
+					object-fit: contain;
+					@include ipad_sm {
+						width: 1.8rem;
+						height: 1.8rem;
+						margin: auto;
+					}
+				}
+			}
+			&.active {
+				a {
+					background: $color;
+					color: $white;
+					> img {
+						filter: brightness(0) invert(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+/*@include ipad_sm {
+	html.side {
+		aside {
+			width: 25rem;
+			&:after {
+				left: 25rem;
+			}
+			> .logo {
+				margin-left: 0;
+				transform: translateX(0);
+			}
+			> .toggle {
+				right: 0.5rem;
+			}
+			ul {
+				> li {
+					a {
+						> em {
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}*/
+
+[dash] {
+	width: 100%;
+	max-width: 1920px;
+	background: $light_white;
+	padding-left: 25rem;
+	margin: 0 auto;
+	@include ipad_sm {
+		// padding-left: 8rem;
+		padding-left: 0;
+		padding-bottom: 6rem;
+	}
+	> section {
+		padding: 3.5rem;
+		@include ipad_sm {
+			padding: 2rem 1.5rem;
+		}
+		.contain-fluid {
+			padding: 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Dash
+|----------------------------------------------------------------------
+*/
+
+#dash {
+	.profBlk {
+		@include flex(null, null, null);
+		margin-bottom: 3rem;
+		@include mobile {
+			flex-flow: wrap;
+			margin-bottom: 2rem;
+		}
+		.ico {
+			width: 7rem;
+			min-width: 7rem;
+			height: 7rem;
+			margin-right: 2rem;
+			@include mobile_md {
+				margin: 0 auto 2rem;
+			}
+		}
+		.txt {
+			align-self: center;
+			@include mobile_md {
+				width: 100%;
+				text-align: center;
+			}
+		}
+		@include mobile_md {
+			h1 {
+				font-size: 2.4rem;
+				> span {
+					display: block;
+				}
+			}
+		}
+		@include mobile_xs {
+			h1 {
+				font-size: 2.2rem;
+			}
+		}
+	}
+	.cardRow {
+		margin: -1rem;
+		> .col {
+			display: flex;
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad {
+				width: 100%;
+			}
+		}
+	}
+	.bnrRow {
+		margin: 3rem -1rem;
+		> .col {
+			display: flex;
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.bnr {
+		position: relative;
+		width: 100%;
+		padding-bottom: 44%;
+		border-radius: 1rem;
+		box-shadow: $shadow;
+		overflow: hidden;
+		> img {
+			@include pseudo();
+			@include object(cover);
+		}
+	}
+	.flexRow {
+		margin: -1rem;
+		> .col {
+			display: flex;
+			width: 50%;
+			padding: 1rem;
+			@include ipad {
+				width: 100%;
+			}
+		}
+	}
+}
+
+/*_____ tileBlk _____*/
+
+.tileBlk {
+	@include block();
+	@include flex(null, null, column);
+	width: 100%;
+	padding: 2rem;
+	@include mobile_md {
+		text-align: center;
+	}
+	.top {
+		@include flex(null, space-between, null);
+		// flex: 1;
+		@include mobile_md {
+			align-items: center;
+			flex-flow: column-reverse;
+		}
+	}
+	.icon {
+		width: 5.6rem;
+		min-width: 5.6rem;
+		height: 5.6rem;
+		background: rgba($color, 0.1);
+		padding: 0.8rem;
+		margin-left: 1.5rem;
+		border-radius: 0.6rem;
+		@include mobile_md {
+			margin: 0 auto 1.5rem;
+		}
+	}
+	.price {
+		font-size: 2.8rem;
+		font-family: $bold;
+		line-height: 1;
+		margin-top: 1rem;
+	}
+	.btm {
+		@include flex(null, space-between, null);
+		font-size: 1.2rem;
+		padding-top: 1.5rem;
+		margin-top: 1.5rem;
+		border-top: 0.2rem solid $light_gray;
+		@include mobile_md {
+			flex-flow: column;
+		}
+	}
+	.switchBtn {
+		@include flex(center, null, null);
+		@include mobile_md {
+			justify-content: center;
+			margin-bottom: 1rem;
+		}
+		> span {
+			margin-left: 1rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Project - Favorite
+|----------------------------------------------------------------------
+*/
+
+#proj,
+#favorite {
+	.flexRow {
+		margin: -1rem;
+		> .col {
+			display: flex;
+			width: 50%;
+			padding: 1rem;
+			@include ipad {
+				width: 100%;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Historical
+|----------------------------------------------------------------------
+*/
+
+#historical {
+	@extend #proj;
+	.topHead {
+		.price {
+			font-size: 1.6rem;
+			@include mobile_md {
+				margin-top: 1rem;
+			}
+			> strong {
+				color: $color;
+			}
+		}
+	}
+	#price {
+		position: absolute;
+		top: 1rem;
+		right: 0;
+		@include mobile_md {
+			position: static;
+			text-align: center !important;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Project Block
+|----------------------------------------------------------------------
+*/
+
+.projBlk {
+	@include flex(null, null, null);
+	width: 100%;
+	// height: 100%;
+	background: $white;
+	border-radius: 1rem;
+	box-shadow: $shadow;
+	overflow: hidden;
+	@include mobile {
+		flex-flow: wrap;
+	}
+	.fig {
+		position: relative;
+		width: 44%;
+		overflow: hidden;
+		@include mobile {
+			width: 100%;
+		}
+		.image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			@include mobile {
+				position: relative;
+				height: auto;
+				max-height: 20rem;
+			}
+			> a {
+				@include pseudo();
+				display: block;
+				height: 100%;
+				@include mobile {
+					position: static;
+				}
+				&:before {
+					content: "";
+					@include pseudo();
+					background: linear-gradient(45deg, transparent, rgba($black, 0.2) 88%);
+					z-index: 1;
+				}
+			}
+			img {
+				@include pseudo();
+				height: 100%;
+				object-fit: cover;
+				@include mobile {
+					position: static;
+					height: auto;
+				}
+			}
+		}
+		.playBlk {
+			position: absolute;
+			top: 1.5rem;
+			right: 1.5rem;
+			background-image: url("../images/play.svg");
+			@include bgImage(3.5rem);
+			width: 3.5rem;
+			height: 3.5rem;
+			border: 0.2rem solid rgba($white, 0.2);
+			border-radius: 75%;
+			cursor: pointer;
+			z-index: 2;
+		}
+	}
+	.txt {
+		@include flex(null, null, column);
+		width: 56%;
+		padding: 2rem;
+		@include mobile {
+			width: 100%;
+		}
+		p {
+			display: -webkit-box;
+			margin-bottom: auto;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			@include mobile {
+				& + * {
+					margin-top: 1.5rem;
+				}
+			}
+		}
+		.btm {
+			// font-size: 1.3rem;
+			font-family: $medium;
+			padding-top: 1.5rem;
+			margin-top: 1.5rem;
+			border-top: 0.2rem solid #eee;
+			.inr {
+				@include flex(null, space-between, null);
+				> span {
+					font-size: 1.2rem;
+					@include mobile_xs {
+						font-size: 1.1rem;
+					}
+				}
+			}
+		}
+		.price {
+			strong {
+				color: $color;
+				font-family: $semi;
+			}
+		}
+	}
+	.prog {
+		margin: 0.7rem 0;
+	}
+	&.clm {
+		flex-flow: column;
+		.fig {
+			width: 100%;
+			.image {
+				position: relative;
+				height: auto;
+				padding-bottom: 60%;
+				@include mobile {
+					padding-bottom: 0;
+				}
+			}
+		}
+		.txt {
+			width: 100%;
+			padding: 2.5rem;
+		}
+	}
+}
+
+.prog {
+	height: 0.6rem;
+	background: $light_gray;
+	border-radius: 5rem;
+	> div {
+		position: relative;
+		@include flex(center, null, null);
+		height: 100%;
+		background: $color;
+		border-radius: inherit;
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			width: 1rem;
+			height: 1rem;
+			background: $color;
+			border-radius: 75%;
+			transform: translateX(100%);
+			box-shadow: 0 0 0 0.3rem rgba($color, 0.6);
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Profile
+|----------------------------------------------------------------------
+*/
+
+#profile {
+	.topBlk {
+		@include flex(flex-end, null, null);
+		margin-bottom: 3rem;
+		@include ipad_sm {
+			flex-flow: wrap;
+		}
+		.ico {
+			width: 15rem;
+			min-width: 15rem;
+			height: 15rem;
+			margin-right: 2rem;
+			@include ipad_sm {
+				margin: 0 0 2rem;
+			}
+			@include mobile_md {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		.txt {
+			@include mobile_md {
+				text-align: center;
+				.bTn {
+					justify-content: center;
+				}
+			}
+		}
+		.verify {
+			@include flex(center, null, null);
+			white-space: nowrap;
+			> img {
+				width: 2rem;
+				min-width: 2rem;
+				height: 2rem;
+				margin-right: 0.5rem;
+			}
+			&:not(.checked) {
+				> img {
+					filter: brightness(0) invert(0.75);
+				}
+			}
+		}
+	}
+	.switchBtn {
+		@include flex(null, space-between, null);
+		padding: 1rem 1.5rem;
+		border: 0.2rem dashed $light_gray;
+		border-radius: 0.6rem;
+		@include mobile_md {
+			padding: 0;
+			border: 0;
+			border-radius: 0;
+			.switch {
+				margin-top: 0.5rem;
+			}
+		}
+		> span {
+			align-self: center;
+			margin-right: 2rem;
+		}
+		> .switch {
+			margin-top: 0.3rem;
+		}
+	}
+	.fileBlk {
+		text-align: center;
+		.ico {
+			padding-bottom: 44%;
+			margin-bottom: 2rem;
+			border-radius: 0.6rem;
+			box-shadow: $shadow;
+			> img {
+				@include pseudo();
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Wallet
+|----------------------------------------------------------------------
+*/
+
+#wallet {
+	.cardRow,
+	.infoRow {
+		margin: -1rem;
+		> .col {
+			width: 33.3334%;
+			padding: 1rem;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.payBlk {
+		@include flex(null, null, column);
+		@include block();
+		gap: 2rem 0;
+		.head {
+			margin-bottom: 1rem;
+		}
+		.icon {
+			width: auto;
+			max-width: 10rem;
+			height: 2.6rem;
+			> img {
+				object-position: top left;
+			}
+		}
+		.cvc {
+			font-family: $medium;
+		}
+		.date {
+			color: $bluish_gray;
+		}
+		.btm {
+			padding: 1.5rem 2.5rem;
+			margin: -2.5rem;
+			margin-top: 0;
+			border-top: 0.2rem solid $light_gray;
+			.actionBtn {
+				text-align: center;
+				justify-content: space-evenly;
+				margin-top: 0;
+			}
+		}
+	}
+	@include mobile_md {
+		.bTn {
+			justify-content: center;
+		}
+	}
+}
+
+/*_____ actionBtn _____*/
+
+.actionBtn {
+	@include flex(center, null, wrap);
+	gap: 0.5rem 2rem;
+	margin-top: 1rem;
+	> li {
+		> a {
+			@include flex(center, null, null);
+			display: flex !important;
+			gap: 0 1rem;
+			font-size: 1.2rem;
+			font-family: $medium;
+			> img {
+				width: 1.4rem;
+				min-width: 1.4rem;
+				height: 1.4rem;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	aside {
+		left: initial !important;
+		right: 50%;
+		transform: translateX(100%);
+	}
+}

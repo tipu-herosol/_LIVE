@@ -1,0 +1,240 @@
+/*
+|----------------------------------------------------------------------
+|       Payment
+|----------------------------------------------------------------------
+*/
+
+[data-payment] {
+	// padding: 3rem;
+	border: 2px solid $bluish_gray;
+	border-radius: 6px;
+	> div {
+		padding: 3rem;
+	}
+	> .lblBtn {
+		&:not(:nth-child(1)) {
+			border-top: 2px solid;
+			border-color: inherit;
+		}
+		.icon {
+			width: auto;
+			max-width: 10rem;
+			height: 2.8rem;
+			margin-left: auto;
+		}
+		&:nth-child(1) + .insideBlk {
+			display: block;
+		}
+	}
+	> .insideBlk {
+		padding-top: 0;
+		&:not(.active) {
+			display: none;
+		}
+	}
+	._list {
+		li {
+			display: block;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 2rem;
+			}
+			> strong {
+				font-family: $semi;
+			}
+			> div {
+				display: flex;
+			}
+			.cpyBtn {
+				width: 2.2rem;
+				min-width: 2.2rem;
+				height: 2.6rem;
+				background: transparent;
+				padding: 0;
+				border: 0;
+				background-image: url("../images/copy.svg");
+				@include bgImage(contain);
+				margin-top: 0.2rem;
+				margin-left: 1rem;
+			}
+			.txtBox {
+				margin-top: 1rem;
+			}
+		}
+	}
+	.fileBlk {
+		@include flex(flex-end, null, null);
+		margin: 1rem 0 2rem;
+		> .ico {
+			width: 120px;
+			height: 60px;
+			border-radius: 6px;
+			margin-right: 3rem;
+			box-shadow: $shadow;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Enter Rs Blk
+|----------------------------------------------------------------------
+*/
+
+.enterRsBlk {
+	@include flex(center, space-between, null);
+	font-size: 4.6rem;
+	font-family: $bold;
+	padding: 1.5rem 3rem;
+	border: 2px solid $bluish_gray;
+	border-radius: 6px;
+	* {
+		line-height: 1;
+		white-space: nowrap;
+	}
+	strong {
+		font-size: 3.4rem;
+	}
+	small {
+		display: block;
+		font-size: 1.4rem;
+	}
+	input {
+		padding: 0;
+		margin-left: 2rem;
+		text-align: right;
+		border: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Checkout
+|----------------------------------------------------------------------
+*/
+
+[checkout] {
+	background: $light_white;
+	#checkout {
+		padding: 4rem 0 8rem;
+		.flexRow {
+			> .col1 {
+				width: 55%;
+			}
+			> .col2 {
+				width: 45%;
+			}
+		}
+		hr {
+			margin: 3rem 0;
+			border-top: 2px solid $light_gray;
+		}
+	}
+	.projItm {
+		@include flex(null, null, null);
+		.fig {
+			width: 25%;
+			margin-right: 2.5rem;
+			.image {
+				position: relative;
+				padding-bottom: 66%;
+				border-radius: 6px;
+				box-shadow: $shadow;
+				overflow: hidden;
+				> img {
+					@include pseudo();
+					@include object(cover);
+				}
+			}
+		}
+		.txt {
+			align-items: center;
+		}
+	}
+	.pkgBlk {
+		@include flex(center, null, null);
+		margin-bottom: 1rem;
+		.ico {
+			width: 4rem;
+			min-width: 4rem;
+			height: 4rem;
+			margin-right: 2.5rem;
+			border-radius: 6px;
+		}
+		.txt {
+			display: flex;
+			&:before {
+				content: "";
+				display: list-item;
+				list-style-position: inside;
+				color: $color;
+				font-size: 16px;
+				margin-top: -2px;
+				margin-right: -6px;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Congratulation
+|----------------------------------------------------------------------
+*/
+
+[congrats] {
+	background: rgba($color, 0.05);
+	#congrats {
+		padding: 20rem 0;
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 25rem;
+			height: 25rem;
+			@include bgImage(contain);
+			opacity: 0.05;
+		}
+		&:before {
+			top: -1rem;
+			left: -1rem;
+			background-image: url("../images/sm_logo_left.svg");
+		}
+		&:after {
+			right: -1rem;
+			bottom: -1rem;
+			background-image: url("../images/sm_logo_right.svg");
+		}
+		.content {
+			position: relative;
+			max-width: 74rem;
+			margin: 0 auto;
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				width: 24rem;
+				height: 34rem;
+				@include bgImage(contain);
+				transition: all linear 1s;
+				transform: scale(0);
+				z-index: -2;
+			}
+			&:before {
+				top: -15rem;
+				left: -20rem;
+				background-image: url("../images/leaf_left.svg");
+			}
+			&:after {
+				right: -15rem;
+				bottom: -15rem;
+				background-image: url("../images/leaf_right.svg");
+			}
+			&.leafy {
+				&:before,
+				&:after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

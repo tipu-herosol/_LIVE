@@ -1,0 +1,928 @@
+/*
+|----------------------------------------------------------------------
+|       Media Queries
+|----------------------------------------------------------------------
+*/
+
+@media screen and (min-width: 1800px) {
+	body > main:before {
+		width: 1280px;
+	}
+	[common]:before {
+		width: 1200px;
+	}
+	#banner .image,
+	#sBanner .image {
+		max-width: 1000px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	body > main:before {
+		width: 1080px;
+	}
+	aside ~ section > .contain-fluid {
+		border-radius: 10px;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	/*_____ Home _____*/
+	body > main:before {
+		width: 700px;
+	}
+	#banner .image {
+		max-width: 700px;
+	}
+	#query .flexRow > .col {
+		width: 100%;
+	}
+	#query .conect {
+		justify-content: initial;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	header.log {
+		position: fixed;
+		background: #016ecf;
+	}
+	header.log .contain-fluid {
+		padding: 0 15px;
+	}
+	aside {
+		width: 75px;
+		min-width: 75px;
+		padding-left: 15px;
+	}
+	aside ul > li > a > em {
+		display: none;
+	}
+	#credits .flexRow > .col {
+		width: 100%;
+	}
+	#orders .flexRow > .col {
+		width: 100%;
+	}
+	#quotes .flexRow > .col {
+		width: 33.3334%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	/*_____ Navigation _____*/
+	.toggle {
+		display: flex;
+	}
+	.toggle.active {
+		position: fixed;
+	}
+	.toggle.active span:before,
+	.toggle.active span:after {
+		background: #016ecf;
+	}
+	nav {
+		justify-content: flex-end;
+		margin-left: 0;
+		margin-right: 35px;
+	}
+	[nav] {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: none;
+		flex-flow: column;
+		width: auto;
+		background: #fff;
+		margin: 0;
+		padding: 40px 50px 20px;
+		border-top: 1px solid #eee;
+		opacity: 0;
+		visibility: hidden;
+		overflow: auto;
+		z-index: 3;
+	}
+	[nav].active {
+		display: flex;
+		opacity: 1;
+		visibility: visible;
+	}
+	[nav] > ul {
+		width: 100%;
+		flex-flow: wrap;
+		margin: 0;
+	}
+	[nav] > ul > li {
+		width: 100%;
+		padding: 0;
+		text-align: center;
+	}
+	[nav] > ul > li > a:not(.webBtn) {
+		color: #212426;
+	}
+	[nav] > ul > li .webBtn {
+		margin-top: 5px;
+	}
+	[nav] > #cta {
+		margin: auto 0 0;
+	}
+	/*_____ Home _____*/
+	body > main:before {
+		left: 200px;
+		width: auto;
+	}
+	#banner {
+		flex-flow: column-reverse;
+	}
+	#banner .image {
+		position: static;
+		height: 620px;
+		margin-top: 100px;
+	}
+	#banner .image > img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: bottom;
+	}
+	#banner .content {
+		max-width: none;
+		padding: 80px 0 0;
+	}
+	#query .flexRow > .col {
+		width: 100%;
+	}
+	#query .conect {
+		justify-content: initial;
+	}
+	#deals .flexRow > .col {
+		width: 50%;
+	}
+	#works .flexRow {
+		flex-flow: column-reverse;
+	}
+	#works .flexRow > .col {
+		width: 100%;
+	}
+	#works .itmRow > .col {
+		width: 50%;
+	}
+	#choose .flexRow > .col {
+		width: 100%;
+	}
+	footer {
+		text-align: center;
+	}
+	footer .topBlk,
+	footer .mdBlk {
+		flex-flow: column;
+	}
+	footer .logo {
+		margin-bottom: 20px;
+	}
+	footer .lst {
+		flex-flow: wrap;
+		justify-content: center;
+		padding-bottom: 20px;
+	}
+	footer .partner > ul {
+		flex-flow: wrap;
+		justify-content: center;
+	}
+	footer .partner > ul > li {
+		max-width: 120px;
+	}
+	footer .copyright {
+		flex-flow: column;
+	}
+	/*_____ Common _____*/
+	#sBanner {
+		display: flex;
+		flex-flow: column-reverse;
+		padding-top: 0;
+	}
+	#sBanner .contain {
+		width: 100%;
+	}
+	#sBanner .image {
+		position: static;
+	}
+	#sBanner .content {
+		max-width: none;
+		padding: 60px 0 0;
+	}
+	#logon .flexRow > .col {
+		width: 100%;
+	}
+	#logon .image {
+		margin-bottom: 0;
+	}
+	#logon .image2 {
+		margin-left: 0;
+	}
+	.logBlk {
+		max-width: none;
+	}
+	#faq .flexRow > .col {
+		width: 100%;
+	}
+	.srchBlk .inside {
+		flex-flow: wrap;
+	}
+	.srchBlk .txt {
+		border-right: 0;
+	}
+	.srchBlk .side {
+		flex: 1;
+		width: auto;
+		min-width: 100%;
+		max-width: none;
+		border-top: 2px dashed #eee;
+	}
+	/* #booking .smryLst {
+		display: none;
+	} */
+	#booking .smryLst .blk {
+		padding: 15px;
+	}
+	#booking .smryLst .icon {
+		width: 50px;
+		min-width: 50px;
+		height: 50px;
+		margin-bottom: 0;
+	}
+	#booking .smryLst .txt {
+		display: none;
+	}
+	.svcLst {
+		flex-wrap: nowrap;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	.svcLst > li > a {
+		min-width: 140px;
+		padding: 15px 10px;
+		min-width: 120px;
+	}
+	.svcLst > li > a > img {
+		width: 56px;
+		min-width: 56px;
+		height: 56px;
+	}
+	/* .svcLst {
+		justify-content: center;
+	}
+	.svcLst > li {
+		flex: none;
+		width: 33.333%;
+	} */
+	.jobBlk .itemRow {
+		margin: 0;
+	}
+	.jobBlk .itemRow > .col {
+		width: 100%;
+		padding: 0;
+	}
+	.jobBlk table tbody,
+	.jobBlk table tfoot {
+		display: block;
+	}
+	.jobBlk table tr {
+		display: flex;
+		flex-flow: column;
+	}
+	.jobBlk table tr > * {
+		width: 100%;
+		padding: 0 !important;
+	}
+	.jobBlk table.sm {
+		display: block;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #eee;
+	}
+	.jobBlk table.sm.pb {
+		margin-bottom: 10px;
+	}
+	.jobBlk table + hr {
+		display: none;
+	}
+	.jobBlk table.data_list > thead {
+		display: none;
+	}
+	.jobBlk table.data_list > tfoot {
+		padding-top: 10px;
+		margin-top: 10px;
+		border-top: 1px solid #eee;
+	}
+	.jobBlk table.data_list tr:not(:nth-last-child(1)) {
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #eee;
+	}
+	.jobBlk table.data_list > tbody > tr > td:before {
+		display: inline;
+	}
+	.jobBlk table.sm.pb tfoot tr > *:nth-child(1) {
+		text-align: left;
+	}
+	#account form,
+	#account #vendorProfileSettings {
+		display: block;
+	}
+	#account form > .upLoadDp {
+		margin: 0 auto 20px;
+	}
+	#account .info em {
+		display: none;
+	}
+	#calendar .tblBlock {
+		overflow: auto;
+	}
+	#calendar .tblBlock > table {
+		min-width: 800px;
+		min-width: 300px;
+	}
+	#pricing .tabLst {
+		padding-bottom: 10px;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	#pricing .tabLst > li {
+		min-width: 120px;
+	}
+	/* #pricing table tr {
+		display: flex;
+		flex-flow: column;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #eee;
+	} */
+	#pricing table tr > * {
+		width: 100% !important;
+		padding: 0 0 10px;
+	}
+	#pricing table tr .txtBox {
+		margin: auto;
+	}
+	.orderBlk > .inside {
+		display: block;
+	}
+	.orderBlk > .inside > .rSide {
+		max-width: none;
+		padding: 20px 0 0;
+		margin: 20px 0 0;
+		border: 0;
+		border-top: 2px dashed #eee;
+	}
+	#trans .blans {
+		flex-flow: column;
+	}
+	#trans .blans > li:not(:nth-last-child(1)) {
+		margin: 0 0 10px;
+	}
+	#quotes .flexRow > .col {
+		width: 50%;
+	}
+	#credits .itmRow > .col {
+		width: 100%;
+	}
+	#calendar .flexRow > .col {
+		width: 100%;
+	}
+	#offer .smryMainBlk,
+	#booking .smryMainBlk {
+		flex-flow: wrap;
+	}
+	#offer .smryMainBlk > .smryBlk,
+	#booking .smryMainBlk > .smryBlk {
+		max-width: none;
+		margin: 20px 0 0;
+	}
+	.jobBlk table.sm.pb tr > *:nth-child(3),
+	.jobBlk table.sm.pb tr > *:nth-child(4),
+	.jobBlk table.sm.pb.amended tr > *:nth-child(3) {
+		text-align: left;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	/*_____ All Site _____*/
+	h1 {
+		font-size: 36px;
+	}
+	h2 {
+		font-size: 28px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	/*_____ Home _____*/
+	#banner .content > h1 {
+		font-size: 44px;
+	}
+	#deals .flexRow > .col {
+		width: 100%;
+	}
+	#works .itmRow > .col {
+		width: 100%;
+	}
+	#works .inner {
+		max-width: none;
+	}
+	/*_____ Common _____*/
+	.srchBlk .btm {
+		flex-flow: column;
+		align-items: center;
+	}
+	.srchBlk .btm > small {
+		margin: 0 0 10px;
+	}
+	.serveBlk > .icon {
+		display: none;
+	}
+	/*_____ Dashboard _____*/
+	aside ~ section > .contain-fluid {
+		padding: 15px;
+	}
+	[dash] .topBlk {
+		position: relative;
+		flex-flow: column;
+		text-align: center;
+	}
+	[dash] .topBlk .ico {
+		margin-top: 10px;
+	}
+	[dash] .topBlk .txt {
+		margin: 15px 0 0;
+	}
+	[dash] .topBlk .bTn {
+		margin-top: 10px;
+	}
+	[dash] .topBlk .toggleBlk {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+	}
+	.stepLst > li {
+		width: 100%;
+	}
+	#place .payBlk {
+		display: block;
+	}
+	#place .payBlk > .image {
+		margin: 0 0 20px;
+	}
+	#place .icoLst > li {
+		width: 100%;
+	}
+	.blockLst table > thead {
+		display: none;
+	}
+	.blockLst table > tbody {
+		display: block;
+	}
+	.blockLst table tr {
+		display: flex;
+		flex-flow: column;
+		padding: 15px 0;
+	}
+	.blockLst table tr:not(:nth-last-child(1)) {
+		border-bottom: 1px solid #eee;
+	}
+	.blockLst table tr > * {
+		padding: 5px 20px;
+		margin: 0 auto;
+		text-align: center;
+		border: 0;
+	}
+	.blockLst table tr .dropCnt {
+		transform: translateX(50%);
+	}
+}
+
+@media screen and (max-width: 580px) {
+	/*_____ col-xx-? _____*/
+	.col-xx-12 {
+		width: 100%;
+	}
+	.col-xx-11 {
+		width: 91.6667%;
+	}
+	.col-xx-10 {
+		width: 83.3334%;
+	}
+	.col-xx-9 {
+		width: 75%;
+	}
+	.col-xx-8 {
+		width: 66.6667%;
+	}
+	.col-xx-7 {
+		width: 58.3334%;
+	}
+	.col-xx-6 {
+		width: 50%;
+	}
+	.col-xx-5 {
+		width: 41.6667%;
+	}
+	.col-xx-4 {
+		width: 33.3334%;
+	}
+	.col-xx-3 {
+		width: 25%;
+	}
+	.col-xx-2 {
+		width: 16.6667%;
+	}
+	.col-xx-1 {
+		width: 8.3334%;
+	}
+	/*_____ Home _____*/
+	body > main:before {
+		min-height: initial;
+		background-position: left center;
+		padding-bottom: 100%;
+	}
+	#banner {
+		min-height: 420px;
+	}
+	#banner .image {
+		height: auto;
+	}
+	/*_____ Common _____*/
+	.jobBlk .doneBlk {
+		display: block;
+	}
+	.jobBlk .doneBlk > .image {
+		width: 100%;
+		margin: 0 0 20px;
+	}
+	.promoBlk > .inside {
+		flex-flow: column;
+		text-align: center;
+	}
+	.promoBlk .icon {
+		margin: 0 auto;
+	}
+	.promoBlk .txt {
+		margin: 20px 0;
+	}
+	.promoBlk .txt h3 {
+		margin: 0 auto 10px;
+	}
+	#credits #pie {
+		height: 300px;
+		margin: -80px 0 0;
+	}
+	#credits .chart h3 {
+		top: initial;
+		bottom: 10%;
+	}
+	.srchBlk .icoBlk {
+		margin: 0 auto;
+	}
+	.srchBlk table {
+		display: block;
+		overflow: hidden;
+		overflow-x: auto;
+	}
+	#booking .smryLst {
+		margin: -2px;
+		margin-bottom: 20px;
+	}
+	#booking .smryLst > li {
+		padding: 2px;
+	}
+	#booking .smryLst .blk {
+		padding: 10px 5px;
+	}
+	#booking .smryLst .icon {
+		width: 34px;
+		min-width: 34px;
+		height: 34px;
+	}
+	.jobBlk .doneBlk .webBtn {
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	/*_____ col-xx-? _____*/
+	.col-xx-12,
+	.col-xx-11,
+	.col-xx-10,
+	.col-xx-9,
+	.col-xx-8,
+	.col-xx-7,
+	.col-xx-6,
+	.col-xx-5,
+	.col-xx-4,
+	.col-xx-3,
+	.col-xx-2,
+	.col-xx-1 {
+		width: 100% !important;
+	}
+	/*_____ Home _____*/
+	#query .flexBox {
+		flex-flow: column;
+	}
+	#query form .txtGrp {
+		margin: 0 0 10px;
+	}
+	#query form .txtBox,
+	#query form .webBtn {
+		border-radius: 6px;
+	}
+	#query form .bTn,
+	#query form .webBtn {
+		width: 100%;
+	}
+	#query .conect > li > a {
+		margin-right: 0;
+	}
+	#query .conect > li > em {
+		display: none;
+	}
+	#query .lst > li {
+		flex-flow: wrap;
+	}
+	#query .lst > li > a {
+		width: 100%;
+		margin-left: 23px;
+	}
+	#folio .content {
+		padding: 30px;
+	}
+	/*_____ Common _____*/
+	[common]:before {
+		width: auto;
+		min-height: initial;
+		background-position: left;
+	}
+	#sBanner {
+		min-height: initial;
+	}
+	#sBanner .content > p {
+		font-size: 16px;
+	}
+	.logBlk .webBtn {
+		width: 100%;
+	}
+	.srchBlk .txt {
+		width: auto;
+		min-width: 100%;
+		border: 0;
+		border-top: 2px dashed #eee;
+	}
+	.selectLst > li {
+		width: 100%;
+	}
+	.serveBlk table tr {
+		display: flex;
+		align-items: center;
+		flex-flow: column;
+		text-align: center;
+	}
+	.serveBlk table tr:nth-child(1) {
+		display: none;
+	}
+	.serveBlk table tr:not(:nth-last-child(1)) {
+		margin-bottom: 10px;
+		border-bottom: 2px dashed #eee;
+	}
+	.serveBlk table tr > * {
+		padding: 0 0 15px;
+	}
+	.keyLst > li {
+		display: block;
+	}
+	.keyLst > li > div:nth-child(1) {
+		width: initial;
+		min-width: initial;
+		margin-right: 0;
+	}
+	#credits .todayBlk .keyLst > li > div:nth-child(2) {
+		text-align: left;
+	}
+	#credits .latestBlk .lst > li {
+		display: flex;
+		flex-flow: column;
+	}
+	#credits .latestBlk .lst > li > em {
+		text-align: left;
+	}
+	#credits .latestBlk .icoBlk {
+		flex-flow: column;
+		text-align: center;
+	}
+	#credits .latestBlk .icoBlk > .ico {
+		margin: 0 auto 10px;
+	}
+	#credits .latestBlk .icoBlk > .txt {
+		margin: 0 0 5px;
+	}
+	.orderBlk .itmLst > li {
+		width: 50%;
+	}
+	.orderBlk .btm {
+		flex-flow: wrap;
+	}
+	.orderBlk .btm > .status {
+		margin: 0 0 5px;
+	}
+	.orderBlk .btm > span {
+		margin: 0;
+	}
+	#place .markerBlk {
+		flex-flow: column;
+		text-align: center;
+	}
+	#place .markerBlk > .txt {
+		margin: 15px 0;
+	}
+	#place .markerBlk > .bTn {
+		margin: 0;
+	}
+	#place .payBlk > .image {
+		max-width: none;
+	}
+	#place .blk ~ .lblBtn {
+		text-align: left;
+	}
+	#place .pdBlk {
+		display: block;
+	}
+	#place .pdBlk .icon {
+		margin: 0 0 10px;
+	}
+	#place .numLst {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	#place .icoLst .icon {
+		width: 40px;
+		min-width: 40px;
+		height: 40px;
+	}
+	#place .icoLst .inner {
+		max-width: none;
+	}
+	#quotes .flexRow > .col {
+		width: 100%;
+	}
+	#credits .chart h3 {
+		bottom: 0;
+		margin: 0;
+	}
+	/* .svcLst {
+		margin: -2px;
+		margin-bottom: 20px;
+	}
+	.svcLst > li {
+		width: 100%;
+		padding: 2px;
+	}
+	.svcLst > li > a {
+		flex-flow: row;
+		justify-content: center;
+		padding: 10px 15px;
+	}
+	.svcLst > li > a > img {
+		width: 50px;
+		min-width: 50px;
+		height: 50px;
+		margin: 0;
+		margin-right: 15px;
+	}
+	.svcLst > li > a > em {
+		align-self: center;
+	} */
+	.radioBtn .inner {
+		display: flex;
+		padding: 10px 15px;
+	}
+	.radioBtn .inner .icon {
+		width: 46px;
+		min-width: 46px;
+		height: 46px;
+		margin: 0;
+		margin-right: 15px;
+	}
+	.radioBtn .inner .txt {
+		align-self: center;
+	}
+	.blk .blk {
+		background: transparent;
+		padding: 0;
+		border: 0;
+	}
+	.review .icoTxt {
+		flex-flow: column;
+	}
+	.review .icoTxt .title {
+		margin: 0 0 5px;
+	}
+	.review .icoTxt h5 {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	/*_____ All Site _____*/
+	h1 {
+		font-size: 32px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+	/*_____ Home _____*/
+	#banner .content > h1 {
+		font-size: 40px;
+	}
+	#banner .content > p {
+		font-size: 16px;
+	}
+	#query .conect {
+		padding: -3px -5px;
+	}
+	#query .conect > li {
+		padding: 3px 5px;
+	}
+	#choose .inner > .icon {
+		width: 60px;
+		min-width: 60px;
+		height: 60px;
+		margin-right: 20px;
+	}
+	/*_____ Common _____*/
+	[logon] .flexRow {
+		flex-flow: column-reverse;
+	}
+	[logon] .content {
+		display: none;
+	}
+	#logon .content {
+		margin: 0;
+	}
+	#logon .content > p {
+		font-size: 16px;
+	}
+	#logon .image {
+		margin-left: -60px;
+	}
+	.logBlk > form {
+		padding: 25px;
+	}
+	.logBlk > form .bTn {
+		justify-content: center;
+	}
+	/*_____ Dashboard _____*/
+	aside {
+		width: 60px;
+		min-width: 60px;
+		padding-left: 5px;
+	}
+	.otpBlk .btm .webBtn em {
+		display: none;
+	}
+	.orderBlk ._header {
+		align-items: center;
+		flex-flow: column;
+		text-align: center;
+	}
+	.orderBlk ._header h3 {
+		margin: 0 0 15px;
+	}
+	.orderBlk ._header .cmpnyLogo > img {
+		object-position: center;
+	}
+	#credits #pie {
+		margin: -180px 0 0;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	/*_____ Home _____*/
+	#query .conect > li:nth-child(1) {
+		width: 100%;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Media Queries Height
+|----------------------------------------------------------------------
+*/
+
+@media screen and (max-height: 420px) {
+}
+
+@media screen and (min-height: 768px) {
+}
+
+@media screen and (min-height: 1040px) {
+}

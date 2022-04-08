@@ -1,0 +1,107 @@
+@mixin font-face($name, $path, $ext) {
+	$src: null;
+	@font-face {
+		font-family: quote($name);
+		src: append($src, url(quote($path + "." + $ext)));
+	}
+}
+
+@include font-face("Poppins Light", "../fonts/Poppins-Light", ttf);
+@include font-face("Poppins Italic", "../fonts/Poppins-Italic", ttf);
+@include font-face("Poppins Regular", "../fonts/Poppins-Regular", ttf);
+@include font-face("Poppins Medium", "../fonts/Poppins-Medium", ttf);
+@include font-face("Poppins SemiBold", "../fonts/Poppins-SemiBold", ttf);
+@include font-face("Poppins Bold", "../fonts/Poppins-Bold", ttf);
+
+@mixin flex($align, $justify, $flow) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	flex-flow: $flow;
+	// flex-direction: $direction;
+}
+
+@mixin fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+@mixin pseudo() {
+	// content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+@mixin overlay($opacity) {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+	opacity: $opacity;
+	z-index: 1;
+}
+
+@mixin bgImage($size) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: $size;
+}
+
+@mixin nowrap {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin block {
+	background: $white;
+	padding: 4rem;
+	border-radius: 10px;
+	box-shadow: $shadow;
+}
+
+@mixin object($fit) {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: $fit;
+	object-position: center;
+}
+
+@mixin chevron {
+	background-image: $chevron;
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 1.6rem;
+}
+
+@mixin trans {
+	transition: all ease 0.5s;
+}
+
+@mixin mask_image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	mask-size: contain;
+	mask-position: center;
+	mask-repeat: no-repeat;
+	background: currentColor;
+	// color: $color;
+	color: inherit;
+	transition: inherit;
+}
+
+@mixin chev {
+	mask-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="300px" height="300px" fill="%23040707" viewBox="-155 247 300 300" style="enable-background:new -155 247 300 300;"><polygon points="78.6356201,306.8178101 -5.0166931,390.4367371 -88.6356277,306.8178101 -137, 355.1821899 -5.0166931,487.1821899 127,355.1821899 "/></svg>');
+	@include mask_image();
+}
